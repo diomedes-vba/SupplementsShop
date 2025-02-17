@@ -59,4 +59,10 @@ public class CategoriesController : Controller
 
         return View(category);
     }
+
+    public IActionResult List()
+    {
+        var categories = CategoriesRepository.GetCategories();
+        return View(categories);
+    }
 }

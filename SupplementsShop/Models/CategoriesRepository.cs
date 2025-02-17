@@ -4,9 +4,9 @@ public class CategoriesRepository
 {
     private static List<Category> _categories = new List<Category>()
     {
-        new Category {Id = 1, Name = "Beverage", Description = "Beverages"}, 
-        new Category {Id = 2, Name = "Bakery", Description = "Pastries"},
-        new Category {Id = 3, Name = "Meat", Description = "Meats"}
+        new Category {Id = 1, Name = "Vitamins", Description = "Vitamins"}, 
+        new Category {Id = 2, Name = "Minerals", Description = "Minerals"},
+        new Category {Id = 3, Name = "Herbs", Description = "Herbs"}
     };
 
     public static void AddCategory(Category category)
