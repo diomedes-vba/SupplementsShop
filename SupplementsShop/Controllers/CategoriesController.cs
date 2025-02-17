@@ -23,7 +23,7 @@ public class CategoriesController : Controller
     {
         if (ModelState.IsValid)
         {
-            CategoriesRepository.UpdateCategory(category.Id, category);
+            CategoriesRepository.UpdateCategory(category.CategoryId, category);
             return RedirectToAction("Index");
         }
 

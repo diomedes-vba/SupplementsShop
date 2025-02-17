@@ -6,5 +6,6 @@ public class Company
     public string CompanyName { get; set; }
     public string CompanyDescription { get; set; }
     public string CompanyAddress { get; set; }
-    public List<Product> Products { get; set; }
+    public List<Product> CompanyProducts { get; set; }
+    public string CompanySlug => $"{string.Join("-", CompanyName.ToLower().Split(' '))}";
 }

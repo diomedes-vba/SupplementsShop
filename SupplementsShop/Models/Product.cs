@@ -11,5 +11,7 @@ public class Product
     public Company Company { get; set; }
     public List<Category> Categories { get; set; }
     
-    public bool IsAvailable => ProductQuantity > 0;
+    public bool ProductIsAvailable => ProductQuantity > 0;
+    public string ProductSlug => $"{string.Join("-", ProductName.ToLower().Split(' '))}";
+    public int ProductSales { get; set; } = 0;
 }
