@@ -1,3 +1,19 @@
 @model Category
 
 <h2>title</h2>
+<div class="container">
+    <div class="row">
+        @foreach (var product in Model.CategoryProducts)
+        {
+            <div class="col-md-4 mb-3">
+                <div class="card h-100">
+                    <img src="./images/now-foods.jpg" class="card-img-top" alt="@product.ProductName" />
+                    <div class="card-body">
+                        <h5 class="card-title">@product.ProductName</h5>
+                        <a href="@Url.Action("Details", "Product", new { slug = product.ProductSlug })" class="btn btn-primary">View Product</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
