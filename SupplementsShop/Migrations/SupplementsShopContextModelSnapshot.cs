@@ -33,7 +33,7 @@ namespace SupplementsShop.Migrations
 
                     b.HasIndex("CategoryProductsProductId");
 
-                    b.ToTable("CategoryProduct");
+                    b.ToTable("CategoryProduct", (string)null);
                 });
 
             modelBuilder.Entity("SupplementsShop.Models.Category", b =>
@@ -59,7 +59,7 @@ namespace SupplementsShop.Migrations
 
                     b.HasIndex("ParentCategoryId");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
                 });
 
             modelBuilder.Entity("SupplementsShop.Models.Company", b =>
@@ -84,7 +84,7 @@ namespace SupplementsShop.Migrations
 
                     b.HasKey("CompanyId");
 
-                    b.ToTable("Companies");
+                    b.ToTable("Companies", (string)null);
                 });
 
             modelBuilder.Entity("SupplementsShop.Models.Product", b =>
@@ -119,7 +119,7 @@ namespace SupplementsShop.Migrations
 
                     b.HasIndex("CompanyId");
 
-                    b.ToTable("Products");
+                    b.ToTable("Products", (string)null);
                 });
 
             modelBuilder.Entity("CategoryProduct", b =>

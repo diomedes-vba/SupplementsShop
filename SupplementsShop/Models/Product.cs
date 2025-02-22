@@ -14,4 +14,5 @@ public class Product
     public bool ProductIsAvailable => ProductQuantity > 0;
     public string ProductSlug { get; set; }
     public int ProductSales { get; set; } = 0;
+    public string ProductImageUrl { get; set; }
 }
