@@ -6,11 +6,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<SupplementsShopContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionString")));
+builder.Services.AddSession();
 
 var app = builder.Build();
 
 app.UseStaticFiles();
-
+app.UseSession();
 app.UseRouting();
 
 // Route for single product
