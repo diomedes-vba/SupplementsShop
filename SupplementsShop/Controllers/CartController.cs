@@ -42,7 +42,7 @@ public class CartController : Controller
             var cart = GetCart();
             cart.AddItem(product, quantity);
             HttpContext.Session.SetObject(CartSessionKey, cart);
-            return Json(new { success = true, message = "Product added to cart" });
+            return Json(new { success = true, message = $"Added {quantity} product to cart" });
         }
 
         return Json(new { success = false, message = "Product not found" });

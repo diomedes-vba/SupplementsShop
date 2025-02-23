@@ -12,7 +12,6 @@
     <list default="true" id="e801cba4-2b43-4561-8b53-8a1dd002b93c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SupplementsShop/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SupplementsShop/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SupplementsShop/Controllers/CartController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Controllers/CartController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop/Models/Cart.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Models/Cart.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SupplementsShop/Views/Product/Details.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Views/Product/Details.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/js/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/wwwroot/js/cart.js" afterDir="false" />
     </list>
@@ -154,7 +153,7 @@
       <workItem from="1740224725716" duration="5767000" />
       <workItem from="1740236145126" duration="7823000" />
       <workItem from="1740297368010" duration="24000" />
-      <workItem from="1740297398196" duration="20455000" />
+      <workItem from="1740297398196" duration="22038000" />
     </task>
     <servers />
   </component>
@@ -171,16 +170,16 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/SupplementsShop/Controllers/CartController.cs</url>
-          <line>63</line>
-          <properties documentPath="C:\Users\Vladyslav\RiderProjects\SupplementsShop\SupplementsShop\Controllers\CartController.cs" containingFunctionPresentation="Method 'GetCartCount'">
+          <line>38</line>
+          <properties documentPath="C:\Users\Vladyslav\RiderProjects\SupplementsShop\SupplementsShop\Controllers\CartController.cs" containingFunctionPresentation="Method 'AddToCart'">
             <startOffsets>
-              <option value="1754" />
+              <option value="917" />
             </startOffsets>
             <endOffsets>
-              <option value="1781" />
+              <option value="1006" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="12" />
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -1,12 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
     // Add to cart func
     function addToCart(productId, quantity = 1) {
-        fetch(`/Cart/AddToCart&productId=${productId}&quantity=${quantity}`, {
+        fetch(`/Cart/AddToCart`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded",
                 "X-Requested-With": "XMLHttpRequest"
-            }
+            },
+            body: new URLSearchParams({ productId, quantity })
         })
             .then(response => response.json())
             .then(data => {
@@ -20,15 +21,15 @@ document.addEventListener("DOMContentLoaded", () => {
             .catch(error => console.error("Error: ", error));
     }
     
-    document.querySelectorAll("add-to-cart-btn").forEach(btn => {
-        button.addEventListener("click", function (event) {
+    document.querySelectorAll(".add-to-cart-btn").forEach(btn => {
+        btn.addEventListener("click", function (event) {
             event.preventDefault();
             let productId = parseInt(this.getAttribute("data-product-id"));
             addToCart(productId);
         });
     })
     
-    document.querySelectorAll("add-to-cart-form").forEach(form => {
+    document.querySelectorAll(".add-to-cart-form").forEach(form => {
         form.addEventListener("submit", function (event) {
             event.preventDefault();
             let productId = parseInt(this.querySelector("[name='productId']").value);

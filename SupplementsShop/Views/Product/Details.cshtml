@@ -2,6 +2,18 @@
 
 <h2>@Model.ProductName</h2>
 <p>@Model.ProductDescription</p>
-<form method="post" asp-controller="Cart" asp-action="AddToCart" asp-route-productId="@Model.ProductId">
+<form class="add-to-cart-form">
+    <input type="hidden" name="productId" value="@Model.ProductId" />
     
+    <div class="row align-items-center mb-3">
+        <div class="col-auto">
+            <label for="quantity-1" class="col-form-label fw-bold">Quantity</label>
+        </div>
+        <div class="col-auto">
+            <input type="number" id="quantity-1" name="quantity" min="1" value="1" class="form-control w-100" />
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary">Add to Cart</button>
+        </div>
+    </div>
 </form>
