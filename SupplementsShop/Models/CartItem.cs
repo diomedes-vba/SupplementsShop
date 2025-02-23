@@ -6,4 +6,7 @@ public class CartItem
     public string CartItemName { get; set; }
     public float CartItemPrice { get; set; }
     public int CartItemQuantity { get; set; }
+    public string CartItemImageUrl { get; set; }
+    
+    public float CartItemTotalPrice => CartItemPrice * CartItemQuantity;
 }

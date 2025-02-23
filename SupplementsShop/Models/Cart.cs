@@ -2,7 +2,7 @@ namespace SupplementsShop.Models;
 
 public class Cart
 {
-    private List<CartItem> _items;
+    private List<CartItem> _items = new List<CartItem>();
     public List<CartItem> Items => _items;
 
     public void AddItem(Product product, int quantity = 1)
@@ -16,6 +16,7 @@ public class Cart
                 CartItemId = product.ProductId, 
                 CartItemName = product.ProductName, 
                 CartItemPrice = product.ProductPrice, 
+                CartItemImageUrl = product.ProductImageUrl,
                 CartItemQuantity = quantity
                 
             });
