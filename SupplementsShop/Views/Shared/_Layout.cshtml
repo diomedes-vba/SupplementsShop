@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Supermarket management</title>
     <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.css" />
+    <script src="~/js/cart.js"></script>
 </head>
 <body>
 <header>
@@ -22,7 +23,15 @@
                         <a class="nav-link text-dark" href="/home/index">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" href="/categories/index">Categories</a>
+                        <a class="nav-link text-dark" href="/cart/index">Cart</a>
+                    </li>
+                    <li class="d-flex align-items-center position-relative">
+                        <a href="/cart/index">
+                            <img class="img-fluid" style="max-width: 20px; height: auto" src="~/images/trolley.png" alt="trolley"/>
+                            <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="display: none;">
+                                0
+                            </span>
+                        </a>
                     </li>
                 </ul>
             </div>

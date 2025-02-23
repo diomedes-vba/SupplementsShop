@@ -11,10 +11,9 @@
   <component name="ChangeListManager">
     <list default="true" id="e801cba4-2b43-4561-8b53-8a1dd002b93c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SupplementsShop/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SupplementsShop/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop/Models/Cart.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Models/Cart.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop/Models/CartItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Models/CartItem.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop/Models/SessionExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Models/SessionExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Controllers/CartController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Controllers/CartController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SupplementsShop/Views/Category/Products.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Views/Category/Products.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Views/Shared/_Layout.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +22,13 @@
   </component>
   <component name="DpaMonitoringSettings">
     <option name="autoShow" value="false" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -147,7 +153,7 @@
       <workItem from="1740224725716" duration="5767000" />
       <workItem from="1740236145126" duration="7823000" />
       <workItem from="1740297368010" duration="24000" />
-      <workItem from="1740297398196" duration="9770000" />
+      <workItem from="1740297398196" duration="17620000" />
     </task>
     <servers />
   </component>
@@ -158,5 +164,37 @@
   <component name="VcsManagerConfiguration">
     <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/SupplementsShop/Controllers/CartController.cs</url>
+          <line>39</line>
+          <properties documentPath="C:\Users\Vladyslav\RiderProjects\SupplementsShop\SupplementsShop\Controllers\CartController.cs" containingFunctionPresentation="Method 'AddToCart'">
+            <startOffsets>
+              <option value="997" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1017" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/SupplementsShop/Controllers/CartController.cs</url>
+          <line>63</line>
+          <properties documentPath="C:\Users\Vladyslav\RiderProjects\SupplementsShop\SupplementsShop\Controllers\CartController.cs" containingFunctionPresentation="Method 'GetCartCount'">
+            <startOffsets>
+              <option value="1726" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1753" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

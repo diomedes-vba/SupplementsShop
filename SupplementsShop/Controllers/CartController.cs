@@ -33,6 +33,7 @@ public class CartController : Controller
         return View(cart);
     }
 
+    [HttpPost]
     public async Task<IActionResult> AddToCart(int productId)
     {
         var product = await _context.Products.FirstOrDefaultAsync(p => p.ProductId == productId);
@@ -41,9 +42,10 @@ public class CartController : Controller
             var cart = GetCart();
             cart.AddItem(product);
             HttpContext.Session.SetObject(CartSessionKey, cart);
+            return Json(new { success = true, message = "Product added to cart" });
         }
 
-        return RedirectToAction("Index");
+        return Json(new { success = false, message = "Product not found" });
     }
 
     public async Task<IActionResult> RemoveFromCart(int productId)
@@ -52,5 +54,13 @@ public class CartController : Controller
         cart.RemoveItem(productId);
         HttpContext.Session.SetObject(CartSessionKey, cart);
         return RedirectToAction("Index");
+    }
+
+    [HttpGet]
+    public IActionResult GetCartCount()
+    {
+        var cart = GetCart();
+        int count = cart.Items.Count;
+        return Json(new { count });
     }
 }
