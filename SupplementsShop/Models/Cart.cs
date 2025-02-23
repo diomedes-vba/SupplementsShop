@@ -5,7 +5,7 @@ public class Cart
     private List<CartItem> _items = new List<CartItem>();
     public List<CartItem> Items => _items;
 
-    public void AddItem(Product product, int quantity = 1)
+    public void AddItem(Product product, int quantity)
     {
         var item = _items.FirstOrDefault(p => p.CartItemId == product.ProductId);
         

@@ -34,13 +34,13 @@ public class CartController : Controller
     }
 
     [HttpPost]
-    public async Task<IActionResult> AddToCart(int productId)
+    public async Task<IActionResult> AddToCart(int productId, int quantity = 1)
     {
         var product = await _context.Products.FirstOrDefaultAsync(p => p.ProductId == productId);
         if (product != null)
         {
             var cart = GetCart();
-            cart.AddItem(product);
+            cart.AddItem(product, quantity);
             HttpContext.Session.SetObject(CartSessionKey, cart);
             return Json(new { success = true, message = "Product added to cart" });
         }
