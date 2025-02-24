@@ -1,68 +1,23 @@
 using Microsoft.AspNetCore.Mvc;
-using SupplementsShop.Models;
+using Microsoft.EntityFrameworkCore;
+using SupplementsShop.Data;
 
 namespace SupplementsShop.Controllers;
 
 public class CategoriesController : Controller
 {
+    private readonly SupplementsShopContext _context;
+    
+    public CategoriesController(SupplementsShopContext context)
+    {
+        _context = context;
+    }
+    
     // GET
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        var categories = CategoriesRepository.GetCategories();
+        var categories = await _context.Categories.ToListAsync();
         return View(categories);
     }
-
-    public IActionResult Edit(int? id)
-    {
-        var category = CategoriesRepository.GetCategoryById(id.HasValue ? id.Value : 0);
-        return View(category);
-    }
-
-    [HttpPost]
-    public IActionResult Edit(Category category)
-    {
-        if (ModelState.IsValid)
-        {
-            CategoriesRepository.UpdateCategory(category.CategoryId, category);
-            return RedirectToAction("Index");
-        }
-
-        return View(category);
-    }
-
-    public IActionResult Delete(int? id)
-    {
-        var category = CategoriesRepository.GetCategoryById(id.HasValue ? id.Value : 0);
-        return View(category);
-    }
-
-    [HttpPost, ActionName("Delete")]
-    public IActionResult DeleteConfirm(int? id)
-    {
-        CategoriesRepository.DeleteCategory(id.HasValue ? id.Value : 0);
-        return RedirectToAction("Index");
-    }
-
-    public IActionResult Create()
-    {
-        return View();
-    }
-
-    [HttpPost]
-    public IActionResult Create(Category category)
-    {
-        if (ModelState.IsValid)
-        {
-            CategoriesRepository.AddCategory(category);
-            return RedirectToAction("Index");
-        }
-
-        return View(category);
-    }
-
-    public IActionResult List()
-    {
-        var categories = CategoriesRepository.GetCategories();
-        return View(categories);
-    }
+    
 }

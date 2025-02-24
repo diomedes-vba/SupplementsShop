@@ -10,8 +10,7 @@
         <thead>
         <tr>
             <th>Name</th>
-            <th>Description</th>
-            <th></th>
+            <th>Link</th>
         </tr>
         </thead>
         <tbody>
@@ -19,18 +18,10 @@
         {
             <tr>
                 <td>@category.CategoryName</td>
-                <td>@category.CategoryDescription</td>
-                <td><a class="btn btn-link" asp-controller="Categories" asp-action="Edit" asp-route-id="@category.CategoryId">Edit</a></td>
-                <td><a class="btn btn-link" asp-controller="Categories" asp-action="Delete" asp-route-id="@category.CategoryId">Delete</a></td>
+                <td><a class="btn btn-link" asp-controller="Category" asp-action="Edit" asp-route-id="@category.CategoryId">Edit</a></td>
             </tr>
         }
         </tbody>
     </table>
-    <form asp-controller="Categories" asp-action="Create">
-        <input type="submit" value="Add" />
-    </form>
 }
 
-<ul>
-
-</ul>
