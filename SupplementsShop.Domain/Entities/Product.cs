@@ -21,7 +21,7 @@ public class Product
     // Constructor for EF
     private Product() {}
     
-    // Constructor with parametres
+    // Constructor with parameters
     public Product(string name, decimal price, int quantity, string description, int companyId, string slug, string imageUrl)
     {
         Name = name;
@@ -40,6 +40,7 @@ public class Product
         Sales += amount;
     }
 
+    // Business logic: Adding quantity when restock
     public void Restock(int amount)
     {
         Quantity += amount;
