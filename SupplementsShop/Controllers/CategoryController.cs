@@ -1,23 +1,21 @@
 using Microsoft.AspNetCore.Mvc;
-using SupplementsShop.Data;
-using Microsoft.EntityFrameworkCore;
+using SupplementsShop.Application.Services;
 
 namespace SupplementsShop.Controllers;
 
 public class CategoryController : Controller
 {
-    private readonly SupplementsShopContext _context;
-    public CategoryController(SupplementsShopContext context)
+    private readonly ICategoryService _categoryService;
+    public CategoryController(ICategoryService categoryService)
     {
-        _context = context;
+        
+        _categoryService = categoryService;
     }
     
     // GET
     public async Task<IActionResult> Products(string slug)
     {
-        var category = await _context.Categories
-            .Include(c => c.CategoryProducts)
-            .FirstOrDefaultAsync(c => c.CategoryThug == slug);
+        var category = await _categoryService.GetCategoryBySlugAsync(slug);
         return View(category);
     }
 }

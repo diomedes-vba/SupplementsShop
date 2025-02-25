@@ -15,7 +15,10 @@ public class CategoryRepository : ICategoryRepository
 
     public async Task<Category?> GetBySlugAsync(string slug)
     {
-        return await _context.Categories.FirstOrDefaultAsync(p => p.Slug == slug);
+        var category = await _context.Categories
+            .Include(c => c.Products)
+            .FirstOrDefaultAsync(c => c.Slug == slug);
+        return category;
     }
     
     public async Task<List<Category>> GetAllAsync()

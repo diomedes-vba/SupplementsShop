@@ -1,14 +1,17 @@
 using SupplementsShop.Data;
 using SupplementsShop.Infrastructure;
 using Microsoft.EntityFrameworkCore;
+using SupplementsShop.Application;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddInfrastructure(builder.Configuration);
-builder.Services.AddDbContext<SupplementsShopContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionString")));
+
+builder.Services.AddApplicationServices();
+//builder.Services.AddDbContext<SupplementsShopContext>(options =>
+//    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionString")));
 builder.Services.AddSession();
 
 var app = builder.Build();
