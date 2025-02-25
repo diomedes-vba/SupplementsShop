@@ -3,11 +3,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using SupplementsShop.Data;
+using SupplementsShop.Infrastructure.Persistence;
 
 #nullable disable
 
-namespace SupplementsShop.Migrations
+namespace SupplementsShop.Infrastructure.Migrations
 {
     [DbContext(typeof(SupplementsShopContext))]
     partial class SupplementsShopContextModelSnapshot : ModelSnapshot

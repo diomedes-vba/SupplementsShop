@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupplementsShop.Domain", "S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupplementsShop.Application", "SupplementsShop.Application\SupplementsShop.Application.csproj", "{019A6DD1-976D-4A7A-AE75-FBC9211812A6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupplementsShop.Infrastructure", "SupplementsShop.Infrastructure\SupplementsShop.Infrastructure.csproj", "{6D811D5B-457C-4719-8E45-A95115279B50}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{019A6DD1-976D-4A7A-AE75-FBC9211812A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{019A6DD1-976D-4A7A-AE75-FBC9211812A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{019A6DD1-976D-4A7A-AE75-FBC9211812A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D811D5B-457C-4719-8E45-A95115279B50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D811D5B-457C-4719-8E45-A95115279B50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D811D5B-457C-4719-8E45-A95115279B50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D811D5B-457C-4719-8E45-A95115279B50}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

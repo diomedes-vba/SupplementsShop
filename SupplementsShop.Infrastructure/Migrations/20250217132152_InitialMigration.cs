@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace SupplementsShop.Migrations
+namespace SupplementsShop.Infrastructure.Migrations
 {
     /// <inheritdoc />
     public partial class InitialMigration : Migration
