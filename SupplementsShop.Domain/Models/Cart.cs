@@ -5,7 +5,7 @@ namespace SupplementsShop.Domain.Models;
 public class Cart
 {
     private List<CartItem> _items = new List<CartItem>();
-    public IReadOnlyList<CartItem> Items => _items.AsReadOnly();
+    public List<CartItem> Items => _items;
 
     public void AddItem(Product product, int quantity)
     {

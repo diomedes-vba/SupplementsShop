@@ -1,9 +1,10 @@
-@model Product
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model SupplementsShop.Application.DTOs.ProductDto
 
-<h2>@Model.ProductName</h2>
-<p>@Model.ProductDescription</p>
+<h2>@Model.Name</h2>
+<p>@Model.Description</p>
 <form class="add-to-cart-form">
-    <input type="hidden" name="productId" value="@Model.ProductId" />
+    <input type="hidden" name="productId" value="@Model.Id" />
     
     <div class="row align-items-center mb-3">
         <div class="col-auto">

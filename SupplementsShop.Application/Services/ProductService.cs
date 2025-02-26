@@ -30,6 +30,25 @@ public class ProductService : IProductService
             Sales = product.Sales,
         };
     }
+    
+    public async Task<ProductDto?> GetProductByIdAsync(int id)
+    {
+        var product = await _productRepository.GetByIdAsync(id);
+
+        if (product == null) return null;
+
+        return new ProductDto
+        {
+            Id = product.Id,
+            Name = product.Name,
+            Price = product.Price,
+            Quantity = product.Quantity,
+            Description = product.Description,
+            ImageUrl = product.ImageUrl,
+            Slug = product.Slug,
+            Sales = product.Sales,
+        };
+    }
 
     public async Task<IEnumerable<ProductDto>> GetAllProductsAsync()
     {

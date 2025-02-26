@@ -14,12 +14,21 @@
   <component name="ChangeListManager">
     <list default="true" id="e801cba4-2b43-4561-8b53-8a1dd002b93c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SupplementsShop/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SupplementsShop/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Application/DependencyInjection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Application/DependencyInjection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Application/Services/CartService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Application/Services/CartService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Application/Services/ICartService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Application/Services/ICartService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Application/Services/IProductService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Application/Services/IProductService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Application/Services/ProductService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Application/Services/ProductService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SupplementsShop.Application/SupplementsShop.Application.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Application/SupplementsShop.Application.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop.Infrastructure/Persistence/CategoryRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Infrastructure/Persistence/CategoryRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop/Controllers/CategoryController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Controllers/CategoryController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Domain/Models/Cart.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Domain/Models/Cart.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Infrastructure/SupplementsShop.Infrastructure.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Infrastructure/SupplementsShop.Infrastructure.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Controllers/CartController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Controllers/CartController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Controllers/ProductController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Controllers/ProductController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Models/SessionExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Infrastructure/Extensions/SessionExtensions.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SupplementsShop/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop/SupplementsShop.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/SupplementsShop.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop/Views/Category/Products.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Views/Category/Products.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Views/Cart/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Views/Cart/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Views/Product/Details.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Views/Product/Details.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/js/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/wwwroot/js/cart.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,9 +62,10 @@
 }</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/c7da56581ee7b20208f09e80b735961e4d5d7b9e5562bfdec94a75c57b391/ThrowHelper.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/SupplementsShop.Infrastructure/Extensions/SessionExtensions.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="Toolset" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
@@ -212,7 +222,14 @@
       <workItem from="1740394026357" duration="48000" />
       <workItem from="1740394120248" duration="21491000" />
       <workItem from="1740425595900" duration="499000" />
-      <workItem from="1740473022614" duration="11699000" />
+      <workItem from="1740473022614" duration="16368000" />
+      <workItem from="1740510275929" duration="1500000" />
+      <workItem from="1740559860582" duration="1748000" />
+      <workItem from="1740566029653" duration="1078000" />
+      <workItem from="1740568673572" duration="5504000" />
+      <workItem from="1740595735718" duration="527000" />
+      <workItem from="1740596275199" duration="5094000" />
+      <workItem from="1740601813577" duration="1556000" />
     </task>
     <servers />
   </component>

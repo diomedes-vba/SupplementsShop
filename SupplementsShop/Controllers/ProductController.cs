@@ -1,22 +1,20 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using SupplementsShop.Data;
+using SupplementsShop.Application.Services;
 
 namespace SupplementsShop.Controllers;
 
 public class ProductController : Controller
 {
-    private readonly SupplementsShopContext _context;
-    public ProductController(SupplementsShopContext context)
+    private readonly IProductService _productService;
+    public ProductController(IProductService productService)
     {
-        _context = context;
+        _productService = productService;
     }
 
     // GET
     public async Task<IActionResult> Details(string slug)
     {
-        var product = await _context.Products
-            .FirstOrDefaultAsync(p => p.ProductSlug == slug);
+        var product = await _productService.GetProductBySlugAsync(slug);
         return View(product);
     }
 }

@@ -1,6 +1,4 @@
-using SupplementsShop.Data;
 using SupplementsShop.Infrastructure;
-using Microsoft.EntityFrameworkCore;
 using SupplementsShop.Application;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,11 +6,16 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddInfrastructure(builder.Configuration);
-
 builder.Services.AddApplicationServices();
-//builder.Services.AddDbContext<SupplementsShopContext>(options =>
-//    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionString")));
-builder.Services.AddSession();
+
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+    options.Cookie.SameSite = SameSiteMode.Lax;
+});
+builder.Services.AddHttpContextAccessor();
 
 var app = builder.Build();
 

@@ -1,66 +1,45 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using SupplementsShop.Data;
-using SupplementsShop.Models;
+using SupplementsShop.Application.Services;
 
 namespace SupplementsShop.Controllers;
 
 public class CartController : Controller
 {
-    private readonly SupplementsShopContext _context;
-    private const string CartSessionKey = "Cart";
+    private readonly ICartService _cartService;
 
-    public CartController(SupplementsShopContext context)
+    public CartController(ICartService cartService)
     {
-        _context = context;
-    }
-    private Cart GetCart()
-    {
-        var cart = HttpContext.Session.GetObject<Cart>(CartSessionKey);
-        if (cart == null)
-        {
-            cart = new Cart();
-            HttpContext.Session.SetObject(CartSessionKey, cart);
-        }
-
-        return cart;
+        _cartService = cartService;
     }
     
     // GET
     public IActionResult Index()
     {
-        var cart = GetCart();
+        var cart = _cartService.GetCart();
         return View(cart);
     }
 
     [HttpPost]
     public async Task<IActionResult> AddToCart(int productId, int quantity = 1)
     {
-        var product = await _context.Products.FirstOrDefaultAsync(p => p.ProductId == productId);
-        if (product != null)
+        if (await _cartService.AddToCartAsync(productId, quantity))
         {
-            var cart = GetCart();
-            cart.AddItem(product, quantity);
-            HttpContext.Session.SetObject(CartSessionKey, cart);
             return Json(new { success = true, message = $"Added {quantity} product to cart" });
         }
 
         return Json(new { success = false, message = "Product not found" });
     }
 
-    public async Task<IActionResult> RemoveFromCart(int productId)
+    public IActionResult RemoveFromCart(int productId)
     {
-        var cart = GetCart();
-        cart.RemoveItem(productId);
-        HttpContext.Session.SetObject(CartSessionKey, cart);
+        _cartService.RemoveFromCart(productId);
         return RedirectToAction("Index");
     }
 
     [HttpGet]
     public IActionResult GetCartCount()
     {
-        var cart = GetCart();
-        int count = cart.Items.Count;
-        return Json(new { count });
+        var cartCount = _cartService.GetCartCount();
+        return Json(new { cartCount });
     }
 }

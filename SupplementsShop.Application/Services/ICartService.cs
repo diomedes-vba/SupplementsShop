@@ -1,11 +1,13 @@
+using SupplementsShop.Application.DTOs;
 using SupplementsShop.Domain.Models;
 
 namespace SupplementsShop.Application.Services;
 
 public interface ICartService
 {
-    void AddToCart(Cart cart, int productId, int quantity);
-    void RemoveFromCart(Cart cart, int productId);
-    decimal GetTotalPrice(Cart cart);
-    void ClearCart(Cart cart);
+    CartDto GetCart();
+    Task<bool> AddToCartAsync(int productId, int quantity);
+    void RemoveFromCart(int productId);
+    void ClearCart();
+    int GetCartCount();
 }

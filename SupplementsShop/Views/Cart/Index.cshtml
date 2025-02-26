@@ -1,4 +1,4 @@
-@model Cart
+@model SupplementsShop.Application.DTOs.CartDto
 
 <h2>Shopping Cart</h2>
 
@@ -14,10 +14,10 @@ else
         {
             <tr>
                 <td>
-                    <img src="@item.CartItemImageUrl" class="img-fluid" style="max-width: 100px; height: auto;" alt="@item.CartItemName" />
+                    <img src="@item.ImageUrl" class="img-fluid" style="max-width: 100px; height: auto;" alt="@item.Name" />
                 </td>
                 <td>
-                    <h5>@item.CartItemName</h5>
+                    <h5>@item.Name</h5>
                     <div class="row">
                         <div class="col-auto">
                             <form method="post">
@@ -25,8 +25,8 @@ else
                                 <select id="CartItemQuantity" 
                                         class="form-select form-select-sm w-auto"
                                         name="CartItemQuantity"
-                                        asp-for="@item.CartItemQuantity"
-                                        onchange="updateCartQuantity(@item.CartItemId, this.value)">
+                                        asp-for="@item.Quantity"
+                                        onchange="updateCartQuantity(@item.Id, this.value)">
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -36,12 +36,12 @@ else
                             </form>
                         </div>
                         <div class="col">
-                            <a asp-controller="Cart", asp-action="RemoveFromCart", asp-route-productId="@item.CartItemId" class="btn btn-danger">Remove from Cart</a>
+                            <a asp-controller="Cart", asp-action="RemoveFromCart", asp-route-productId="@item.Id" class="btn btn-danger">Remove from Cart</a>
                         </div>
                     </div>
                 </td>
                 <td>
-                    <p class="fw-bold">@item.CartItemTotalPrice $</p>
+                    <p class="fw-bold">@item.TotalPrice $</p>
                 </td>
             </tr>
         }
