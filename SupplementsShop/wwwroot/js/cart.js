@@ -1,4 +1,3 @@
-console.error("Mhm yes")
 document.addEventListener("DOMContentLoaded", () => {
     // Add to cart func
     function addToCart(productId, quantity = 1) {
@@ -27,7 +26,6 @@ document.addEventListener("DOMContentLoaded", () => {
             event.preventDefault();
             let productId = parseInt(this.getAttribute("data-product-id"));
             addToCart(productId);
-            console.log("It's getting stickyy");
         });
     })
     
@@ -41,7 +39,6 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     function updateCartBadge() {
-        console.log("It's getting sticky in this bitch...")
         fetch('/Cart/GetCartCount', {
             method: "GET",
             headers: {
@@ -50,8 +47,8 @@ document.addEventListener("DOMContentLoaded", () => {
         })
             .then(response => response.json())
             .then(data => {
-                console.log("Cart count respomnse:", data);
                 const cartBadge = document.getElementById("cart-count");
+                console.log(data.count);
                 if (data.count > 0) {
                     cartBadge.textContent = data.count;
                     cartBadge.style.display = "inline-block";
