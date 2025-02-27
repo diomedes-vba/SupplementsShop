@@ -48,9 +48,8 @@ document.addEventListener("DOMContentLoaded", () => {
             .then(response => response.json())
             .then(data => {
                 const cartBadge = document.getElementById("cart-count");
-                console.log(data.count);
-                if (data.count > 0) {
-                    cartBadge.textContent = data.count;
+                if (data.cartCount > 0) {
+                    cartBadge.textContent = data.cartCount;
                     cartBadge.style.display = "inline-block";
                 } else {
                     cartBadge.style.display = "none";
