@@ -1,6 +1,8 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SupplementsShop.Domain.Entities;
 using SupplementsShop.Domain.Interfaces;
 using SupplementsShop.Infrastructure.Persistence;
 
@@ -12,6 +14,10 @@ public static class DependencyInjection
     {
         services.AddDbContext<SupplementsShopContext>(options => 
             options.UseSqlServer(configuration.GetConnectionString("DefaultConnectionString")));
+        
+        services.AddIdentity<User, IdentityRole>()
+            .AddEntityFrameworkStores<SupplementsShopContext>()
+            .AddDefaultTokenProviders();
 
         services.AddScoped<IProductRepository, ProductRepository>();
         services.AddScoped<ICategoryRepository, CategoryRepository>();
