@@ -24,4 +24,8 @@
       <ProjectReference Include="..\SupplementsShop.Infrastructure\SupplementsShop.Infrastructure.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Views\Categories\Index.cshtml" />
+    </ItemGroup>
+
 </Project>
