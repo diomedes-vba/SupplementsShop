@@ -6,6 +6,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddInfrastructure(builder.Configuration);
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = "/Account/Login";
+    options.AccessDeniedPath = "/Account/AccessDenied";
+});
+
 builder.Services.AddApplicationServices();
 
 builder.Services.AddSession();
@@ -16,6 +22,9 @@ var app = builder.Build();
 app.UseStaticFiles();
 app.UseSession();
 app.UseRouting();
+
+app.UseAuthorization();
+app.UseAuthentication();
 
 // Route for single product
 app.MapControllerRoute(
