@@ -12,8 +12,8 @@ using SupplementsShop.Infrastructure.Persistence;
 namespace SupplementsShop.Infrastructure.Migrations
 {
     [DbContext(typeof(SupplementsShopContext))]
-    [Migration("20250227181354_AddIdentityTables")]
-    partial class AddIdentityTables
+    [Migration("20250228113535_InitialMigration")]
+    partial class InitialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
