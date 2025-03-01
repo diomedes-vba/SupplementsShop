@@ -10,7 +10,7 @@ public class RegisterViewModel
     
     [Required]
     [DataType(DataType.Password)]
-    string Password { get; set; }
+    public string Password { get; set; }
     
     [Required]
     [DataType(DataType.Password)]
