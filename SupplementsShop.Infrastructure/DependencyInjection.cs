@@ -14,10 +14,11 @@ public static class DependencyInjection
     {
         services.AddDbContext<SupplementsShopContext>(options => 
             options.UseSqlServer(configuration.GetConnectionString("DefaultConnectionString")));
-        
+
         services.AddIdentity<User, IdentityRole>()
             .AddEntityFrameworkStores<SupplementsShopContext>()
-            .AddDefaultTokenProviders();
+            .AddDefaultTokenProviders()
+            .AddSignInManager<SignInManager<User>>();
 
         services.AddScoped<IProductRepository, ProductRepository>();
         services.AddScoped<ICategoryRepository, CategoryRepository>();

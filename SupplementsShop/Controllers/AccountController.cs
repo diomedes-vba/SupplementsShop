@@ -9,13 +9,18 @@ public class AccountController : Controller
 {
     private readonly SignInManager<User> _signInManager;
     private readonly UserManager<User> _userManager;
+    
+    private IHttpContextAccessor _httpContextAccessor;
+    
 
-    public AccountController(SignInManager<User> signInManager, UserManager<User> userManager)
+
+    public AccountController(SignInManager<User> signInManager, UserManager<User> userManager,IHttpContextAccessor httpContextAccessor)
     {
         _signInManager = signInManager;
         _userManager = userManager;
+        _httpContextAccessor = httpContextAccessor;
     }
-    
+
     [HttpGet]
     public IActionResult Login() => View();
 
@@ -23,6 +28,13 @@ public class AccountController : Controller
     public async Task<IActionResult> Login(LoginViewModel model)
     {
         if (!ModelState.IsValid) return View(model);
+        
+        var user = await _userManager.FindByEmailAsync(model.Email);
+        if (user == null || !await _userManager.CheckPasswordAsync(user, model.Password))
+        {
+            ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+            return View(model);
+        }
         
         var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
         if (result.Succeeded)
@@ -65,5 +77,16 @@ public class AccountController : Controller
     {
         await _signInManager.SignOutAsync();
         return RedirectToAction("Index", "Home");
+    }
+
+    public IActionResult TestAuth()
+    {
+        //var user = User;
+        var user = _httpContextAccessor.HttpContext?.User;
+        if (User.Identity.IsAuthenticated)
+        {
+            return Content($"Authenticated as {User.Identity.Name}.");
+        }
+        return Content("Not Authenticated.");
     }
 }

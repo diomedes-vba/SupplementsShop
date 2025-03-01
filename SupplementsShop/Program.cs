@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using SupplementsShop.Infrastructure;
 using SupplementsShop.Application;
 
@@ -8,8 +9,11 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.ConfigureApplicationCookie(options =>
 {
+    options.Cookie.HttpOnly = true;
+    options.ExpireTimeSpan = TimeSpan.FromDays(7);
     options.LoginPath = "/Account/Login";
     options.AccessDeniedPath = "/Account/AccessDenied";
+    options.SlidingExpiration = true;
 });
 
 builder.Services.AddApplicationServices();
@@ -17,14 +21,24 @@ builder.Services.AddApplicationServices();
 builder.Services.AddSession();
 builder.Services.AddHttpContextAccessor();
 
+//builder.Services.AddAuthentication(options =>
+// {
+//     options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+//     options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+//     options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+// });
+
+//builder.Services.AddAuthorization();
+
 var app = builder.Build();
 
 app.UseStaticFiles();
 app.UseSession();
 app.UseRouting();
 
-app.UseAuthorization();
 app.UseAuthentication();
+
+app.UseAuthorization();
 
 // Route for single product
 app.MapControllerRoute(

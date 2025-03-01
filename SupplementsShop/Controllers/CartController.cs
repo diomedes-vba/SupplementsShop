@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SupplementsShop.Application.Services;
 
@@ -41,5 +42,11 @@ public class CartController : Controller
     {
         var cartCount = _cartService.GetCartCount();
         return Json(new { cartCount });
+    }
+
+    [Authorize]
+    public IActionResult Checkout()
+    {
+        return View();
     }
 }
