@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using SupplementsShop.Domain.Entities;
@@ -21,11 +22,17 @@ public class AccountController : Controller
         _httpContextAccessor = httpContextAccessor;
     }
 
+    [AllowAnonymous]
     [HttpGet]
-    public IActionResult Login() => View();
+    public IActionResult Login()
+    {
+        string? returnUrl = HttpContext.Request.Query["returnUrl"];
+        ViewData["ReturnUrl"] = returnUrl;
+        return View();
+    }
 
     [HttpPost]
-    public async Task<IActionResult> Login(LoginViewModel model)
+    public async Task<IActionResult> Login(LoginViewModel model, string returnUrl = null)
     {
         if (!ModelState.IsValid) return View(model);
         
@@ -39,6 +46,10 @@ public class AccountController : Controller
         var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
         if (result.Succeeded)
         {
+            if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
+            {
+                return Redirect(returnUrl);
+            }
             return RedirectToAction("Index", "Home");
         }
         
