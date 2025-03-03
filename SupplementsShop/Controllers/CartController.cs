@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SupplementsShop.Application.Services;
+using SupplementsShop.Domain.Models;
 
 namespace SupplementsShop.Controllers;
 
@@ -45,8 +46,17 @@ public class CartController : Controller
     }
 
     [Authorize]
+    [HttpGet]
     public IActionResult Checkout()
     {
-        return View();
+        var cart = _cartService.GetCart();
+        return View(cart);
+    }
+
+    [Authorize]
+    [HttpPost]
+    public IActionResult Checkout(Cart cart)
+    {
+        
     }
 }

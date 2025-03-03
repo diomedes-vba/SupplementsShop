@@ -57,6 +57,11 @@ document.addEventListener("DOMContentLoaded", () => {
             })
             .catch(error => console.error("Error fetching cart count: ", error));
     }
+    
+    function updateCartQuantity(id, quantity)
+    {
+        
+    }
 
     updateCartBadge()
 })
