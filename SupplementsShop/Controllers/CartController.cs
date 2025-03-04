@@ -1,7 +1,8 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using SupplementsShop.Application.DTOs;
 using SupplementsShop.Application.Services;
-using SupplementsShop.Domain.Models;
+using SupplementsShop.ViewModels;
 
 namespace SupplementsShop.Controllers;
 
@@ -49,14 +50,18 @@ public class CartController : Controller
     [HttpGet]
     public IActionResult Checkout()
     {
-        var cart = _cartService.GetCart();
-        return View(cart);
+        var checkoutModel = new CheckoutViewModel
+        {
+            Cart = _cartService.GetCart(),
+            Order = new OrderDto()
+        };
+        return View(checkoutModel);
     }
 
     [Authorize]
     [HttpPost]
-    public IActionResult Checkout(Cart cart)
+    public IActionResult Checkout(CheckoutViewModel checkoutModel)
     {
-        
+        return View(checkoutModel);
     }
 }
