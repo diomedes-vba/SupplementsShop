@@ -12,5 +12,6 @@ public class SupplementsShopContext : IdentityDbContext<User>
     public DbSet<Category> Categories { get; set; }
     public DbSet<Company> Companies { get; set; }
     public DbSet<Order> Orders { get; set; }
+    public DbSet<OrderItem> OrderItems { get; set; }
     
 }

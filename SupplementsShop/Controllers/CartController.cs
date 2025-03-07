@@ -9,6 +9,7 @@ namespace SupplementsShop.Controllers;
 public class CartController : Controller
 {
     private readonly ICartService _cartService;
+    private readonly IOrderService _orderService;
 
     public CartController(ICartService cartService)
     {
@@ -60,8 +61,25 @@ public class CartController : Controller
 
     [Authorize]
     [HttpPost]
-    public IActionResult Checkout(CheckoutViewModel checkoutModel)
+    public async Task<IActionResult> Checkout(CheckoutViewModel checkoutModel)
     {
-        return View(checkoutModel);
+        if (!ModelState.IsValid) return View(checkoutModel);
+        
+        var cart = _cartService.GetCart();
+        var order = checkoutModel.Order;
+        await _orderService.CreateOrderAsync(order, cart);
+        
+        return RedirectToAction("Payment");
+    }
+
+    [Authorize]
+    [HttpGet]
+    public IActionResult Payment()
+    {
+        var paymentModel = new PaymentViewModel
+        {
+            Cart = _cartService.GetCart(),
+        };
+        return View(paymentModel);
     }
 }

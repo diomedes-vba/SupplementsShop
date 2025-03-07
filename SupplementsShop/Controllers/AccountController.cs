@@ -12,8 +12,6 @@ public class AccountController : Controller
     private readonly UserManager<User> _userManager;
     
     private IHttpContextAccessor _httpContextAccessor;
-    
-
 
     public AccountController(SignInManager<User> signInManager, UserManager<User> userManager,IHttpContextAccessor httpContextAccessor)
     {

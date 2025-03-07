@@ -39,4 +39,10 @@ public class OrderRepository : IOrderRepository
             await _context.SaveChangesAsync();
         }
     }
+
+    public async Task<int?> GetNextOrderNumberAsync()
+    {
+        int? lastOrderNumber = _context.Orders.Max(o => (int?)o.OrderNumber);
+        return lastOrderNumber?? 1000;
+    }
 }

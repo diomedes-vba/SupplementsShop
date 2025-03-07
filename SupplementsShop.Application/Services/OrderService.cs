@@ -12,9 +12,23 @@ public class OrderService : IOrderService
     {
         _orderRepository = orderRepository;
     }
-    
-    public async Task CreateOrderAsync(OrderDto orderDto)
+
+    public async Task CreateOrderAsync(OrderDto order, CartDto cart)
     {
-        
+        var orderNumber = await _orderRepository.GetNextOrderNumberAsync();
+        await _orderRepository.AddAsync(new Order(
+            orderNumber,
+            order.FirstName,
+            order.LastName,
+            order.OrderDate,
+            order.Email,
+            order.PhoneNumber,
+            order.StreetAddress1,
+            order.StreetAddress2,
+            order.City,
+            order.StateOrRegion,
+            order.PostalCode,
+            order.Country,
+            order.OrderItems));
     }
 }
