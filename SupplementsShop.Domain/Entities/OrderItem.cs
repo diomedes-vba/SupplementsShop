@@ -16,12 +16,13 @@ public class OrderItem
     
     public OrderItem() {}
 
-    public OrderItem(int id, string name, decimal price, int quantity, string imageUrl)
+    public OrderItem(string name, decimal price, int quantity, string imageUrl, int productId, int orderId)
     {
-        Id = id;
         Name = name;
         Price = price;
         Quantity = quantity;
         ImageUrl = imageUrl;
+        ProductId = productId;
+        OrderId = orderId;
     }
 }

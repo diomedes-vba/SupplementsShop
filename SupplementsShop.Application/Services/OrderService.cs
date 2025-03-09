@@ -7,28 +7,57 @@ namespace SupplementsShop.Application.Services;
 public class OrderService : IOrderService
 {
     private readonly IOrderRepository _orderRepository;
+    private readonly IOrderItemRepository _orderItemRepository;
 
-    public OrderService(IOrderRepository orderRepository)
+    public OrderService(IOrderRepository orderRepository, IOrderItemRepository orderItemRepository)
     {
         _orderRepository = orderRepository;
+        _orderItemRepository = orderItemRepository;
     }
 
-    public async Task CreateOrderAsync(OrderDto order, CartDto cart)
+    public async Task CreateOrderAsync(OrderDto orderDto, CartDto cart)
     {
         var orderNumber = await _orderRepository.GetNextOrderNumberAsync();
-        await _orderRepository.AddAsync(new Order(
+        var order = new Order(
             orderNumber,
-            order.FirstName,
-            order.LastName,
-            order.OrderDate,
-            order.Email,
-            order.PhoneNumber,
-            order.StreetAddress1,
-            order.StreetAddress2,
-            order.City,
-            order.StateOrRegion,
-            order.PostalCode,
-            order.Country,
-            order.OrderItems));
+            orderDto.FirstName,
+            orderDto.LastName,
+            orderDto.OrderDate,
+            orderDto.Email,
+            orderDto.PhoneNumber,
+            orderDto.StreetAddress1,
+            orderDto.StreetAddress2,
+            orderDto.City,
+            orderDto.StateOrRegion,
+            orderDto.PostalCode,
+            orderDto.Country);
+        
+        await _orderRepository.AddAsync(order);
+
+        await AddOrderItemsToOrderAsync(order, cart);
+    }
+
+    private async Task AddOrderItemsToOrderAsync(Order order, CartDto cart)
+    {
+        var cartItems = cart.Items.ToList();
+        var orderItems = cartItems.Select(i => new OrderItem
+            (
+                i.Name, 
+                i.Price, 
+                i.Quantity, 
+                i.ImageUrl, 
+                i.Id, 
+                order.Id
+            )).ToList();
+
+        order.AddItems(orderItems);
+        await _orderRepository.UpdateAsync(order);
+        
+        await AddOrderItemsToContextAsync(orderItems);
+    }
+
+    private async Task AddOrderItemsToContextAsync(List<OrderItem> orderItems)
+    {
+        await _orderItemRepository.AddOrderItemRangeAsync(orderItems);
     }
 }

@@ -12,9 +12,11 @@ public class OrderItemRepository : IOrderItemRepository
         _context = context;
     }
     
-    public async Task AddOrderItemAsync(OrderItem orderItem)
+    public async Task AddOrderItemRangeAsync(List<OrderItem> orderItems)
     {
-        await _context.OrderItems.AddAsync(orderItem);
+        await _context.OrderItems.AddRangeAsync(orderItems);
         await _context.SaveChangesAsync();
     }
+    
+    
 }

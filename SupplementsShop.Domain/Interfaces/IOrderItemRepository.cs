@@ -4,5 +4,5 @@ namespace SupplementsShop.Domain.Interfaces;
 
 public interface IOrderItemRepository
 {
-    Task AddOrderItemAsync(OrderItem orderItem);
+    Task AddOrderItemRangeAsync(List<OrderItem> orderItems);
 }
