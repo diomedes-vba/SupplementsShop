@@ -11,9 +11,10 @@ public class CartController : Controller
     private readonly ICartService _cartService;
     private readonly IOrderService _orderService;
 
-    public CartController(ICartService cartService)
+    public CartController(ICartService cartService, IOrderService orderService)
     {
         _cartService = cartService;
+        _orderService = orderService;
     }
     
     // GET
@@ -81,5 +82,14 @@ public class CartController : Controller
             Cart = _cartService.GetCart(),
         };
         return View(paymentModel);
+    }
+
+    [Authorize]
+    [HttpPost]
+    public IActionResult Payment(PaymentViewModel paymentModel)
+    {
+        if (!ModelState.IsValid) return View(paymentModel);
+        
+        return RedirectToAction("Checkout");
     }
 }
