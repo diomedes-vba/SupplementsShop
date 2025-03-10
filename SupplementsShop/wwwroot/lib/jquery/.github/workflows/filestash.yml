@@ -1,0 +1,66 @@
+name: Filestash
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read # to fetch code (actions/checkout)
+
+jobs:
+  update:
+    name: Update Filestash
+    runs-on: ubuntu-latest
+    # skip on forks
+    if: ${{ github.repository == 'jquery/jquery' }}
+    environment: filestash
+    env:
+      NODE_VERSION: 22.x
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Use Node.js ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@1d0ff469b7ec7b3cb9d8673fde0c81c44821de2a # v4.2.0
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+
+      - name: Cache
+        uses: actions/cache@d4323d4df104b026a6aa633fdb11d772146be0bf # v4.2.2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ env.NODE_VERSION }}-npm-lock-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-${{ env.NODE_VERSION }}-npm-lock-
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build:all
+
+      - name: Set up SSH
+        run: |
+          install --directory ~/.ssh --mode 700
+          base64 --decode <<< "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -t ed25519 -H "${{ secrets.FILESTASH_SERVER }}" >> ~/.ssh/known_hosts
+
+      - name: Upload to Filestash
+        run: |
+          rsync dist/jquery.js filestash@"${{ secrets.FILESTASH_SERVER }}":jquery-git.js
+          rsync dist/jquery.min.js filestash@"${{ secrets.FILESTASH_SERVER }}":jquery-git.min.js
+          rsync dist/jquery.min.map filestash@"${{ secrets.FILESTASH_SERVER }}":jquery-git.min.map
+
+          rsync dist/jquery.slim.js filestash@"${{ secrets.FILESTASH_SERVER }}":jquery-git.slim.js
+          rsync dist/jquery.slim.min.js filestash@"${{ secrets.FILESTASH_SERVER }}":jquery-git.slim.min.js
+          rsync dist/jquery.slim.min.map filestash@"${{ secrets.FILESTASH_SERVER }}":jquery-git.slim.min.map
+
+          rsync dist-module/jquery.module.js filestash@"${{ secrets.FILESTASH_SERVER }}":jquery-git.module.js
+          rsync dist-module/jquery.module.min.js filestash@"${{ secrets.FILESTASH_SERVER }}":jquery-git.module.min.js
+          rsync dist-module/jquery.module.min.map filestash@"${{ secrets.FILESTASH_SERVER }}":jquery-git.module.min.map
+
+          rsync dist-module/jquery.slim.module.js filestash@"${{ secrets.FILESTASH_SERVER }}":jquery-git.slim.module.js
+          rsync dist-module/jquery.slim.module.min.js filestash@"${{ secrets.FILESTASH_SERVER }}":jquery-git.slim.module.min.js
+          rsync dist-module/jquery.slim.module.min.map filestash@"${{ secrets.FILESTASH_SERVER }}":jquery-git.slim.module.min.map

@@ -10,11 +10,13 @@ public class CartController : Controller
 {
     private readonly ICartService _cartService;
     private readonly IOrderService _orderService;
+    private readonly IPaymentService _paymentService;
 
-    public CartController(ICartService cartService, IOrderService orderService)
+    public CartController(ICartService cartService, IOrderService orderService, IPaymentService paymentService)
     {
         _cartService = cartService;
         _orderService = orderService;
+        _paymentService = paymentService;
     }
     
     // GET
@@ -70,23 +72,24 @@ public class CartController : Controller
         var order = checkoutModel.Order;
         await _orderService.CreateOrderAsync(order, cart);
         
-        return RedirectToAction("Payment");
+        return RedirectToAction("Payment", new { orderNumber = order.OrderNumber });
     }
 
     [Authorize]
     [HttpGet]
-    public IActionResult Payment()
+    public IActionResult Payment(string orderNumber)
     {
         var paymentModel = new PaymentViewModel
         {
             Cart = _cartService.GetCart(),
+            OrderNumber = orderNumber
         };
         return View(paymentModel);
     }
 
     [Authorize]
     [HttpPost]
-    public IActionResult Payment(PaymentViewModel paymentModel)
+    public async Task<IActionResult> Payment(PaymentViewModel paymentModel)
     {
         if (!ModelState.IsValid) return View(paymentModel);
 
@@ -96,7 +99,21 @@ public class CartController : Controller
             ExpirationDate = paymentModel.ExpirationDate,
             CVV = paymentModel.CVV
         };
-        
-        return RedirectToAction("");
+        var result = await _paymentService.ProcessPaymentAsync(paymentInformation);
+
+        if (result.Success)
+        {
+            return RedirectToAction("ThanksForOrder", new { orderNumber = paymentModel.OrderNumber });
+        }
+        else
+        {
+            ModelState.AddModelError(string.Empty, result.ErrorMessage);
+            return View(paymentModel);
+        }
+    }
+
+    public IActionResult ThanksForOrder(string orderNumber)
+    {
+        return View(orderNumber);
     }
 }

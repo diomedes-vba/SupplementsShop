@@ -1,0 +1,2 @@
+
+npx commitplease .git/COMMIT_EDITMSG
