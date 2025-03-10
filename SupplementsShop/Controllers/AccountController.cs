@@ -80,6 +80,7 @@ public class AccountController : Controller
                 "Account",
                 new { userId = user.Id, token },
                 protocol: Request.Scheme);
+            
             await _emailSenderService.SendEmailAsync(user.Email, "Confirm your email", $"Please confirm your account by clicking here: <a href='{callbackUrl}'>link</a>");
             
             return RedirectToAction("ThankYou", new { email = user.Email });
@@ -106,8 +107,28 @@ public class AccountController : Controller
         return View(email);
     }
 
-    public IActionResult ConfirmEmail(string userId, string token)
+    [HttpGet]
+    public async Task<IActionResult> ConfirmEmail(string userId, string token)
     {
-        
+        if (userId == null || token == null)
+        {
+            return RedirectToAction("Index", "Home");
+        }
+
+        var user = await _userManager.FindByIdAsync(userId);
+        if (user == null)
+        {
+            return NotFound($"Unable to load user with ID '{userId}'.");
+        }
+
+        var result = await _userManager.ConfirmEmailAsync(user, token);
+        if (result.Succeeded)
+        {
+            return View("Confirmed");
+        }
+        else
+        {
+            return View("Error");
+        }
     }
 }

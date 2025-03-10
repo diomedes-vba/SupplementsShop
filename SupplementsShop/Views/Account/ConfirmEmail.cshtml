@@ -1,0 +1,12 @@
+@model string
+
+<div class="justify-content-center">
+    @if (Model == "Confirmed")
+    {
+        <h2>Congratulations, your account was confirmed!</h2>
+    }
+    @if (Model == "Error")
+    {
+        <h2>There was an error, while confirming your account, please try again!</h2>
+    }
+</div>
