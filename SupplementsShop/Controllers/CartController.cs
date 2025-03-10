@@ -90,6 +90,6 @@ public class CartController : Controller
     {
         if (!ModelState.IsValid) return View(paymentModel);
         
-        return RedirectToAction("Checkout");
+        return RedirectToAction("");
     }
 }

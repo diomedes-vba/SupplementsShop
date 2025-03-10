@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
+using SupplementsShop.Application.Services;
 using SupplementsShop.Domain.Entities;
 using SupplementsShop.ViewModels;
 
@@ -12,6 +14,8 @@ public class AccountController : Controller
     private readonly UserManager<User> _userManager;
     
     private IHttpContextAccessor _httpContextAccessor;
+    
+    private IEmailSenderService _emailSenderService;
 
     public AccountController(SignInManager<User> signInManager, UserManager<User> userManager,IHttpContextAccessor httpContextAccessor)
     {
@@ -69,7 +73,16 @@ public class AccountController : Controller
         if (result.Succeeded)
         {
             await _signInManager.SignInAsync(user, false);
-            return RedirectToAction("Index", "Home");
+            
+            var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+            var callbackUrl = Url.Action(
+                "ConfirmEmail",
+                "Account",
+                new { userId = user.Id, token },
+                protocol: Request.Scheme);
+            await _emailSenderService.SendEmailAsync(user.Email, "Confirm your email", $"Please confirm your account by clicking here: <a href='{callbackUrl}'>link</a>");
+            
+            return RedirectToAction("ThankYou", new { email = user.Email });
         }
 
         Console.WriteLine("User creation failed.");
@@ -88,14 +101,13 @@ public class AccountController : Controller
         return RedirectToAction("Index", "Home");
     }
 
-    public IActionResult TestAuth()
+    public IActionResult ThankYou(string email)
     {
-        //var user = User;
-        var user = _httpContextAccessor.HttpContext?.User;
-        if (User.Identity.IsAuthenticated)
-        {
-            return Content($"Authenticated as {User.Identity.Name}.");
-        }
-        return Content("Not Authenticated.");
+        return View(email);
+    }
+
+    public IActionResult ConfirmEmail(string userId, string token)
+    {
+        
     }
 }

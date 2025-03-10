@@ -10,8 +10,22 @@ public class SupplementsShopContext : IdentityDbContext<User>
     
     public DbSet<Product> Products { get; set; }
     public DbSet<Category> Categories { get; set; }
+    public DbSet<CategoryProduct> CategoryProducts { get; set; }
     public DbSet<Company> Companies { get; set; }
     public DbSet<Order> Orders { get; set; }
     public DbSet<OrderItem> OrderItems { get; set; }
-    
+
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+        // Primary key for the join entity
+        builder.Entity<CategoryProduct>()
+            .HasKey(cp => new { cp.CategoryId, cp.ProductId });
+        
+        // Relationship: Category -> CategoryProduct
+        builder.Entity<CategoryProduct>()
+            .HasOne(cp => cp.Category)
+            .WithMany(c => c.)
+        
+        // Relationship: Product -> CategoryProduct
+    }
 }
