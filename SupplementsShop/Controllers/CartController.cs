@@ -89,6 +89,13 @@ public class CartController : Controller
     public IActionResult Payment(PaymentViewModel paymentModel)
     {
         if (!ModelState.IsValid) return View(paymentModel);
+
+        var paymentInformation = new PaymentDto
+        {
+            CardNumber = paymentModel.CardNumber,
+            ExpirationDate = paymentModel.ExpirationDate,
+            CVV = paymentModel.CVV
+        };
         
         return RedirectToAction("");
     }
