@@ -43,6 +43,6 @@ public class OrderRepository : IOrderRepository
     public async Task<int?> GetNextOrderNumberAsync()
     {
         int? lastOrderNumber = _context.Orders.Max(o => (int?)o.OrderNumber);
-        return lastOrderNumber?? 1000;
+        return lastOrderNumber + 1?? 1000;
     }
 }
