@@ -34,5 +34,9 @@ public class SupplementsShopContext : IdentityDbContext<User>
             .HasOne(cp => cp.Product)
             .WithMany(p => p.CategoryProducts)
             .HasForeignKey(cp => cp.ProductId);
+        
+        builder.Entity<OrderItem>()
+            .Property(o => o.Id)
+            .ValueGeneratedOnAdd();
     }
 }

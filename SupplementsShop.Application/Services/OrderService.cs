@@ -52,12 +52,5 @@ public class OrderService : IOrderService
 
         order.AddItems(orderItems);
         await _orderRepository.UpdateAsync(order);
-        
-        await AddOrderItemsToContextAsync(orderItems);
-    }
-
-    private async Task AddOrderItemsToContextAsync(List<OrderItem> orderItems)
-    {
-        await _orderItemRepository.AddOrderItemRangeAsync(orderItems);
     }
 }

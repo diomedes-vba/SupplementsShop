@@ -2,30 +2,32 @@
 
 <div class="container">
     <form asp-action="Payment" method="post">
+        @Html.AntiForgeryToken()
+        <div asp-validation-summary="All" class="text-danger"></div>
         <div class="row">
-            
+
             <div class="col-lg-7 border">
-                
+
                 <div class="col-md-12 mb-3">
                     <label asp-for="CardNumber" class="form-label"></label>
                     <input asp-for="CardNumber" class="form-control" placeholder="Card Number"/>
                     <span asp-validation-for="CardNumber" class="text-danger"></span>
                 </div>
-                
+
                 <div class="col-md-3 mb-3">
                     <label asp-for="ExpirationDate" class="form-label"></label>
                     <input asp-for="ExpirationDate" class="form-control" placeholder="Expiration Date"/>
                     <span asp-validation-for="ExpirationDate" class="text-danger"></span>
                 </div>
-                
+
                 <div class="col-md-3 mb-3">
                     <label asp-for="CVV" class="form-label"></label>
                     <input asp-for="CVV" class="form-control" placeholder="CVV"/>
                     <span asp-validation-for="CVV" class="text-danger"></span>
                 </div>
-                
+
             </div>
-            
+
             <div class="col-lg-5 border">
                 <h2>Cart</h2>
 
@@ -49,9 +51,9 @@
                     </tbody>
                 </table>
             </div>
-            
+
         </div>
-        
+
         <button type="submit" class="btn btn-primary mt-2">Pay up nigga</button>
     </form>
 </div>

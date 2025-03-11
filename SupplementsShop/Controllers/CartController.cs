@@ -82,7 +82,7 @@ public class CartController : Controller
 
     [Authorize]
     [HttpGet]
-    public IActionResult Payment(string orderNumber)
+    public IActionResult Payment(int? orderNumber)
     {
         var paymentModel = new PaymentViewModel
         {
@@ -117,7 +117,7 @@ public class CartController : Controller
         }
     }
 
-    public IActionResult ThanksForOrder(string orderNumber)
+    public IActionResult ThanksForOrder(int orderNumber)
     {
         return View(orderNumber);
     }
