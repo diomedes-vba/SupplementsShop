@@ -17,6 +17,8 @@ public class SupplementsShopContext : IdentityDbContext<User>
 
     protected override void OnModelCreating(ModelBuilder builder)
     {
+        base.OnModelCreating(builder);
+        
         // Primary key for the join entity
         builder.Entity<CategoryProduct>()
             .HasKey(cp => new { cp.CategoryId, cp.ProductId });

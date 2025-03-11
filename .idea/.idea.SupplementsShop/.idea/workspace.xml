@@ -14,17 +14,11 @@
   <component name="ChangeListManager">
     <list default="true" id="e801cba4-2b43-4561-8b53-8a1dd002b93c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SupplementsShop/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SupplementsShop/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop.Application/Services/CategoryService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Application/Services/CategoryService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop.Application/Services/ICategoryService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Application/Services/ICategoryService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop.Domain/Entities/Category.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Domain/Entities/Category.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop.Domain/Entities/Product.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Domain/Entities/Product.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop.Domain/Interfaces/ICategoryRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Domain/Interfaces/ICategoryRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop.Infrastructure/Persistence/CategoryRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Infrastructure/Persistence/CategoryRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Infrastructure/Migrations/20250228113535_InitialMigration.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Infrastructure/Migrations/20250228113535_InitialMigration.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Infrastructure/Migrations/SupplementsShopContextModelSnapshot.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/SupplementsShop.Infrastructure/Persistence/SupplementsShopContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Infrastructure/Persistence/SupplementsShopContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop/Controllers/CartController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Controllers/CartController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop/Controllers/CategoryController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Controllers/CategoryController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop/SupplementsShop.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/SupplementsShop.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/appsettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -250,7 +244,7 @@
       <workItem from="1741440798191" duration="1311000" />
       <workItem from="1741520417523" duration="8579000" />
       <workItem from="1741590965526" duration="24191000" />
-      <workItem from="1741671790937" duration="4553000" />
+      <workItem from="1741671790937" duration="5140000" />
     </task>
     <servers />
   </component>
