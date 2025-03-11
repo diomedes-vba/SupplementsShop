@@ -13,7 +13,7 @@ public class CategoryRepository : ICategoryRepository
         _context = context;
     }
 
-    public async Task<Category?> GetBySlugAsync(string slug, int page, int pageSize = 40)
+    public async Task<Category?> GetBySlugAsync(string slug, int page, int pageSize = 5)
     {
         var category = await _context.Categories.FirstOrDefaultAsync(c => c.Slug == slug);
         

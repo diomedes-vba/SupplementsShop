@@ -11,7 +11,7 @@ public static class DependencyInjection
         services.AddScoped<IProductService, ProductService>();
         services.AddScoped<ICartService, CartService>();
         services.AddScoped<IOrderService, OrderService>();
-        services.AddScoped<IEmailSenderService, EmailSenderService>();
+        services.AddTransient<IEmailSenderService, EmailSenderService>();
         services.AddScoped<IPaymentService, PaymentService>();
 
         return services;

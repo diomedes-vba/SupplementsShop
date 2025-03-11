@@ -67,7 +67,11 @@ public class CartController : Controller
     [HttpPost]
     public async Task<IActionResult> Checkout(CheckoutViewModel checkoutModel)
     {
-        if (!ModelState.IsValid) return View(checkoutModel);
+        if (!ModelState.IsValid)
+        {
+            checkoutModel.Cart = _cartService.GetCart();
+            return View(checkoutModel);
+        }
         
         var cart = _cartService.GetCart();
         var order = checkoutModel.Order;

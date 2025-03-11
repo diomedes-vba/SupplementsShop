@@ -17,11 +17,16 @@ public class AccountController : Controller
     
     private IEmailSenderService _emailSenderService;
 
-    public AccountController(SignInManager<User> signInManager, UserManager<User> userManager,IHttpContextAccessor httpContextAccessor)
+    public AccountController(
+        SignInManager<User> signInManager, 
+        UserManager<User> userManager,
+        IHttpContextAccessor httpContextAccessor,
+        IEmailSenderService emailSenderService)
     {
         _signInManager = signInManager;
         _userManager = userManager;
         _httpContextAccessor = httpContextAccessor;
+        _emailSenderService = emailSenderService;
     }
 
     [AllowAnonymous]
@@ -76,12 +81,12 @@ public class AccountController : Controller
             
             var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
             var callbackUrl = Url.Action(
-                "ConfirmEmail",
+                action: "ConfirmEmail",
                 "Account",
                 new { userId = user.Id, token },
                 protocol: Request.Scheme);
             
-            await _emailSenderService.SendEmailAsync(user.Email, "Confirm your email", $"Please confirm your account by clicking here: <a href='{callbackUrl}'>link</a>");
+            //await _emailSenderService.SendEmailAsync(user.Email, "Confirm your email", $"Please confirm your account by clicking here: <a href='{callbackUrl}'>link</a>");
             
             return RedirectToAction("ThankYou", new { email = user.Email });
         }
@@ -104,7 +109,7 @@ public class AccountController : Controller
 
     public IActionResult ThankYou(string email)
     {
-        return View(email);
+        return View((object)email);
     }
 
     [HttpGet]
@@ -124,11 +129,11 @@ public class AccountController : Controller
         var result = await _userManager.ConfirmEmailAsync(user, token);
         if (result.Succeeded)
         {
-            return View("Confirmed");
+            return View((object)"Confirmed");
         }
         else
         {
-            return View("Error");
+            return View((object)"Error");
         }
     }
 }

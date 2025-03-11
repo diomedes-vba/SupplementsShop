@@ -2,6 +2,8 @@
 
 <div class="container">
     <form asp-action="Checkout" method="post">
+        @Html.AntiForgeryToken()
+        <div asp-validation-summary="All" class="text-danger"></div>
         <div class="row">
 
             <div class="col-lg-7 border">
@@ -95,7 +97,7 @@
             </div>
 
         </div>
-        
+
         <button type="submit" class="btn btn-primary mt-2">Proceed to payment</button>
     </form>
 </div>
