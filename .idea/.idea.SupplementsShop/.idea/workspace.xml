@@ -14,12 +14,10 @@
   <component name="ChangeListManager">
     <list default="true" id="e801cba4-2b43-4561-8b53-8a1dd002b93c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SupplementsShop/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SupplementsShop/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Application/Services/IOrderService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Application/Services/IOrderService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SupplementsShop.Application/Services/OrderService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Application/Services/OrderService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop.Infrastructure/Persistence/SupplementsShopContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Infrastructure/Persistence/SupplementsShopContext.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SupplementsShop/Controllers/CartController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Controllers/CartController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop/ViewModels/PaymentViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/ViewModels/PaymentViewModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SupplementsShop/Views/Cart/Payment.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Views/Cart/Payment.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop/Views/Cart/ThanksForOrder.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Views/Cart/ThanksForOrder.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +70,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     ".NET Launch Settings Profile.SupplementsShop: http.executor": "Debug",
-    ".NET Launch Settings Profile.SupplementsShop: https.executor": "Run",
+    ".NET Launch Settings Profile.SupplementsShop: https.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "node.js.detected.package.eslint": "true",
@@ -247,7 +245,7 @@
       <workItem from="1741590965526" duration="24191000" />
       <workItem from="1741671790937" duration="5931000" />
       <workItem from="1741679315691" duration="1956000" />
-      <workItem from="1741702668268" duration="13160000" />
+      <workItem from="1741702668268" duration="15075000" />
     </task>
     <servers />
   </component>
@@ -269,5 +267,37 @@
   <component name="VcsManagerConfiguration">
     <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/SupplementsShop/Controllers/CartController.cs</url>
+          <line>86</line>
+          <properties documentPath="C:\Users\Vladyslav\RiderProjects\SupplementsShop\SupplementsShop\Controllers\CartController.cs" containingFunctionPresentation="Method 'Payment'">
+            <startOffsets>
+              <option value="2381" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2522" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/SupplementsShop/Controllers/CartController.cs</url>
+          <line>110</line>
+          <properties documentPath="C:\Users\Vladyslav\RiderProjects\SupplementsShop\SupplementsShop\Controllers\CartController.cs" containingFunctionPresentation="Method 'Payment'">
+            <startOffsets>
+              <option value="3086" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3176" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

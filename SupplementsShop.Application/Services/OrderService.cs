@@ -15,7 +15,7 @@ public class OrderService : IOrderService
         _orderItemRepository = orderItemRepository;
     }
 
-    public async Task CreateOrderAsync(OrderDto orderDto, CartDto cart)
+    public async Task<int?> CreateOrderAsync(OrderDto orderDto, CartDto cart)
     {
         var orderNumber = await _orderRepository.GetNextOrderNumberAsync();
         var order = new Order(
@@ -35,6 +35,8 @@ public class OrderService : IOrderService
         await _orderRepository.AddAsync(order);
 
         await AddOrderItemsToOrderAsync(order, cart);
+
+        return order.OrderNumber;
     }
 
     private async Task AddOrderItemsToOrderAsync(Order order, CartDto cart)
@@ -52,5 +54,26 @@ public class OrderService : IOrderService
 
         order.AddItems(orderItems);
         await _orderRepository.UpdateAsync(order);
+    }
+
+    public async Task<OrderDto> GetOrderByIdAsync(int orderId)
+    {
+        var order = await _orderRepository.GetByIdAsync(orderId);
+        return new OrderDto
+        {
+            Id = order.Id,
+            OrderNumber = order.OrderNumber,
+            FirstName = order.FirstName,
+            LastName = order.LastName,
+            OrderDate = order.OrderDate,
+            Email = order.Email,
+            PhoneNumber = order.PhoneNumber,
+            StreetAddress1 = order.StreetAddress1,
+            StreetAddress2 = order.StreetAddress2,
+            City = order.City,
+            StateOrRegion = order.StateOrRegion,
+            PostalCode = order.PostalCode,
+            Country = order.Country
+        };
     }
 }

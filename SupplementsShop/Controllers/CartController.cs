@@ -75,9 +75,9 @@ public class CartController : Controller
         
         var cart = _cartService.GetCart();
         var order = checkoutModel.Order;
-        await _orderService.CreateOrderAsync(order, cart);
+        var orderNumber = await _orderService.CreateOrderAsync(order, cart);
         
-        return RedirectToAction("Payment", new { orderNumber = order.OrderNumber });
+        return RedirectToAction("Payment", new { orderNumber });
     }
 
     [Authorize]
