@@ -24,8 +24,13 @@ public class SupplementsShopContext : IdentityDbContext<User>
         // Relationship: Category -> CategoryProduct
         builder.Entity<CategoryProduct>()
             .HasOne(cp => cp.Category)
-            .WithMany(c => c.)
+            .WithMany(c => c.CategoryProducts)
+            .HasForeignKey(cp => cp.CategoryId);
         
         // Relationship: Product -> CategoryProduct
+        builder.Entity<CategoryProduct>()
+            .HasOne(cp => cp.Product)
+            .WithMany(p => p.CategoryProducts)
+            .HasForeignKey(cp => cp.ProductId);
     }
 }

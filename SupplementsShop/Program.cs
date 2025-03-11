@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using SupplementsShop.Infrastructure;
 using SupplementsShop.Application;
+using Hangfire;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,15 +21,6 @@ builder.Services.AddApplicationServices();
 
 builder.Services.AddSession();
 builder.Services.AddHttpContextAccessor();
-
-//builder.Services.AddAuthentication(options =>
-// {
-//     options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-//     options.DefaultChallengeScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-//     options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-// });
-
-//builder.Services.AddAuthorization();
 
 var app = builder.Build();
 

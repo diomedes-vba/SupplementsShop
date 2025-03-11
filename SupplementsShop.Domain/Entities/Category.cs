@@ -8,7 +8,7 @@ public class Category
     public string Slug { get; private set; }
     
     // Relationships
-    public List<Product> Products { get; private set; } = new List<Product>();
+    public List<CategoryProduct> CategoryProducts { get; private set; } = new List<CategoryProduct>();
     public int? ParentCategoryId { get; private set; }
     public Category? ParentCategory { get; private set; }
     public List<Category> ChildCategories { get; private set; } = new List<Category>();
@@ -23,5 +23,10 @@ public class Category
         Slug = slug;
         Description = description;
         ParentCategoryId = parentCategoryId;
+    }
+
+    public void AddCategoryProducts(List<CategoryProduct> categoryProduct)
+    {
+        CategoryProducts = categoryProduct;
     }
 }

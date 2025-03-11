@@ -13,11 +13,19 @@ public class CategoryRepository : ICategoryRepository
         _context = context;
     }
 
-    public async Task<Category?> GetBySlugAsync(string slug)
+    public async Task<Category?> GetBySlugAsync(string slug, int page, int pageSize = 40)
     {
-        var category = await _context.Categories
-            .Include(c => c.Products)
-            .FirstOrDefaultAsync(c => c.Slug == slug);
+        var category = await _context.Categories.FirstOrDefaultAsync(c => c.Slug == slug);
+        
+        var pagedProducts = await _context.CategoryProducts
+            .Where(cp => cp.CategoryId == category.Id)
+            .OrderBy(cp => cp.CategoryId)
+            .Skip((page - 1) * pageSize)
+            .Take(pageSize)
+            .Include(cp => cp.Product)
+            .ToListAsync();
+
+        category?.AddCategoryProducts(pagedProducts);
         return category;
     }
     

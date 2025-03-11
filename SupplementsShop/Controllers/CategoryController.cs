@@ -13,9 +13,10 @@ public class CategoryController : Controller
     }
     
     // GET
-    public async Task<IActionResult> Products(string slug)
+    public async Task<IActionResult> Products(string slug, int page = 1)
     {
-        var category = await _categoryService.GetCategoryBySlugAsync(slug);
+        var category = await _categoryService.GetCategoryBySlugAsync(slug, page);
+        if (category == null) return NotFound();
         return View(category);
     }
 }

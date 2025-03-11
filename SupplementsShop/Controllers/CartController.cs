@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using SupplementsShop.Application.DTOs;
 using SupplementsShop.Application.Services;
 using SupplementsShop.ViewModels;
+using Hangfire;
 
 namespace SupplementsShop.Controllers;
 

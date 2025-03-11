@@ -14,7 +14,7 @@ public class Product
     // Relationships
     public int CompanyId { get; private set; }
     public Company Company { get; private set; }
-    public List<Category> Categories { get; private set; } = new List<Category>();
+    public List<CategoryProduct> CategoryProducts { get; private set; } = new List<CategoryProduct>();
     
     public bool IsAvailable => Quantity > 0;
     

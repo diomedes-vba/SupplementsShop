@@ -12,9 +12,9 @@ public class CategoryService : ICategoryService
         _categoryRepository = categoryRepository;
     }
 
-    public async Task<CategoryDto?> GetCategoryBySlugAsync(string slug)
+    public async Task<CategoryDto?> GetCategoryBySlugAsync(string slug, int pageNumber)
     {
-        var category = await _categoryRepository.GetBySlugAsync(slug);
+        var category = await _categoryRepository.GetBySlugAsync(slug, pageNumber);
         if (category == null) return null;
 
         return new CategoryDto
@@ -23,15 +23,15 @@ public class CategoryService : ICategoryService
             Name = category.Name,
             Slug = category.Slug,
             Description = category.Description,
-            Products = category.Products.Select(p => new ProductDto
+            Products = category.CategoryProducts.Select(cp => new ProductDto
             {
-                Id = p.Id,
-                Name = p.Name,
-                Price = p.Price,
-                ImageUrl = p.ImageUrl,
-                Slug = p.Slug,
-                Description = p.Description,
-                Sales = p.Sales
+                Id = cp.Product.Id,
+                Name = cp.Product.Name,
+                Price = cp.Product.Price,
+                ImageUrl = cp.Product.ImageUrl,
+                Slug = cp.Product.Slug,
+                Description = cp.Product.Description,
+                Sales = cp.Product.Sales
             }).ToList()
         };
     }
@@ -46,16 +46,6 @@ public class CategoryService : ICategoryService
             Name = category.Name,
             Slug = category.Slug,
             Description = category.Description,
-            Products = category.Products.Select(p => new ProductDto
-            {
-                Id = p.Id,
-                Name = p.Name,
-                Price = p.Price,
-                ImageUrl = p.ImageUrl,
-                Slug = p.Slug,
-                Description = p.Description,
-                Sales = p.Sales
-            }).ToList()
         });
     }
 }
