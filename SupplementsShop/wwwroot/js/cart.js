@@ -21,9 +21,21 @@ document.addEventListener("DOMContentLoaded", () => {
                     modalTitle.textContent = "Error";
                     modalBody.textContent = data.message;
                 }
-                const modalElement = document.getElementById('cartModal');
-                const modalInstance = new bootstrap.Modal(modalElement);
-                modalInstance.show();
+                
+                fetch('/Cart/RefreshCart', {
+                    method: "GET",
+                    headers: {
+                        "X-Requested-With": "XMLHttpRequest"
+                    }
+                })
+                    .then(response => response.text())
+                    .then(html => {
+                        document.getElementById('cartModalContainer').innerHTML = html;
+
+                        const modalElement = document.getElementById('cartModal');
+                        const modalInstance = new bootstrap.Modal(modalElement);
+                        modalInstance.show();
+                    });
             })
             .catch(error => console.error("Error: ", error));
     }

@@ -38,6 +38,12 @@ public class CartController : Controller
         return Json(new { success = false, message = "Product not found" });
     }
 
+    [HttpGet]
+    public IActionResult RefreshCart()
+    {
+        return ViewComponent("Cart");
+    }
+
     public IActionResult RemoveFromCart(int productId)
     {
         _cartService.RemoveFromCart(productId);
