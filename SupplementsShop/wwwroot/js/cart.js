@@ -11,12 +11,19 @@ document.addEventListener("DOMContentLoaded", () => {
         })
             .then(response => response.json())
             .then(data => {
+                const modalTitle = document.getElementById('cartModalLabel');
+                const modalBody = document.getElementById('cartModalBody');
                 if (data.success) {
-                    alert(data.message);
+                    modalTitle.textContent = "Success";
+                    modalBody.textContent = data.message;
                     updateCartBadge();
                 } else {
-                    alert("Error: " + data.message);
+                    modalTitle.textContent = "Error";
+                    modalBody.textContent = data.message;
                 }
+                const modalElement = document.getElementById('cartModal');
+                const modalInstance = new bootstrap.Modal(modalElement);
+                modalInstance.show();
             })
             .catch(error => console.error("Error: ", error));
     }

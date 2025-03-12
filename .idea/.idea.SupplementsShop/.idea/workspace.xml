@@ -13,7 +13,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e801cba4-2b43-4561-8b53-8a1dd002b93c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/SupplementsShop/Views/Shared/_CartModal.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SupplementsShop/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SupplementsShop/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Views/Shared/_Layout.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/js/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/wwwroot/js/cart.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -242,7 +245,9 @@
       <workItem from="1741671790937" duration="5931000" />
       <workItem from="1741679315691" duration="1956000" />
       <workItem from="1741702668268" duration="15466000" />
-      <workItem from="1741761648692" duration="1017000" />
+      <workItem from="1741761648692" duration="6411000" />
+      <workItem from="1741775409692" duration="100000" />
+      <workItem from="1741775647159" duration="4276000" />
     </task>
     <servers />
   </component>
