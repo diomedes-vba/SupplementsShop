@@ -77,9 +77,33 @@ document.addEventListener("DOMContentLoaded", () => {
             .catch(error => console.error("Error fetching cart count: ", error));
     }
     
-    function updateCartQuantity(id, quantity)
-    {
-        
+    window.updateCartQuantity = function(productId, quantity) {
+        fetch(`/Cart/UpdateItemQuantity`, {
+            method: "POST",
+            headers: {
+                "X-Requested-With": "XMLHttpRequest"
+            },
+            body: new URLSearchParams({ productId, quantity })
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    console.log('Cart Updated')
+                    
+                    const itemTotalElement = document.getElementById('item-total-' + productId);
+                    if (itemTotalElement) {
+                        itemTotalElement.innerText = data.itemNewPrice +" $";
+                    }
+                    
+                    const cartTotalElement = document.getElementById('cart-total');
+                    if (cartTotalElement) {
+                        cartTotalElement.innerText = "Total Price: $" + data.cartNewPrice;
+                    }
+                } else {
+                    console.error('Failed to update quantity');
+                }
+            })
+            .catch(error => console.error("Error updating cart quantity: ", error));
     }
 
     updateCartBadge()

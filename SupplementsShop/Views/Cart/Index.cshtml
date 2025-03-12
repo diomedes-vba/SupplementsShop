@@ -21,8 +21,8 @@ else
                     <div class="row">
                         <div class="col-auto">
                             <form method="post">
-                                <label for="CartItemQuantity" class="form-label d-none">Quantity</label>
-                                <select id="CartItemQuantity" 
+                                <label for="CartItemQuantity_@item.Id" class="form-label d-none">Quantity</label>
+                                <select id="CartItemQuantity_@item.Id" 
                                         class="form-select form-select-sm w-auto"
                                         name="CartItemQuantity"
                                         asp-for="@item.Quantity"
@@ -41,13 +41,13 @@ else
                     </div>
                 </td>
                 <td>
-                    <p class="fw-bold">@item.TotalPrice $</p>
+                    <p class="fw-bold" id="item-total-@item.Id">@item.TotalPrice $</p>
                 </td>
             </tr>
         }
         </tbody>
     </table>
-    <h4>Total Price: $@Model.TotalPrice</h4>
+    <h4 id="cart-total">Total Price: $@Model.TotalPrice</h4>
     <h5>Proceed to checkout?</h5>
     <a asp-action="Checkout" asp-controller="Cart" class="btn btn-primary">Checkout</a>
 }

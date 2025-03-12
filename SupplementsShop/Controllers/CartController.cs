@@ -32,7 +32,10 @@ public class CartController : Controller
     {
         if (await _cartService.AddToCartAsync(productId, quantity))
         {
-            return Json(new { success = true, message = $"Added {quantity} product to cart" });
+            return Json(new {
+                success = true, 
+                message = $"Added {quantity} product to cart"
+            });
         }
 
         return Json(new { success = false, message = "Product not found" });
@@ -42,6 +45,24 @@ public class CartController : Controller
     public IActionResult RefreshCart()
     {
         return ViewComponent("Cart");
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> UpdateItemQuantity(int productId, int quantity)
+    {
+        if (await _cartService.UpdateItemQuantityAsync(productId, quantity))
+        {
+            var cartTotalPrice = _cartService.GetCartTotalPrice();
+            var cartItemTotalPrice = _cartService.GetCartItemTotalPrice(productId);
+            return Json(new { 
+                success = true, 
+                cartNewPrice = cartTotalPrice, 
+                itemNewPrice = cartItemTotalPrice, 
+                message = $"Product quantity updated to {quantity}" 
+            });
+        }
+        
+        return Json(new { success = false, message = "Product not found" });
     }
 
     public IActionResult RemoveFromCart(int productId)

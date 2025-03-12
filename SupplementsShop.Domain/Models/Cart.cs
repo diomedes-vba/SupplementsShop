@@ -26,6 +26,13 @@ public class Cart
             item.IncreaseQuantity(quantity);
         }
     }
+
+    public void UpdateItemQuantity(Product product, int quantity)
+    {
+        var item = _items.FirstOrDefault(p => p.Id == product.Id);
+
+        item.UpdateQuantity(quantity);
+    }
     
     public void RemoveItem(int productId) => _items.RemoveAll(p => p.Id == productId);
     

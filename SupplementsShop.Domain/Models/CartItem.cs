@@ -21,4 +21,5 @@ public class CartItem
     
     public void IncreaseQuantity(int amount) => Quantity += amount;
     public void DecreaseQuantity(int amount) => Quantity -= amount;
+    public void UpdateQuantity(int newQuantity) => Quantity = newQuantity;
 }

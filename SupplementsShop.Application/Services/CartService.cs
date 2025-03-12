@@ -65,6 +65,29 @@ public class CartService : ICartService
         return true;
     }
 
+    public async Task<bool> UpdateItemQuantityAsync(int productId, int quantity)
+    {
+        var product = await _productRepository.GetByIdAsync(productId);
+        if (product == null) return false;
+        
+        var cart = GetCartFromSession();
+        cart.UpdateItemQuantity(product, quantity);
+        SaveCartToSession(cart);
+        return true;
+    }
+
+    public decimal GetCartTotalPrice()
+    {
+        var cart = GetCartFromSession();
+        return cart.TotalPrice;
+    }
+
+    public decimal GetCartItemTotalPrice(int productId)
+    {
+        var cart = GetCartFromSession();
+        return cart.Items.FirstOrDefault(item => item.Id == productId)?.TotalPrice ?? 0;
+    }
+
     public void RemoveFromCart(int productId)
     {
         var cart = GetCartFromSession();
