@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SupplementsShop.Infrastructure.Persistence;
 
@@ -11,9 +12,11 @@ using SupplementsShop.Infrastructure.Persistence;
 namespace SupplementsShop.Infrastructure.Migrations
 {
     [DbContext(typeof(SupplementsShopContext))]
-    partial class SupplementsShopContextModelSnapshot : ModelSnapshot
+    [Migration("20250313090555_RemoveUserIdFromOrder")]
+    partial class RemoveUserIdFromOrder
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -287,13 +290,7 @@ namespace SupplementsShop.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("Orders");
                 });
@@ -518,17 +515,6 @@ namespace SupplementsShop.Infrastructure.Migrations
                     b.Navigation("Category");
 
                     b.Navigation("Product");
-                });
-
-            modelBuilder.Entity("SupplementsShop.Domain.Entities.Order", b =>
-                {
-                    b.HasOne("SupplementsShop.Domain.Entities.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("SupplementsShop.Domain.Entities.OrderItem", b =>

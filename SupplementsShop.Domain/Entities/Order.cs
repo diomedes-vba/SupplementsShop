@@ -19,7 +19,7 @@ public class Order
     public string Country { get; private set; }
 
     public List<OrderItem> Items { get; private set; }
-    public int UserId { get; private set; }
+    public string UserId { get; private set; }
     public User User { get; private set; }
     
     public bool IsPaid { get; private set; }

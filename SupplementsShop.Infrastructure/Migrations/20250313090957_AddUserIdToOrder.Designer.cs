@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SupplementsShop.Infrastructure.Persistence;
 
@@ -11,9 +12,11 @@ using SupplementsShop.Infrastructure.Persistence;
 namespace SupplementsShop.Infrastructure.Migrations
 {
     [DbContext(typeof(SupplementsShopContext))]
-    partial class SupplementsShopContextModelSnapshot : ModelSnapshot
+    [Migration("20250313090957_AddUserIdToOrder")]
+    partial class AddUserIdToOrder
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
