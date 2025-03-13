@@ -31,7 +31,7 @@ public class Order
     // Constructor with parameters
     public Order(int? orderNumber, string firstName, string lastName, DateTime orderDate, string email,
         string phoneNumber, string streetAddress1, string streetAddress2, string city, string stateOrRegion,
-        string postalCode, string country)
+        string postalCode, string country, string userId)
     {
         OrderNumber = orderNumber;
         FirstName = firstName;
@@ -45,6 +45,7 @@ public class Order
         StateOrRegion = stateOrRegion;
         PostalCode = postalCode;
         Country = country;
+        UserId = userId;
     }
 
     public void AddItems(List<OrderItem> items)

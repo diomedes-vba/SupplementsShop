@@ -4,6 +4,8 @@ using SupplementsShop.Application.DTOs;
 using SupplementsShop.Application.Services;
 using SupplementsShop.ViewModels;
 using Hangfire;
+using Microsoft.AspNetCore.Identity;
+using SupplementsShop.Domain.Entities;
 
 namespace SupplementsShop.Controllers;
 
@@ -12,12 +14,14 @@ public class CartController : Controller
     private readonly ICartService _cartService;
     private readonly IOrderService _orderService;
     private readonly IPaymentService _paymentService;
+    private readonly UserManager<User> _userManager;
 
-    public CartController(ICartService cartService, IOrderService orderService, IPaymentService paymentService)
+    public CartController(ICartService cartService, IOrderService orderService, IPaymentService paymentService, UserManager<User> userManager)
     {
         _cartService = cartService;
         _orderService = orderService;
         _paymentService = paymentService;
+        _userManager = userManager;
     }
     
     // GET
@@ -82,10 +86,11 @@ public class CartController : Controller
     [HttpGet]
     public IActionResult Checkout()
     {
+        var userId = _userManager.GetUserId(User);
         var checkoutModel = new CheckoutViewModel
         {
             Cart = _cartService.GetCart(),
-            Order = new OrderDto()
+            Order = new OrderDto { UserId = userId}
         };
         return View(checkoutModel);
     }

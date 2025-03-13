@@ -4,6 +4,7 @@
     <form asp-action="Checkout" method="post">
         @Html.AntiForgeryToken()
         <div asp-validation-summary="All" class="text-danger"></div>
+        <input type="hidden" asp-for="Order.UserId" />
         <div class="row">
 
             <div class="col-lg-7 border">

@@ -29,6 +29,7 @@ public class OrderDto
     public string Country { get; set; }
     
     public List<OrderItemDto> OrderItems { get; set; } = new List<OrderItemDto>();
+    public string UserId { get; set; }
     
     public bool IsPaid { get; set; }
     public bool IsShipped { get; set; }

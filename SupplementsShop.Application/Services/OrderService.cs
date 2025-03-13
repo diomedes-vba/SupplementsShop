@@ -18,6 +18,7 @@ public class OrderService : IOrderService
     public async Task<int?> CreateOrderAsync(OrderDto orderDto, CartDto cart)
     {
         var orderNumber = await _orderRepository.GetNextOrderNumberAsync();
+        orderDto.OrderDate = DateTime.UtcNow;
         var order = new Order(
             orderNumber,
             orderDto.FirstName,
@@ -30,7 +31,8 @@ public class OrderService : IOrderService
             orderDto.City,
             orderDto.StateOrRegion,
             orderDto.PostalCode,
-            orderDto.Country);
+            orderDto.Country,
+            orderDto.UserId);
         
         await _orderRepository.AddAsync(order);
 
