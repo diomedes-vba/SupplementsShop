@@ -140,6 +140,7 @@ public class CartController : Controller
 
         if (result.Success)
         {
+            _cartService.ClearCart();
             return RedirectToAction("ThanksForOrder", new { orderNumber = paymentModel.OrderNumber });
         }
         else
