@@ -6,7 +6,7 @@ namespace SupplementsShop.Application.Services;
 public interface ICartService
 {
     CartDto GetCart();
-    Task<bool> AddToCartAsync(int productId, int quantity);
+    Task<bool> AddToCartAsync(int productId, int quantity, string? userId);
     Task<bool> UpdateItemQuantityAsync(int productId, int quantity);
     decimal GetCartTotalPrice();
     decimal GetCartItemTotalPrice(int productId);

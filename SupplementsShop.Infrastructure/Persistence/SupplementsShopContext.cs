@@ -14,6 +14,7 @@ public class SupplementsShopContext : IdentityDbContext<User>
     public DbSet<Company> Companies { get; set; }
     public DbSet<Order> Orders { get; set; }
     public DbSet<OrderItem> OrderItems { get; set; }
+    public DbSet<CartItemContext> CartItems { get; set; }
 
     protected override void OnModelCreating(ModelBuilder builder)
     {

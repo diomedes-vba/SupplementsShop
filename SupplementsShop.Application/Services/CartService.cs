@@ -1,4 +1,6 @@
+using System.Security.Claims;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using SupplementsShop.Domain.Interfaces;
 using SupplementsShop.Domain.Models;
 using SupplementsShop.Infrastructure.Extensions;
@@ -6,6 +8,7 @@ using SupplementsShop.Application.DTOs;
 
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using SupplementsShop.Domain.Entities;
 
 namespace SupplementsShop.Application.Services;
 
@@ -15,12 +18,14 @@ public class CartService : ICartService
     private readonly IProductRepository _productRepository;
     private readonly IHttpContextAccessor _httpContextAccessor;
     private readonly ILogger<CartService> _logger;
+    private readonly ICartItemRepository _cartItemRepository;
 
-    public CartService(IProductRepository productRepository, IHttpContextAccessor httpContextAccessor, ILogger<CartService> logger)
+    public CartService(IProductRepository productRepository, IHttpContextAccessor httpContextAccessor, ILogger<CartService> logger, ICartItemRepository cartItemRepository)
     {
         _productRepository = productRepository;
         _httpContextAccessor = httpContextAccessor;
         _logger = logger;
+        _cartItemRepository = cartItemRepository;
     }
     
     private ISession Session => _httpContextAccessor.HttpContext.Session;
@@ -54,11 +59,20 @@ public class CartService : ICartService
         };
     }
 
-    public async Task<bool> AddToCartAsync(int productId, int quantity)
+    public async Task<bool> AddToCartAsync(int productId, int quantity, string? userId)
     {
         var product = await _productRepository.GetByIdAsync(productId);
         if (product == null) return false;
-        
+
+        if (userId != null)
+        {
+            await _cartItemRepository.AddToCartAsync(new CartItemContext
+            {
+                ProductId = productId,
+                Quantity = quantity,
+                UserId = userId
+            });
+        }
         var cart = GetCartFromSession();
         cart.AddItem(product, quantity);
         SaveCartToSession(cart);

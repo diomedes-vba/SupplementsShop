@@ -34,7 +34,8 @@ public class CartController : Controller
     [HttpPost]
     public async Task<IActionResult> AddToCart(int productId, int quantity = 1)
     {
-        if (await _cartService.AddToCartAsync(productId, quantity))
+        var userId = _userManager.GetUserId(User);
+        if (await _cartService.AddToCartAsync(productId, quantity, userId))
         {
             return Json(new {
                 success = true, 
@@ -143,11 +144,9 @@ public class CartController : Controller
             _cartService.ClearCart();
             return RedirectToAction("ThanksForOrder", new { orderNumber = paymentModel.OrderNumber });
         }
-        else
-        {
-            ModelState.AddModelError(string.Empty, result.ErrorMessage);
-            return View(paymentModel);
-        }
+        
+        ModelState.AddModelError(string.Empty, result.ErrorMessage);
+        return View(paymentModel);
     }
 
     public IActionResult ThanksForOrder(int orderNumber)

@@ -16,17 +16,20 @@ public class AccountController : Controller
     private IHttpContextAccessor _httpContextAccessor;
     
     private IEmailSenderService _emailSenderService;
+    private readonly ICartService _cartService;
 
     public AccountController(
         SignInManager<User> signInManager, 
         UserManager<User> userManager,
         IHttpContextAccessor httpContextAccessor,
-        IEmailSenderService emailSenderService)
+        IEmailSenderService emailSenderService,
+        ICartService cartService)
     {
         _signInManager = signInManager;
         _userManager = userManager;
         _httpContextAccessor = httpContextAccessor;
         _emailSenderService = emailSenderService;
+        _cartService = cartService;
     }
 
     [AllowAnonymous]
@@ -53,6 +56,7 @@ public class AccountController : Controller
         var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
         if (result.Succeeded)
         {
+            _cartService.MergeCart();
             if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
             {
                 return Redirect(returnUrl);
