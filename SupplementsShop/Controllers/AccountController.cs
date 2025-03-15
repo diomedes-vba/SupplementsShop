@@ -56,7 +56,8 @@ public class AccountController : Controller
         var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
         if (result.Succeeded)
         {
-            _cartService.MergeCart();
+            var userId = _userManager.GetUserId(User);
+            await _cartService.MergeCartAsync(userId);
             if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
             {
                 return Redirect(returnUrl);

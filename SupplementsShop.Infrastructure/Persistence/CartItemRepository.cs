@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using SupplementsShop.Domain.Entities;
 using SupplementsShop.Domain.Interfaces;
 
@@ -16,5 +17,14 @@ public class CartItemRepository : ICartItemRepository
     {
         await _context.CartItems.AddAsync(cartItem);
         await _context.SaveChangesAsync();
+    }
+
+    public async Task<List<CartItemContext>> GetCartItemsAsync(string? userId)
+    {
+        var cartItems = await _context.CartItems
+            .Where(ci => ci.UserId == userId)
+            .ToListAsync();
+        
+        return cartItems;
     }
 }

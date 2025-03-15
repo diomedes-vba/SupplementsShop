@@ -16,10 +16,11 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SupplementsShop/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SupplementsShop/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SupplementsShop.Application/Services/CartService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Application/Services/CartService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SupplementsShop.Application/Services/ICartService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Application/Services/ICartService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop.Infrastructure/DependencyInjection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Infrastructure/DependencyInjection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop.Infrastructure/Persistence/SupplementsShopContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Infrastructure/Persistence/SupplementsShopContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Domain/Interfaces/ICartItemRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Domain/Interfaces/ICartItemRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Domain/Models/Cart.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Domain/Models/Cart.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Domain/Models/CartItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Domain/Models/CartItem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Infrastructure/Persistence/CartItemRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Infrastructure/Persistence/CartItemRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SupplementsShop/Controllers/AccountController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Controllers/AccountController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop/Controllers/CartController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Controllers/CartController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -254,7 +255,8 @@
       <workItem from="1741775647159" duration="26804000" />
       <workItem from="1741854634997" duration="12530000" />
       <workItem from="1741939132145" duration="5574000" />
-      <workItem from="1741969471406" duration="4129000" />
+      <workItem from="1741969471406" duration="7882000" />
+      <workItem from="1742043069759" duration="3117000" />
     </task>
     <servers />
   </component>

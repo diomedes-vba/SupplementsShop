@@ -13,4 +13,5 @@ public interface ICartService
     void RemoveFromCart(int productId);
     void ClearCart();
     int GetCartCount();
+    Task MergeCartAsync(string? userId);
 }

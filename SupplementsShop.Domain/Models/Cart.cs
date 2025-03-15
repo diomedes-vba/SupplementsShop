@@ -7,29 +7,23 @@ public class Cart
     private List<CartItem> _items = new List<CartItem>();
     public List<CartItem> Items => _items;
 
-    public void AddItem(Product product, int quantity)
+    public void AddItem(CartItem cartItem)
     {
-        var item = _items.FirstOrDefault(p => p.Id == product.Id);
+        var item = _items.FirstOrDefault(ci => ci.Id == cartItem.Id);
 
         if (item == null)
         {
-            _items.Add(new CartItem(
-                product.Id,
-                product.Name,
-                product.Price,
-                quantity,
-                product.ImageUrl
-                ));
+            _items.Add(cartItem);
         }
         else
         {
-            item.IncreaseQuantity(quantity);
+            item.IncreaseQuantity(cartItem.Quantity);
         }
     }
 
-    public void UpdateItemQuantity(Product product, int quantity)
+    public void UpdateItemQuantity(int productId, int quantity)
     {
-        var item = _items.FirstOrDefault(p => p.Id == product.Id);
+        var item = _items.FirstOrDefault(p => p.Id == productId);
 
         item.UpdateQuantity(quantity);
     }

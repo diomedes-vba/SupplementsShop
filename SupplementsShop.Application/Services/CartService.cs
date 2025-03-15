@@ -66,17 +66,35 @@ public class CartService : ICartService
 
         if (userId != null)
         {
-            await _cartItemRepository.AddToCartAsync(new CartItemContext
-            {
-                ProductId = productId,
-                Quantity = quantity,
-                UserId = userId
-            });
+            await AddToContextCartAsync(productId, quantity, userId);
         }
-        var cart = GetCartFromSession();
-        cart.AddItem(product, quantity);
-        SaveCartToSession(cart);
+        
+        AddToSessionCart(new CartItem
+        {
+            Id = product.Id,
+            Name = product.Name,
+            Price = product.Price,
+            ImageUrl = product.ImageUrl,
+            Quantity = quantity,
+        });
         return true;
+    }
+
+    private async Task AddToContextCartAsync(int productId, int quantity, string? userId)
+    {
+        await _cartItemRepository.AddToCartAsync(new CartItemContext
+        {
+            ProductId = productId,
+            Quantity = quantity,
+            UserId = userId
+        });
+    }
+
+    private void AddToSessionCart(CartItem cartItem)
+    {
+        var cart = GetCartFromSession();
+        cart.AddItem(cartItem);
+        SaveCartToSession(cart);
     }
 
     public async Task<bool> UpdateItemQuantityAsync(int productId, int quantity)
@@ -85,7 +103,7 @@ public class CartService : ICartService
         if (product == null) return false;
         
         var cart = GetCartFromSession();
-        cart.UpdateItemQuantity(product, quantity);
+        cart.UpdateItemQuantity(productId, quantity);
         SaveCartToSession(cart);
         return true;
     }
@@ -122,4 +140,28 @@ public class CartService : ICartService
         return cart.Items.Count;
     }
 
+    public async Task MergeCartAsync(string? userId)
+    {
+        var cartItemsContext = await _cartItemRepository.GetCartItemsAsync(userId);
+        var cartItemsSession = CartItemsFromContextToSession(cartItemsContext);
+
+        foreach (var cartItem in cartItemsSession)
+        {
+            AddToSessionCart(cartItem);
+        }
+    }
+
+    private List<CartItem> CartItemsFromContextToSession(List<CartItemContext> cartItemsContext)
+    {
+        var cartItems = cartItemsContext.Select(ci => new CartItem
+        {
+            Id = ci.ProductId,
+            Name = ci.Product.Name,
+            Price = ci.Product.Price,
+            Quantity = ci.Quantity,
+            ImageUrl = ci.Product.ImageUrl
+        }).ToList();
+        
+        return cartItems;
+    }
 }
