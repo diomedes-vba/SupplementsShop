@@ -82,12 +82,20 @@ public class CartService : ICartService
 
     private async Task AddToContextCartAsync(int productId, int quantity, string? userId)
     {
-        await _cartItemRepository.AddToCartAsync(new CartItemContext
+        var cartItemId = await _cartItemRepository.GetCartItemIdAsync(productId, userId);
+        if (cartItemId == null)
         {
-            ProductId = productId,
-            Quantity = quantity,
-            UserId = userId
-        });
+            await _cartItemRepository.AddToCartAsync(new CartItemContext
+            {
+                ProductId = productId,
+                Quantity = quantity,
+                UserId = userId
+            });
+        }
+        else
+        {
+            await _cartItemRepository.IncreaseQuantityAsync(cartItemId, quantity);
+        }
     }
 
     private void AddToSessionCart(CartItem cartItem)

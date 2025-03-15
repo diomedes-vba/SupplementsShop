@@ -23,8 +23,22 @@ public class CartItemRepository : ICartItemRepository
     {
         var cartItems = await _context.CartItems
             .Where(ci => ci.UserId == userId)
+            .Include(ci => ci.Product)
             .ToListAsync();
         
         return cartItems;
+    }
+
+    public async Task<int?> GetCartItemIdAsync(int productId, string? userId)
+    {
+        var cartItem = await _context.CartItems.FirstOrDefaultAsync(ci => ci.ProductId == productId && ci.UserId == userId);
+        return cartItem?.Id;
+    }
+
+    public async Task IncreaseQuantityAsync(int? cartItemId, int quantity)
+    {
+        var cartItem = await _context.CartItems.FirstOrDefaultAsync(ci => ci.Id == cartItemId);
+        cartItem.Quantity += quantity;
+        await _context.SaveChangesAsync();
     }
 }
