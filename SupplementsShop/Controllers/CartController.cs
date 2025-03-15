@@ -110,17 +110,18 @@ public class CartController : Controller
         var order = checkoutModel.Order;
         var orderNumber = await _orderService.CreateOrderAsync(order, cart);
         
-        return RedirectToAction("Payment", new { orderNumber });
+        return RedirectToAction("Payment", new { orderNumber, order.UserId });
     }
 
     [Authorize]
     [HttpGet]
-    public IActionResult Payment(int? orderNumber)
+    public IActionResult Payment(int? orderNumber, string userId)
     {
         var paymentModel = new PaymentViewModel
         {
             Cart = _cartService.GetCart(),
-            OrderNumber = orderNumber
+            OrderNumber = orderNumber,
+            UserId = userId
         };
         return View(paymentModel);
     }
@@ -141,7 +142,8 @@ public class CartController : Controller
 
         if (result.Success)
         {
-            _cartService.ClearCart();
+            _cartService.ClearCartSession();
+            await _cartService.ClearCartContextAsync(paymentModel.UserId);
             return RedirectToAction("ThanksForOrder", new { orderNumber = paymentModel.OrderNumber });
         }
         

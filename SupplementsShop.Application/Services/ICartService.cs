@@ -11,7 +11,8 @@ public interface ICartService
     decimal GetCartTotalPrice();
     decimal GetCartItemTotalPrice(int productId);
     void RemoveFromCart(int productId);
-    void ClearCart();
+    void ClearCartSession();
+    Task ClearCartContextAsync(string userId);
     int GetCartCount();
     Task MergeCartAsync(string? userId);
 }

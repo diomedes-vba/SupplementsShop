@@ -109,6 +109,7 @@ public class AccountController : Controller
     public async Task<IActionResult> Logout()
     {
         await _signInManager.SignOutAsync();
+        _cartService.ClearCartSession();
         return RedirectToAction("Index", "Home");
     }
 

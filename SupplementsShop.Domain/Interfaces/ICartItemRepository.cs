@@ -8,4 +8,5 @@ public interface ICartItemRepository
     Task<List<CartItemContext>> GetCartItemsAsync(string? userId);
     Task<int?> GetCartItemIdAsync(int productId, string userId);
     Task IncreaseQuantityAsync(int? cartItemId, int quantity);
+    Task ClearUserItemsAsync(string? userId);
 }

@@ -135,11 +135,16 @@ public class CartService : ICartService
         SaveCartToSession(cart);
     }
 
-    public void ClearCart()
+    public void ClearCartSession()
     {
         var cart = GetCartFromSession();
         cart.Clear();
         SaveCartToSession(cart);
+    }
+
+    public async Task ClearCartContextAsync(string userId)
+    {
+        await _cartItemRepository.ClearUserItemsAsync(userId);
     }
 
     public int GetCartCount()
@@ -150,12 +155,19 @@ public class CartService : ICartService
 
     public async Task MergeCartAsync(string? userId)
     {
-        var cartItemsContext = await _cartItemRepository.GetCartItemsAsync(userId);
-        var cartItemsSession = CartItemsFromContextToSession(cartItemsContext);
+        var cartItemsSessionPreMerge = GetCartFromSession().Items;
+        
+        var cartItemsFromContext = await _cartItemRepository.GetCartItemsAsync(userId);
+        var cartItemsToSession = CartItemsFromContextToSession(cartItemsFromContext);
 
-        foreach (var cartItem in cartItemsSession)
+        foreach (var cartItem in cartItemsToSession)
         {
             AddToSessionCart(cartItem);
+        }
+
+        foreach (var cartItem in cartItemsSessionPreMerge)
+        {
+            await AddToContextCartAsync(cartItem.Id, cartItem.Quantity, userId);
         }
     }
 

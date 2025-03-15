@@ -41,4 +41,11 @@ public class CartItemRepository : ICartItemRepository
         cartItem.Quantity += quantity;
         await _context.SaveChangesAsync();
     }
+
+    public async Task ClearUserItemsAsync(string? userId)
+    {
+        var itemsToRemove = await _context.CartItems.Where(ci => ci.UserId == userId).ToListAsync();
+        _context.CartItems.RemoveRange(itemsToRemove);
+        await _context.SaveChangesAsync();
+    }
 }
