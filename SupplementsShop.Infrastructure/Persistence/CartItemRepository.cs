@@ -19,7 +19,25 @@ public class CartItemRepository : ICartItemRepository
         await _context.SaveChangesAsync();
     }
 
-    public async Task<List<CartItemContext>> GetCartItemsAsync(string? userId)
+    public async Task RemoveFromCartAsync(CartItemContext cartItem)
+    {
+        _context.CartItems.Remove(cartItem);
+        await _context.SaveChangesAsync();
+    }
+
+    public async Task UpdateCartItemAsync(CartItemContext cartItem)
+    {
+        _context.CartItems.Update(cartItem);
+        await _context.SaveChangesAsync();
+    }
+
+    public async Task<CartItemContext?> GetCartItemAsync(string? userId, int productId)
+    {
+        var cartItem = await _context.CartItems.FirstOrDefaultAsync(ci => ci.UserId == userId && ci.ProductId == productId);
+        return cartItem;
+    }
+    
+    public async Task<List<CartItemContext>> GetCartItemListAsync(string? userId)
     {
         var cartItems = await _context.CartItems
             .Where(ci => ci.UserId == userId)

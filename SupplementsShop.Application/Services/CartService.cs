@@ -105,7 +105,7 @@ public class CartService : ICartService
         SaveCartToSession(cart);
     }
 
-    public async Task<bool> UpdateItemQuantityAsync(int productId, int quantity)
+    public async Task<bool> UpdateItemQuantityAsync(int productId, int quantity, string? userId)
     {
         var product = await _productRepository.GetByIdAsync(productId);
         if (product == null) return false;
@@ -113,6 +113,17 @@ public class CartService : ICartService
         var cart = GetCartFromSession();
         cart.UpdateItemQuantity(productId, quantity);
         SaveCartToSession(cart);
+
+        if (userId != null)
+        {
+            var cartItem = await _cartItemRepository.GetCartItemAsync(userId, productId);
+            if (cartItem != null)
+            {
+                cartItem.Quantity = quantity;
+                await _cartItemRepository.UpdateCartItemAsync(cartItem);
+            }
+        }
+        
         return true;
     }
 
@@ -128,11 +139,20 @@ public class CartService : ICartService
         return cart.Items.FirstOrDefault(item => item.Id == productId)?.TotalPrice ?? 0;
     }
 
-    public void RemoveFromCart(int productId)
+    public async Task RemoveFromCart(int productId, string? userId)
     {
         var cart = GetCartFromSession();
         cart.RemoveItem(productId);
         SaveCartToSession(cart);
+
+        if (userId != null)
+        {
+            var cartItem = await _cartItemRepository.GetCartItemAsync(userId, productId);
+            if (cartItem != null)
+            {
+                await _cartItemRepository.RemoveFromCartAsync(cartItem);
+            }
+        }
     }
 
     public void ClearCartSession()
@@ -155,19 +175,27 @@ public class CartService : ICartService
 
     public async Task MergeCartAsync(string? userId)
     {
-        var cartItemsSessionPreMerge = GetCartFromSession().Items;
+        if (userId == null)
+            return;
+
+        if (Session.GetString("CartMerged") != "true")
+        {
+            var cartItemsSessionPreMerge = GetCartFromSession().Items;
         
-        var cartItemsFromContext = await _cartItemRepository.GetCartItemsAsync(userId);
-        var cartItemsToSession = CartItemsFromContextToSession(cartItemsFromContext);
+            var cartItemsFromContext = await _cartItemRepository.GetCartItemListAsync(userId);
+            var cartItemsToSession = CartItemsFromContextToSession(cartItemsFromContext);
 
-        foreach (var cartItem in cartItemsToSession)
-        {
-            AddToSessionCart(cartItem);
-        }
+            foreach (var cartItem in cartItemsToSession)
+            {
+                AddToSessionCart(cartItem);
+            }
 
-        foreach (var cartItem in cartItemsSessionPreMerge)
-        {
-            await AddToContextCartAsync(cartItem.Id, cartItem.Quantity, userId);
+            foreach (var cartItem in cartItemsSessionPreMerge)
+            {
+                await AddToContextCartAsync(cartItem.Id, cartItem.Quantity, userId);
+            }
+            
+            Session.SetString("CartMerged", "true");
         }
     }
 

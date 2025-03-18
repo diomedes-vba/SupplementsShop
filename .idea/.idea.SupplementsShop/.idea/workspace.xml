@@ -20,8 +20,6 @@
       <change beforePath="$PROJECT_DIR$/SupplementsShop.Infrastructure/Persistence/CartItemRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Infrastructure/Persistence/CartItemRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SupplementsShop/Controllers/AccountController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Controllers/AccountController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SupplementsShop/Controllers/CartController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Controllers/CartController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop/ViewModels/PaymentViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/ViewModels/PaymentViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop/Views/Cart/Payment.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Views/Cart/Payment.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -257,7 +255,9 @@
       <workItem from="1741854634997" duration="12530000" />
       <workItem from="1741939132145" duration="5574000" />
       <workItem from="1741969471406" duration="7882000" />
-      <workItem from="1742043069759" duration="11776000" />
+      <workItem from="1742043069759" duration="12733000" />
+      <workItem from="1742107365718" duration="3760000" />
+      <workItem from="1742285563675" duration="10288000" />
     </task>
     <servers />
   </component>

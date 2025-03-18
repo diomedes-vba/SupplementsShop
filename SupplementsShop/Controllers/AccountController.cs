@@ -56,8 +56,6 @@ public class AccountController : Controller
         var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
         if (result.Succeeded)
         {
-            var userId = _userManager.GetUserId(User);
-            await _cartService.MergeCartAsync(userId);
             if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
             {
                 return Redirect(returnUrl);
@@ -110,6 +108,7 @@ public class AccountController : Controller
     {
         await _signInManager.SignOutAsync();
         _cartService.ClearCartSession();
+        HttpContext.Session.SetString("CartMerged", "false");
         return RedirectToAction("Index", "Home");
     }
 

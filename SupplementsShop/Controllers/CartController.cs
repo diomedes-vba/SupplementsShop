@@ -55,7 +55,8 @@ public class CartController : Controller
     [HttpPost]
     public async Task<IActionResult> UpdateItemQuantity(int productId, int quantity)
     {
-        if (await _cartService.UpdateItemQuantityAsync(productId, quantity))
+        var userId = _userManager.GetUserId(User);
+        if (await _cartService.UpdateItemQuantityAsync(productId, quantity, userId))
         {
             var cartTotalPrice = _cartService.GetCartTotalPrice();
             var cartItemTotalPrice = _cartService.GetCartItemTotalPrice(productId);
@@ -70,15 +71,19 @@ public class CartController : Controller
         return Json(new { success = false, message = "Product not found" });
     }
 
-    public IActionResult RemoveFromCart(int productId)
+    public async Task<IActionResult> RemoveFromCart(int productId)
     {
-        _cartService.RemoveFromCart(productId);
+        var userId = _userManager.GetUserId(User);
+        await _cartService.RemoveFromCart(productId, userId);
         return RedirectToAction("Index");
     }
 
     [HttpGet]
-    public IActionResult GetCartCount()
+    public async Task<IActionResult> GetCartCount()
     {
+        var userId = _userManager.GetUserId(User);
+        await _cartService.MergeCartAsync(userId);
+        
         var cartCount = _cartService.GetCartCount();
         return Json(new { cartCount });
     }
