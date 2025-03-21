@@ -4,7 +4,7 @@ namespace SupplementsShop.ViewModels;
 
 public class ProductsListModel
 {
-    public List<ProductDto>? Products { get; set; }
+    public IList<ProductDto>? Products { get; set; }
     public int CurrentPage { get; set; }
     public int TotalPages { get; set; }
     public int TotalProducts { get; set; }

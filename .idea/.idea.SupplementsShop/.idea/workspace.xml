@@ -14,7 +14,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e801cba4-2b43-4561-8b53-8a1dd002b93c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SupplementsShop/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SupplementsShop/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop/Controllers/CategoryController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Controllers/CategoryController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/ViewModels/ProductsListModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/ViewModels/ProductsListModel.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -253,7 +253,10 @@
       <workItem from="1742043069759" duration="12733000" />
       <workItem from="1742107365718" duration="3760000" />
       <workItem from="1742285563675" duration="14681000" />
-      <workItem from="1742361897606" duration="14016000" />
+      <workItem from="1742361897606" duration="14492000" />
+      <workItem from="1742474299073" duration="5898000" />
+      <workItem from="1742543020839" duration="1553000" />
+      <workItem from="1742574923240" duration="2946000" />
     </task>
     <servers />
   </component>
