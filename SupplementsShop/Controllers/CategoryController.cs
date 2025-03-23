@@ -28,18 +28,20 @@ public class CategoryController : Controller
         var productsList = await _productService.GetProductListByCategoryIdAsync(
             category.Id, 
             page: 0,
-            pageSize: 10);
+            pageSize: 1);
         
         var categoryProductsList = _categoryModelFactory.PrepareCategoryProductsListModel(category, productsList);
             
         return View(categoryProductsList);
     }
 
+    [Route("Category/GetNewPage")]
     [HttpGet]
-    public async Task<IActionResult> GetNewPage(int categoryId, int pageNumber, int pageSize)
+    public async Task<IActionResult> GetNewPage(int categoryId, int pageIndex, int pageSize)
     {
-        var productsPagedList = await _productService.GetProductListByCategoryIdAsync(categoryId, pageNumber, pageSize);
+        var productsPagedList = await _productService.GetProductListByCategoryIdAsync(categoryId, pageIndex, pageSize);
         var productsList = _productModelFactory.PrepareProductDtos(productsPagedList);
         return PartialView("_ProductList", productsList);
     }
+
 }

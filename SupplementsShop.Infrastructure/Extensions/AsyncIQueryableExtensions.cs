@@ -23,7 +23,7 @@ public static class AsyncIQueryableExtensions
 
         if (!getOnlyTotalCount)
         {
-            data.AddRange(await source.Skip((pageIndex - 1) * pageSize).Take(pageSize).ToListAsync());
+            data.AddRange(await source.Skip(pageIndex * pageSize).Take(pageSize).ToListAsync());
         }
         
         return new PagedList<T>(data, pageIndex, pageSize, count);

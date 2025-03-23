@@ -1,9 +1,9 @@
 @model CategoryProductsListModel
 
-<h2>title</h2>
+<h2>@Model.CategoryName</h2>
 <div>
     <h5>
-        @((Model.CurrentPage - 1) * Model.PageSize + 1)-@(Model.PageSize * Model.CurrentPage) out of @Model.TotalProducts results
+        @(Model.CurrentPage * Model.PageSize + 1)-@(Model.PageSize * (Model.CurrentPage + 1)) out of @Model.TotalProducts results
     </h5>
 </div>
 <div>
@@ -34,12 +34,14 @@
             <li class="page-item">
                 @if (Model.CurrentPage == 1)
                 {
-                    <h4><</h4>
+                    <h4>
+                        @Html.Raw("<")
+                    </h4>
                 }
                 else
                 {
                     <button class="previous-page-btn" data-current-page="@Model.CurrentPage" data-category-id="@Model.CategoryId" data-page-size="@Model.PageSize">
-                        <
+                        @Html.Raw("<")
                     </button>
                 }
             </li>
@@ -85,7 +87,7 @@ else if (Model.CurrentPage > Model.TotalPages - 4) // Last 3 pages
         <ul class="pagination">
             <li class="page-item">
                 <button class="previous-page-btn" data-current-page="@Model.CurrentPage" data-category-id="@Model.CategoryId" data-page-size="@Model.PageSize">
-                    <
+                    @Html.Raw("<")
                 </button>
             </li>
             <li class="page-item">
@@ -137,7 +139,7 @@ else // Other pages
         <ul class="pagination">
             <li class="page-item">
                 <button class="previous-page-btn" data-current-page="@Model.CurrentPage" data-category-id="@Model.CategoryId" data-page-size="@Model.PageSize">
-                    <
+                    @Html.Raw("<")
                 </button>
             </li>
             <li class="page-item">
@@ -180,4 +182,5 @@ else // Other pages
     </nav>
 }
 
-<script src="~/js/category.js?v=1"></script>
+<script src="~/js/category.js?v=9"></script>
+

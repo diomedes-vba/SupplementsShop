@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Get products for new page 
-    function getProductsForPage(categoryId, pageNumber, pageSize) {
-        fetch('Category/GetNewPage/', {
+    function getProductsForPage(categoryId, pageIndex, pageSize) {
+        const url = `/Category/GetNewPage?categoryId=${categoryId}&pageIndex=${pageIndex}&pageSize=${pageSize}`;
+        fetch(url, {
             method: 'GET',
             headers: {
                 "X-Requested-With": "XMLHttpRequest"
-            },
-            body: new URLSearchParams({ categoryId, pageNumber, pageSize })
+            }
         })
             .then(response => response.text())
             .then(html => {
@@ -16,12 +16,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     document.querySelectorAll(".other-page-btn").forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            let categoryId = parseInt(this.getAttribute('data-category-id'));
-            let pageNumber = parseInt(this.getAttribute("data-page-number"));
+        btn.addEventListener('click', function (event) {
+            event.preventDefault();
+            let categoryId = parseInt(this.getAttribute("data-category-id"));
+            let pageIndex = parseInt(this.getAttribute("data-page-number")) - 1;
             let pageSize = parseInt(this.getAttribute("data-page-size"));
-            getProductsForPage(categoryId, pageNumber, pageSize);
+            getProductsForPage(categoryId, pageIndex, pageSize);
         })
     })
 })

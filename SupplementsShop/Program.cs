@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using SupplementsShop.Infrastructure;
 using SupplementsShop.Application;
 using Hangfire;
+using SupplementsShop.Factories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +19,9 @@ builder.Services.ConfigureApplicationCookie(options =>
 });
 
 builder.Services.AddApplicationServices();
+
+builder.Services.AddScoped<ICategoryModelFactory, CategoryModelFactory>();
+builder.Services.AddScoped<IProductModelFactory, ProductModelFactory>();
 
 builder.Services.AddSession();
 builder.Services.AddHttpContextAccessor();

@@ -27,6 +27,6 @@ public partial class PagedList<T> : List<T>, IPagedList<T>
         PageIndex = pageIndex;
         PageSize = pageSize;
         
-        AddRange(totalCount == null ? source : source.Skip(pageIndex * pageSize).Take(pageSize));
+        AddRange(source);
     }
 }
