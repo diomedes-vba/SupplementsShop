@@ -42,7 +42,7 @@ app.MapControllerRoute(
 app.MapControllerRoute(
     name: "CategoryProducts",
     pattern: "Category/{slug}",
-    defaults: new { controller = "Category", action = "Products" });
+    defaults: new { controller = "Category", action = "CategoryPage" });
 
 // Route for single company
 app.MapControllerRoute(

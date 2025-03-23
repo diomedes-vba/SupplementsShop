@@ -20,14 +20,6 @@ public class CategoryController : Controller
         _productModelFactory = productModelFactory;
     }
     
-    // GET
-    public async Task<IActionResult> Products(string slug)
-    {
-        var category = await _categoryService.GetCategoryBySlugAsync(slug, 1);
-        if (category == null) return NotFound();
-        return View(category);
-    }
-
     public async Task<IActionResult> CategoryPage(string slug)
     {
         var category = await _categoryService.GetCategoryBySlugAsync(slug);
@@ -44,9 +36,9 @@ public class CategoryController : Controller
     }
 
     [HttpGet]
-    public async Task<IActionResult> GetNewPage(int categoryId, int page, int pageSize)
+    public async Task<IActionResult> GetNewPage(int categoryId, int pageNumber, int pageSize)
     {
-        var productsPagedList = await _productService.GetProductListByCategoryIdAsync(categoryId, page, pageSize);
+        var productsPagedList = await _productService.GetProductListByCategoryIdAsync(categoryId, pageNumber, pageSize);
         var productsList = _productModelFactory.PrepareProductDtos(productsPagedList);
         return PartialView("_ProductList", productsList);
     }
