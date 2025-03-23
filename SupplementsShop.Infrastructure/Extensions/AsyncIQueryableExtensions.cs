@@ -16,6 +16,7 @@ public static class AsyncIQueryableExtensions
             return new PagedList<T>(new List<T>(), pageIndex, pageSize);
         }
 
+        pageSize = pageSize < 1 ? 1 : pageSize;
         var count = await source.CountAsync();
         
         var data = new List<T>();

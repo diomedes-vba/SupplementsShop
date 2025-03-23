@@ -6,6 +6,7 @@ public interface IProductRepository
 {
     Task<Product?> GetBySlugAsync (string slug);
     Task<Product?> GetByIdAsync(int id);
+    Task<IPagedList<Product>?> GetByCategoryIdAsync(int categoryId, int page, int pageSize = int.MaxValue);
     Task<List<Product>> GetAllAsync();
     Task AddAsync(Product product);
     Task UpdateAsync(Product product);

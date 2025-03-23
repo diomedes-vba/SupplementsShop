@@ -1,9 +1,10 @@
 using SupplementsShop.Application.DTOs;
+using SupplementsShop.Domain.Entities;
 
 namespace SupplementsShop.Application.Services;
 
 public interface ICategoryService
 {
-    Task<CategoryDto?> GetCategoryBySlugAsync(string slug, int pageNumber = 1);
+    Task<Category?> GetCategoryBySlugAsync(string slug);
     Task<IEnumerable<CategoryDto>> GetAllCategoriesAsync();
 }

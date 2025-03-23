@@ -1,5 +1,6 @@
 using SupplementsShop.Domain.Interfaces;
 using SupplementsShop.Application.DTOs;
+using SupplementsShop.Domain.Entities;
 
 namespace SupplementsShop.Application.Services;
 
@@ -65,5 +66,11 @@ public class ProductService : IProductService
             Slug = p.Slug,
             Sales = p.Sales,
         });
+    }
+
+    public async Task<IPagedList<Product>?> GetProductListByCategoryIdAsync(int categoryId, int page = 0, int pageSize = int.MaxValue)
+    {
+        var pagedList = await _productRepository.GetByCategoryIdAsync(categoryId, page, pageSize);
+        return pagedList;
     }
 }

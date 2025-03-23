@@ -5,7 +5,7 @@ using SupplementsShop.ViewModels;
 
 namespace SupplementsShop.Factories;
 
-public class ProductModelFactory
+public class ProductModelFactory : IProductModelFactory
 {
     private readonly IProductService _productService;
 
@@ -14,9 +14,9 @@ public class ProductModelFactory
         _productService = productService;
     }
 
-    public IList<ProductDto>? PrepareProductDtos(IList<Product> products)
+    public IList<ProductDto>? PrepareProductDtos(IList<Product>? products)
     {
-        return products.Select(p => new ProductDto
+        return products?.Select(p => new ProductDto
         {
             Id = p.Id,
             Name = p.Name,
@@ -26,14 +26,5 @@ public class ProductModelFactory
             Description = p.Description,
             Sales = p.Sales,
         }).ToList();
-    }
-
-    public ProductsListModel PrepareProductsListModel(IList<Product> products)
-    {
-        return new ProductsListModel
-        {
-            Products = PrepareProductDtos(products),
-            
-        }
     }
 }

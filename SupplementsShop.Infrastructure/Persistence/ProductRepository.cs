@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using SupplementsShop.Domain.Interfaces;
 using SupplementsShop.Domain.Entities;
+using SupplementsShop.Infrastructure.Extensions;
 
 namespace SupplementsShop.Infrastructure.Persistence;
 
@@ -21,6 +22,19 @@ public class ProductRepository : IProductRepository
     public async Task<Product?> GetByIdAsync(int id)
     {
         return await _context.Products.FirstOrDefaultAsync(p => p.Id == id);
+    }
+
+    public async Task<IPagedList<Product>?> GetByCategoryIdAsync(int categoryId, int page, int pageSize = int.MaxValue)
+    {
+        var query = _context.CategoryProducts
+            .Where(cp => cp.CategoryId == categoryId)
+            .OrderBy(cp => cp.CategoryId)
+            .Include(cp => cp.Product);
+
+        var productQuery = query.Select(cp => cp.Product);
+
+        var pagedProducts = await productQuery.ToPagedListAsync(page, pageSize);
+        return pagedProducts;
     }
 
     public async Task<List<Product>> GetAllAsync()

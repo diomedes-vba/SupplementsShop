@@ -1,0 +1,17 @@
+@model IList<ProductDto>
+
+<div class="row">
+    @foreach (var product in Model)
+    {
+        <div class="col-md-4 mb-3">
+            <div class="card h-100">
+                <img src="@product.ImageUrl" class="card-img-top" alt="@product.Name" />
+                <div class="card-body">
+                    <h5 class="card-title">@product.Name</h5>
+                    <a href="@Url.Action("Details", "Product", new { slug = product.Slug })" class="btn btn-primary">View Product</a>
+                    <button class="add-to-cart-btn" data-product-id="@product.Id">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    }
+</div>
