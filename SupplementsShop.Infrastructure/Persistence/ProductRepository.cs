@@ -37,7 +37,7 @@ public class ProductRepository : IProductRepository
         return pagedProducts;
     }
 
-    public async Task<List<Product>> GetAllAsync()
+    public async Task<IList<Product>?> GetAllAsync()
     {
         return await _context.Products.ToListAsync();
     }

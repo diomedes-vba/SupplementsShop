@@ -27,6 +27,8 @@ public static class DependencyInjection
         services.AddScoped<IOrderItemRepository, OrderItemRepository>();
         services.AddScoped<ICartItemRepository, CartItemRepository>();
 
+        services.Decorate<IProductRepository, CachedProductRepository>();
+
         return services;
     }
 }

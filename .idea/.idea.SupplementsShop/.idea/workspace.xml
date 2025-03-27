@@ -14,7 +14,11 @@
   <component name="ChangeListManager">
     <list default="true" id="e801cba4-2b43-4561-8b53-8a1dd002b93c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SupplementsShop/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SupplementsShop/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Views/Shared/_Layout.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Domain/Interfaces/IProductRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Domain/Interfaces/IProductRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Infrastructure/DependencyInjection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Infrastructure/DependencyInjection.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Infrastructure/Persistence/ProductRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Infrastructure/Persistence/ProductRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Infrastructure/SupplementsShop.Infrastructure.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Infrastructure/SupplementsShop.Infrastructure.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/SupplementsShop.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/SupplementsShop.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +73,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     ".NET Launch Settings Profile.SupplementsShop: http.executor": "Debug",
-    ".NET Launch Settings Profile.SupplementsShop: https.executor": "Run",
+    ".NET Launch Settings Profile.SupplementsShop: https.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "list.type.of.created.stylesheet": "CSS",
@@ -264,7 +268,7 @@
       <workItem from="1742721893113" duration="21586000" />
       <workItem from="1742747868374" duration="3619000" />
       <workItem from="1742820751703" duration="1214000" />
-      <workItem from="1743093172827" duration="3561000" />
+      <workItem from="1743093172827" duration="8399000" />
     </task>
     <servers />
   </component>
@@ -286,5 +290,37 @@
   <component name="VcsManagerConfiguration">
     <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/SupplementsShop.Infrastructure/Persistence/CachedProductRepository.cs</url>
+          <line>74</line>
+          <properties documentPath="C:\Users\Vladyslav\RiderProjects\SupplementsShop\SupplementsShop.Infrastructure\Persistence\CachedProductRepository.cs" containingFunctionPresentation="Method 'GetByCategoryIdAsync'">
+            <startOffsets>
+              <option value="2348" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2424" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/SupplementsShop.Infrastructure/Persistence/CachedProductRepository.cs</url>
+          <line>80</line>
+          <properties documentPath="C:\Users\Vladyslav\RiderProjects\SupplementsShop\SupplementsShop.Infrastructure\Persistence\CachedProductRepository.cs" containingFunctionPresentation="Method 'GetByCategoryIdAsync'">
+            <startOffsets>
+              <option value="2688" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2823" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
