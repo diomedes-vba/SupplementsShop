@@ -18,6 +18,11 @@ public class CategoryRepository : ICategoryRepository
     {
         return await _context.Categories.FirstOrDefaultAsync(c => c.Slug == slug);
     }
+
+    public async Task<Category?> GetByIdAsync(int id)
+    {
+        return await _context.Categories.FirstOrDefaultAsync(c => c.Id == id);
+    }
     
     public async Task<List<Category>> GetAllAsync()
     {

@@ -18,6 +18,12 @@ public class CategoryService : ICategoryService
         var category = await _categoryRepository.GetBySlugAsync(slug);
         return category;
     }
+
+    public async Task<Category?> GetCategoryByIdAsync(int categoryId)
+    {
+        var category = await _categoryRepository.GetByIdAsync(categoryId);
+        return category;
+    }
     
     public async Task<IEnumerable<CategoryDto>> GetAllCategoriesAsync()
     {

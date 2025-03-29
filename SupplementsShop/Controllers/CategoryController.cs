@@ -39,9 +39,13 @@ public class CategoryController : Controller
     [HttpGet]
     public async Task<IActionResult> GetNewPage(int categoryId, int pageIndex, int pageSize)
     {
+        var category = await _categoryService.GetCategoryByIdAsync(categoryId);
+        if (category == null) return NotFound();
+        
         var productsPagedList = await _productService.GetProductListByCategoryIdAsync(categoryId, pageIndex, pageSize);
-        var productsList = _productModelFactory.PrepareProductDtos(productsPagedList);
-        return PartialView("_ProductList", productsList);
+        
+        var newCategoryProductsList = _categoryModelFactory.PrepareCategoryProductsListModel(category, productsPagedList);
+        return PartialView("_ProductList", newCategoryProductsList);
     }
 
 }
