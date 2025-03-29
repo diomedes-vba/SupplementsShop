@@ -14,11 +14,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e801cba4-2b43-4561-8b53-8a1dd002b93c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SupplementsShop/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SupplementsShop/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop.Application/Services/CategoryService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Application/Services/CategoryService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop.Application/Services/ICategoryService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Application/Services/ICategoryService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop.Domain/Interfaces/ICategoryRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Domain/Interfaces/ICategoryRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop.Infrastructure/Persistence/CategoryRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Infrastructure/Persistence/CategoryRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop/Controllers/CategoryController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Controllers/CategoryController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SupplementsShop/Views/Category/CategoryPage.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Views/Category/CategoryPage.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SupplementsShop/Views/Shared/_ProductList.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Views/Shared/_ProductList.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/js/category.js" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/wwwroot/js/category.js" afterDir="false" />
@@ -273,7 +268,7 @@
       <workItem from="1742820751703" duration="1214000" />
       <workItem from="1743093172827" duration="10123000" />
       <workItem from="1743179227511" duration="4724000" />
-      <workItem from="1743285893943" duration="3162000" />
+      <workItem from="1743285893943" duration="3492000" />
     </task>
     <servers />
   </component>
