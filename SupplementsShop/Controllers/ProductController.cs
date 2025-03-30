@@ -26,6 +26,6 @@ public class ProductController : Controller
             return View(new List<ProductDto>());
         }
         
-        
+        return View(new List<ProductDto>());
     }
 }
