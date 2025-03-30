@@ -15,6 +15,7 @@ function bindPageButtons() {
             let categoryId = parseInt(this.getAttribute("data-category-id"));
             let pageIndex = parseInt(this.getAttribute("data-current-page")) - 1;
             let pageSize = parseInt(this.getAttribute("data-page-size"));
+            
             getProductsForPage(categoryId, pageIndex, pageSize);
         })
     })
@@ -25,6 +26,7 @@ function bindPageButtons() {
             let categoryId = parseInt(this.getAttribute("data-category-id"));
             let pageIndex = parseInt(this.getAttribute("data-current-page")) + 1;
             let pageSize = parseInt(this.getAttribute("data-page-size"));
+            
             getProductsForPage(categoryId, pageIndex, pageSize);
         })
     })
