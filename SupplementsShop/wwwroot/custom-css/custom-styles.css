@@ -12,4 +12,26 @@
     border-radius: 26px;
     padding-left: 26px;
     padding-right: 26px;
+    width: 100%;
+    height: 100%;
+}
+
+.search-container {
+    position: relative;
+    width: 100%;
+}
+
+.search-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 66px;
+    border-width: 0;
+    background: transparent;
+    margin: 0;
+}
+
+.search-icon {
+    height: 25px;
 }

@@ -14,8 +14,9 @@
   <component name="ChangeListManager">
     <list default="true" id="e801cba4-2b43-4561-8b53-8a1dd002b93c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SupplementsShop/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SupplementsShop/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop/Views/Category/CategoryPage.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Views/Category/CategoryPage.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop/Views/Shared/_ProductList.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Views/Shared/_ProductList.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Controllers/ProductController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Controllers/ProductController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Views/Shared/_Layout.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/custom-css/custom-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/wwwroot/custom-css/custom-styles.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -268,7 +269,8 @@
       <workItem from="1743093172827" duration="10123000" />
       <workItem from="1743179227511" duration="4724000" />
       <workItem from="1743285893943" duration="4098000" />
-      <workItem from="1743327420005" duration="3978000" />
+      <workItem from="1743327420005" duration="4359000" />
+      <workItem from="1743337701990" duration="8430000" />
     </task>
     <servers />
   </component>

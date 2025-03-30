@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.css" />
     <script src="~/lib/bootstrap/js/bootstrap.bundle.js"></script>
     <script src="~/js/cart.js?v=27"></script>
-    <link rel="stylesheet" href="custom-css/custom-styles.css" />
+    <link rel="stylesheet" href="~/custom-css/custom-styles.css?v=5" />
 </head>
 <body>
 <header>
@@ -20,8 +20,13 @@
         <div class="container-fluid">
             <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Supermarket</a>
             
-            <form class="d-flex navbar-search">
-                <input class="form-control navbar-form-search" type="search" placeholder="Search" aria-label="Search" />
+            <form class="d-flex navbar-search" asp-controller="Product" asp-action="Search" method="get">
+                <div class="search-container">
+                    <input class="form-control navbar-form-search" type="search" placeholder="Search" aria-label="Search"/>
+                    <button class="search-button" type="submit">
+                        <img class="search-icon" src="~/images/search.svg" alt="search-button"/>
+                    </button>
+                </div>
             </form>
             
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbar-collapse"
