@@ -4,7 +4,8 @@
     <h2>@Model.CategoryName</h2>
     <div>
         <h5>
-            @(Model.CurrentPage * Model.PageSize + 1)-@(Model.PageSize * (Model.CurrentPage + 1)) out of @Model.TotalProducts results
+            @{ var firstProductNumber = Model.CurrentPage * Model.PageSize + 1;}
+            @(firstProductNumber)-@(firstProductNumber + Model.Products.Count() - 1) out of @Model.TotalProducts results
         </h5>
     </div>
     <div>
@@ -29,10 +30,10 @@
     </div>
 
     <nav aria-label="Products page navigation">
-        <ul class="pagination">
+        <ul class="pagination pagination-lg justify-content-center">
             <!--Previous button-->
             <li class="page-item @(Model.CurrentPage == 0 ? "disabled" : "")">
-                <button class="previous-page-btn" asp-is-disabled="@(Model.CurrentPage <= 0)" data-current-page="@Model.CurrentPage" data-category-id="@Model.CategoryId" data-page-size="@Model.PageSize">
+                <button class="previous-page-btn page-link" asp-is-disabled="@(Model.CurrentPage <= 0)" data-current-page="@Model.CurrentPage" data-category-id="@Model.CategoryId" data-page-size="@Model.PageSize">
                     @Html.Raw("<")
                 </button>
             </li>
@@ -43,7 +44,7 @@
             @for (int i = 1; i <= 4 && i <= Model.TotalPages; i++)
             {
             <li class="page-item @(Model.CurrentPage == i - 1 ? "active" : "")">
-                <button class="other-page-btn" data-page-number="@i" data-category-id="@Model.CategoryId" data-page-size="@Model.PageSize">
+                <button class="other-page-btn page-link" data-page-number="@i" data-category-id="@Model.CategoryId" data-page-size="@Model.PageSize">
                     @i
                 </button>
             </li>
@@ -51,13 +52,13 @@
             @if (Model.TotalPages > 5)
             {
             <li class="page-item disabled">
-                <span>...</span>
+                <span class="page-link">...</span>
             </li>
             }
             @if (Model.TotalPages > 4)
             {
             <li class="page-item">
-                <button class="other-page-btn" data-page-number="@Model.TotalPages" data-category-id="@Model.CategoryId" data-page-size="@Model.PageSize">
+                <button class="other-page-btn page-link" data-page-number="@Model.TotalPages" data-category-id="@Model.CategoryId" data-page-size="@Model.PageSize">
                     @Model.TotalPages
                 </button>
             </li>
@@ -66,23 +67,26 @@
             else if (Model.CurrentPage + 1 >= Model.TotalPages - 2)
             {
             <!-- Last 3 pages: show first page, ellipsis, then the last 4 pages -->
-            <li class="page-item">
-                <button class="other-page-btn" data-page-number="@(1)" data-category-id="@Model.CategoryId" data-page-size="@Model.PageSize">
-                    1
-                </button>
-            </li>
+            @if (Model.TotalPages - 3 > 1)
+            {
+                <li class="page-item">
+                    <button class="other-page-btn page-link" data-page-number="@(1)" data-category-id="@Model.CategoryId" data-page-size="@Model.PageSize">
+                        1
+                    </button>
+                </li>
+            }
 
             @if (Model.TotalPages > 5)
             {
             <li class="page-item disabled">
-                <span>...</span>
+                <span class="page-link">...</span>
             </li>
             }
 
             @for (int i = Model.TotalPages - 3; i <= Model.TotalPages; i++)
             {
-            <li class="page-item @(Model.CurrentPage == i ? "active" : "")">
-                <button class="other-page-btn" data-page-number="@i" data-category-id="@Model.CategoryId" data-page-size="@Model.PageSize">
+            <li class="page-item @(Model.CurrentPage + 1 == i ? "active" : "")">
+                <button class="other-page-btn page-link" data-page-number="@i" data-category-id="@Model.CategoryId" data-page-size="@Model.PageSize">
                     @i
                 </button>
             </li>
@@ -93,29 +97,29 @@
             {
             <!-- Middle pages: show first page, ellipsis, 3 pages around the current page, ellipsis, last page -->
             <li class="page-item">
-                <button class="other-page-btn" data-page-number="@(1)" data-category-id="@Model.CategoryId" data-page-size="@Model.PageSize">
+                <button class="other-page-btn page-link" data-page-number="@(1)" data-category-id="@Model.CategoryId" data-page-size="@Model.PageSize">
                     1
                 </button>
             </li>
             <li class="page-item disabled">
-                <span>...</span>
+                <span class="page-link">...</span>
             </li>
 
             @for (int i = Model.CurrentPage; i <= Model.CurrentPage + 2; i++)
             {
             <li class="page-item @(Model.CurrentPage + 1 == i ? "active" : "")">
-                <button class="other-page-btn" data-page-number="@i" data-category-id="@Model.CategoryId" data-page-size="@Model.PageSize">
+                <button class="other-page-btn page-link" data-page-number="@i" data-category-id="@Model.CategoryId" data-page-size="@Model.PageSize">
                     @i
                 </button>
             </li>
             }
 
             <li class="page-item disabled">
-                <span>...</span>
+                <span class="page-link">...</span>
             </li>
 
             <li class="page-item">
-                <button class="other-page-btn" data-page-number="@Model.TotalPages" data-category-id="@Model.CategoryId" data-page-size="@Model.PageSize">
+                <button class="other-page-btn page-link" data-page-number="@Model.TotalPages" data-category-id="@Model.CategoryId" data-page-size="@Model.PageSize">
                     @Model.TotalPages
                 </button>
             </li>
@@ -123,7 +127,7 @@
 
             <!-- Next button -->
             <li class="page-item @(Model.CurrentPage + 1 == Model.TotalPages ? "disabled" : "")">
-                <button class="next-page-btn" asp-is-disabled="@(Model.CurrentPage + 1 >= Model.TotalPages)" data-current-page="@Model.CurrentPage" data-category-id="@Model.CategoryId" data-page-size="@Model.PageSize">
+                <button class="next-page-btn page-link" asp-is-disabled="@(Model.CurrentPage + 1 >= Model.TotalPages)" data-current-page="@Model.CurrentPage" data-category-id="@Model.CategoryId" data-page-size="@Model.PageSize">
                     @Html.Raw(">")
                 </button>
             </li>
