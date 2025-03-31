@@ -11,5 +11,5 @@ public interface ICategoryModelFactory
     public IList<CategoryDto>? PrepareCategoryDtos(IList<Category> categories);
 
     public CategoryProductsListModel PrepareCategoryProductsListModel(Category category,
-        IPagedList<Product>? productsPagedList);
+        IPagedList<Product> productsPagedList);
 }

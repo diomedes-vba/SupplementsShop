@@ -26,7 +26,7 @@ public class CategoryController : Controller
         if (category == null) return NotFound();
         
         var productsList = await _productService.GetProductListByCategoryIdAsync(
-            category.Id, 
+            category.Id,
             page: 0,
             pageSize: 1);
         

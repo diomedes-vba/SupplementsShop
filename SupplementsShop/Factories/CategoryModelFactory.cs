@@ -34,7 +34,7 @@ public class CategoryModelFactory : ICategoryModelFactory
     }
 
     public CategoryProductsListModel PrepareCategoryProductsListModel(Category category,
-        IPagedList<Product>? productsPagedList)
+        IPagedList<Product> productsPagedList)
     {
         return new CategoryProductsListModel
         {
