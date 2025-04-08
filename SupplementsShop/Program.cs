@@ -3,6 +3,7 @@ using SupplementsShop.Infrastructure;
 using SupplementsShop.Application;
 using Hangfire;
 using SupplementsShop.Factories;
+using SupplementsShop.Infrastructure.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -35,6 +36,11 @@ app.UseRouting();
 app.UseAuthentication();
 
 app.UseAuthorization();
+
+using (var scope = app.Services.CreateScope())
+{
+    await scope.ServiceProvider.InitializeInfrastructureAsync();
+}
 
 // Route for single product
 app.MapControllerRoute(
