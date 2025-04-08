@@ -22,8 +22,9 @@ public class Product
     private Product() {}
     
     // Constructor with parameters
-    public Product(string name, decimal price, int quantity, string description, int companyId, string slug, string imageUrl)
+    public Product(int id, string name, decimal price, int quantity, string description, int companyId, string slug, string imageUrl)
     {
+        Id = id;
         Name = name;
         Price = price;
         Quantity = quantity;
@@ -31,6 +32,7 @@ public class Product
         CompanyId = companyId;
         Slug = slug;
         ImageUrl = imageUrl;
+        CompanyId = companyId;
     }
     
     // Business logic: Minus quantity when sold
@@ -44,6 +46,11 @@ public class Product
     public void Restock(int amount)
     {
         Quantity += amount;
+    }
+
+    public void UpdateSlug(string slug)
+    {
+        Slug = slug;
     }
     
 }

@@ -12,43 +12,30 @@ public class ProductService : IProductService
     {
         _productRepository = productRepository;
     }
+
+    public async Task UpdateProduct(Product product)
+    {
+        var slug = GenerateSlugFromName(product.Name);
+        product.UpdateSlug(slug);
+        await _productRepository.UpdateAsync(product);
+    }
     
-    public async Task<ProductDto?> GetProductBySlugAsync(string slug)
+    public async Task<Product?> GetProductBySlugAsync(string slug)
     {
         var product = await _productRepository.GetBySlugAsync(slug);
 
         if (product == null) return null;
 
-        return new ProductDto
-        {
-            Id = product.Id,
-            Name = product.Name,
-            Price = product.Price,
-            Quantity = product.Quantity,
-            Description = product.Description,
-            ImageUrl = product.ImageUrl,
-            Slug = product.Slug,
-            Sales = product.Sales,
-        };
+        return product;
     }
     
-    public async Task<ProductDto?> GetProductByIdAsync(int id)
+    public async Task<Product?> GetProductByIdAsync(int id)
     {
         var product = await _productRepository.GetByIdAsync(id);
 
         if (product == null) return null;
 
-        return new ProductDto
-        {
-            Id = product.Id,
-            Name = product.Name,
-            Price = product.Price,
-            Quantity = product.Quantity,
-            Description = product.Description,
-            ImageUrl = product.ImageUrl,
-            Slug = product.Slug,
-            Sales = product.Sales,
-        };
+        return product;
     }
 
     public async Task<IEnumerable<ProductDto>> GetAllProductsAsync()
@@ -72,5 +59,10 @@ public class ProductService : IProductService
     {
         var pagedList = await _productRepository.GetByCategoryIdAsync(categoryId, page, pageSize);
         return pagedList;
+    }
+
+    private string GenerateSlugFromName(string name)
+    {
+        return name.ToLower().Replace(", ", "-").Replace(" ", "-").Replace(",", "-");
     }
 }

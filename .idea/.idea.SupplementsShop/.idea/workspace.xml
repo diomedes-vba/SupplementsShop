@@ -13,15 +13,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e801cba4-2b43-4561-8b53-8a1dd002b93c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SupplementsShop/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SupplementsShop/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop.Infrastructure/DependencyInjection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Infrastructure/DependencyInjection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop.Infrastructure/Identity/AppDbInitializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Infrastructure/Identity/AppDbInitializer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop/Controllers/AccountController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Controllers/AccountController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Application/DTOs/ProductDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Application/DTOs/ProductDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Application/Services/IProductService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Application/Services/IProductService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Application/Services/ProductService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Application/Services/ProductService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Domain/Entities/Product.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Domain/Entities/Product.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SupplementsShop/Controllers/ProductController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Controllers/ProductController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop/Views/Product/Details.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Views/Product/Details.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Factories/IProductModelFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Factories/IProductModelFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Factories/ProductModelFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Factories/ProductModelFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Views/Product/Edit.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Views/Product/Edit.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -279,7 +279,7 @@
       <workItem from="1743365190853" duration="2786000" />
       <workItem from="1743441015147" duration="4434000" />
       <workItem from="1744054564770" duration="1243000" />
-      <workItem from="1744112311948" duration="5987000" />
+      <workItem from="1744112311948" duration="19506000" />
     </task>
     <servers />
   </component>

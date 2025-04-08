@@ -10,5 +10,6 @@ public class ProductDto
     public string ImageUrl { get; set; }
     public string Slug { get; set; }
     public int Sales { get; set; }
+    public int CompanyId { get; set; }
     public bool IsAvailable => Quantity > 0;
 }
