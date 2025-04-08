@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -19,6 +20,11 @@ public static class DependencyInjection
             .AddEntityFrameworkStores<SupplementsShopContext>()
             .AddDefaultTokenProviders()
             .AddSignInManager<SignInManager<User>>();
+
+        services.Configure<IdentityOptions>(options =>
+        {
+            options.ClaimsIdentity.RoleClaimType = ClaimTypes.Role;
+        });
 
         services.AddScoped<IProductRepository, ProductRepository>();
         services.AddScoped<ICategoryRepository, CategoryRepository>();

@@ -40,6 +40,8 @@ app.UseAuthorization();
 using (var scope = app.Services.CreateScope())
 {
     await scope.ServiceProvider.InitializeInfrastructureAsync();
+    var services = scope.ServiceProvider;
+    await UserSeeder.SeedRolesAndAdminAsync(services);
 }
 
 // Route for single product

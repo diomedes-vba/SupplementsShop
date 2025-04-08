@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SupplementsShop.Application.DTOs;
 using SupplementsShop.Application.Services;
@@ -28,4 +29,18 @@ public class ProductController : Controller
         
         return View(new List<ProductDto>());
     }
+
+    [Authorize(Roles="Admin")]
+    public async Task<IActionResult> Edit(int id)
+    {
+        return View();
+    }
+
+    /*
+    [HttpPost]
+    public async Task<IActionResult> Edit(ProductViewModel productViewModel)
+    {
+        return RedirectToAction("Details", "Product", productViewModel.String);
+    }
+    */
 }

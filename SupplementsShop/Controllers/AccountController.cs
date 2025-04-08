@@ -80,6 +80,7 @@ public class AccountController : Controller
 
         if (result.Succeeded)
         {
+            await _userManager.AddToRoleAsync(user, "User");
             await _signInManager.SignInAsync(user, false);
             
             var token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
