@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using SupplementsShop.Application.DTOs;
 using SupplementsShop.Application.Services;
 using SupplementsShop.Factories;
+using SupplementsShop.ViewModels;
 
 namespace SupplementsShop.Controllers;
 
@@ -10,10 +11,12 @@ public class ProductController : Controller
 {
     private readonly IProductService _productService;
     private readonly IProductModelFactory _productModelFactory;
-    public ProductController(IProductService productService, IProductModelFactory productModelFactory)
+    private readonly IImageService _imageService;
+    public ProductController(IProductService productService, IProductModelFactory productModelFactory, IImageService imageService)
     {
         _productService = productService;
         _productModelFactory = productModelFactory;
+        _imageService = imageService;
     }
 
     // GET
@@ -37,15 +40,22 @@ public class ProductController : Controller
     [Authorize(Roles="Admin")]
     public async Task<IActionResult> Edit(int id)
     {
-        var product = _productModelFactory.PrepareProductDto(await _productService.GetProductByIdAsync(id));
-        return View(product);
+        var product = await _productService.GetProductByIdAsync(id);
+        var productEditViewModel = _productModelFactory.PrepareProductEditViewModel(product);
+        return View(productEditViewModel);
     }
 
     
     [HttpPost]
-    public async Task<IActionResult> Edit(ProductDto product)
+    public async Task<IActionResult> Edit(ProductEditViewModel productViewModel)
     {
-        await _productService.UpdateProduct(_productModelFactory.PrepareProductFromProductDto(product));
+        if (!ModelState.IsValid)
+            return View(productViewModel);
+        
+        productViewModel.ImageUrl = await _imageService.SaveImageAsync(productViewModel.ImageFile);
+        var product = await _productModelFactory.PrepareProductFromProductEditViewModelAsync(productViewModel);
+        await _productService.UpdateProduct(product);
+        
         var updatedProduct = await _productService.GetProductByIdAsync(product.Id);
         return RedirectToAction("Details", "Product", new { slug = updatedProduct?.Slug });
     }

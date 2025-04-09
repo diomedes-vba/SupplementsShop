@@ -46,4 +46,29 @@ public class ProductModelFactory : IProductModelFactory
     {
         return products?.Select(PrepareProductDto).ToList();
     }
+
+    public ProductEditViewModel PrepareProductEditViewModel(Product? product)
+    {
+        return new ProductEditViewModel
+        {
+            Id = product.Id,
+            Name = product.Name,
+            Description = product.Description,
+            ImageUrl = product.ImageUrl
+        };
+    }
+
+    public async Task<Product> PrepareProductFromProductEditViewModelAsync(ProductEditViewModel? productEditViewModel)
+    {
+        var oldProduct = await _productService.GetProductByIdAsync(productEditViewModel.Id);
+        return new Product(
+            id: productEditViewModel.Id, 
+            name: productEditViewModel.Name, 
+            price: oldProduct.Price,
+            description: productEditViewModel.Description,
+            quantity: oldProduct.Quantity,
+            companyId: oldProduct.CompanyId,
+            slug: oldProduct.Slug,
+            imageUrl: productEditViewModel.ImageUrl);
+    }
 }

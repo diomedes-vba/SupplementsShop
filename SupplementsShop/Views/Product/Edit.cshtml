@@ -1,23 +1,21 @@
-@model ProductDto
+@model ProductEditViewModel
 
 <div class="container">
     <form asp-action="Edit" method="post">
         @Html.AntiForgeryToken()
         <div asp-validation-summary="All" class="text-danger"></div>
         <input type="hidden" asp-for="Id" />
-        <input type="hidden" asp-for="Price" />
-        <input type="hidden" asp-for="Quantity" />
         <input type="hidden" asp-for="ImageUrl" />
-        <input type="hidden" asp-for="Slug" />
-        <input type="hidden" asp-for="Sales" />
-        <input type="hidden" asp-for="CompanyId" />
         <div class="row">
             <div class="col-4">
-                <img src="@Model.ImageUrl" class="img-fluid" alt="@Model.Name"/>
+                <label for="imageUpload" style="cursor: pointer;">
+                    <img src="@Model.ImageUrl" class="img-fluid" alt="@Model.Name" id="previewImage" style="filter: brightness(0.8); transition: 0.3s;" />
+                </label>
+                <input asp-for="ImageFile" type="file" id="imageUpload" style="display: none;" accept="image/*" />
             </div>
             <div class="col-8">
                 <label asp-for="Name" class="form-label"></label>
-                <input asp-for="Name" class="form-control" placeholder="Product Name" value="@Model.Name"/>
+                <input asp-for="Name" class="form-control" placeholder="Product Name" value="@Model.Name" />
                 <span asp-validation-for="Name" class="text-danger"></span>
 
                 <label asp-for="Description" class="form-label"></label>
@@ -29,3 +27,5 @@
         </div>
     </form>
 </div>
+
+<script src="~/js/productEdit.js?v=5"></script>
