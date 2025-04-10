@@ -63,4 +63,14 @@ public class ProductRepository : IProductRepository
             await _context.SaveChangesAsync();
         }
     }
+
+    public async Task<IList<int>> GetCategoryIdsForProductAsync(int productId)
+    {
+        var categoryIds = await _context.CategoryProducts
+            .Where(cp => cp.ProductId == productId)
+            .Select(cp => cp.CategoryId)
+            .ToListAsync();
+        
+        return categoryIds;
+    }
 }

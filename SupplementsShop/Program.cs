@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using SupplementsShop.Infrastructure;
 using SupplementsShop.Application;
 using Hangfire;
+using SupplementsShop.Application.Services;
 using SupplementsShop.Factories;
 using SupplementsShop.Infrastructure.Identity;
 
@@ -20,6 +21,8 @@ builder.Services.ConfigureApplicationCookie(options =>
 });
 
 builder.Services.AddApplicationServices();
+var webRootPath = builder.Environment.WebRootPath;
+builder.Services.AddScoped<IImageService>(_ => new ImageService(webRootPath));
 
 builder.Services.AddScoped<ICategoryModelFactory, CategoryModelFactory>();
 builder.Services.AddScoped<IProductModelFactory, ProductModelFactory>();

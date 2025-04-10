@@ -52,7 +52,7 @@ public class ProductController : Controller
         if (!ModelState.IsValid)
             return View(productViewModel);
         
-        productViewModel.ImageUrl = await _imageService.SaveImageAsync(productViewModel.ImageFile);
+        productViewModel.ImageUrl = await _imageService.SaveImageAsync(productViewModel.ImageFile, productViewModel.ImageUrl);
         var product = await _productModelFactory.PrepareProductFromProductEditViewModelAsync(productViewModel);
         await _productService.UpdateProduct(product);
         

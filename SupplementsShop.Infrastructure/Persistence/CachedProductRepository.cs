@@ -112,7 +112,12 @@ public class CachedProductRepository : IProductRepository
         _cache.Remove($"Product_Id_{product.Id}");
         _cache.Remove($"Product_Slug_{product.Slug}");
         _cache.Remove("Products_All");
-        // Increment Category Version when I figure out CUD functions
+        
+        var categoryIds = await GetCategoryIdsForProductAsync(product.Id);
+        foreach (var categoryId in categoryIds)
+        {
+            IncrementCategoryVersion(categoryId);
+        }
     }
 
     public async Task DeleteAsync(int id)
@@ -122,5 +127,10 @@ public class CachedProductRepository : IProductRepository
         // Make a remove function for slug
         _cache.Remove("Products_All");
         // Increment Category Version when I figure out CUD functions
+    }
+
+    public async Task<IList<int>> GetCategoryIdsForProductAsync(int productId)
+    {
+        return await _innerRepository.GetCategoryIdsForProductAsync(productId);
     }
 }

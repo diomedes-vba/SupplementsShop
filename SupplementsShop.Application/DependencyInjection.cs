@@ -13,7 +13,6 @@ public static class DependencyInjection
         services.AddScoped<IOrderService, OrderService>();
         services.AddTransient<IEmailSenderService, EmailSenderService>();
         services.AddScoped<IPaymentService, PaymentService>();
-        services.AddScoped<IImageService, ImageService>();
 
         return services;
     }
