@@ -6,6 +6,7 @@ using SupplementsShop.ViewModels;
 using Hangfire;
 using Microsoft.AspNetCore.Identity;
 using SupplementsShop.Domain.Entities;
+using SupplementsShop.Factories;
 
 namespace SupplementsShop.Controllers;
 
@@ -15,20 +16,30 @@ public class CartController : Controller
     private readonly IOrderService _orderService;
     private readonly IPaymentService _paymentService;
     private readonly UserManager<User> _userManager;
+    private readonly ICartModelFactory _cartModelFactory;
+    private readonly IOrderModelFactory _orderModelFactory;
 
-    public CartController(ICartService cartService, IOrderService orderService, IPaymentService paymentService, UserManager<User> userManager)
+    public CartController(ICartService cartService, 
+        IOrderService orderService, 
+        IPaymentService paymentService, 
+        UserManager<User> userManager,
+        ICartModelFactory cartModelFactory,
+        IOrderModelFactory orderModelFactory)
     {
         _cartService = cartService;
         _orderService = orderService;
         _paymentService = paymentService;
         _userManager = userManager;
+        _cartModelFactory = cartModelFactory;
+        _orderModelFactory = orderModelFactory;
     }
     
     // GET
     public IActionResult Index()
     {
         var cart = _cartService.GetCart();
-        return View(cart);
+        var cartModel = _cartModelFactory.PrepareCartViewModel(cart);
+        return View(cartModel);
     }
 
     [HttpPost]
@@ -93,10 +104,12 @@ public class CartController : Controller
     public IActionResult Checkout()
     {
         var userId = _userManager.GetUserId(User);
+        var cart = _cartService.GetCart();
+        var cartModel = _cartModelFactory.PrepareCartViewModel(cart);
         var checkoutModel = new CheckoutViewModel
         {
-            Cart = _cartService.GetCart(),
-            Order = new OrderDto { UserId = userId}
+            Cart = cartModel,
+            Order = new OrderViewModel { UserId = userId }
         };
         return View(checkoutModel);
     }
@@ -105,15 +118,19 @@ public class CartController : Controller
     [HttpPost]
     public async Task<IActionResult> Checkout(CheckoutViewModel checkoutModel)
     {
+        var cart = _cartService.GetCart();
+        var cartModel = _cartModelFactory.PrepareCartViewModel(cart);
         if (!ModelState.IsValid)
         {
-            checkoutModel.Cart = _cartService.GetCart();
+            checkoutModel.Cart = cartModel;
             return View(checkoutModel);
         }
         
-        var cart = _cartService.GetCart();
-        var order = checkoutModel.Order;
-        var orderNumber = await _orderService.CreateOrderAsync(order, cart);
+        var orderModel = checkoutModel.Order;
+        var order = _orderModelFactory.PrepareOrderFromViewModel(orderModel);
+        var orderItems = _orderModelFactory.PrepareOrderItemsFromCart(cart.Items);
+        
+        var orderNumber = await _orderService.CreateOrderAsync(order, orderItems);
         
         return RedirectToAction("Payment", new { orderNumber, order.UserId });
     }
@@ -122,9 +139,11 @@ public class CartController : Controller
     [HttpGet]
     public IActionResult Payment(int? orderNumber, string userId)
     {
+        var cart = _cartService.GetCart();
+        var cartModel = _cartModelFactory.PrepareCartViewModel(cart);
         var paymentModel = new PaymentViewModel
         {
-            Cart = _cartService.GetCart(),
+            Cart = cartModel,
             OrderNumber = orderNumber,
             UserId = userId
         };

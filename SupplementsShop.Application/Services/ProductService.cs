@@ -38,21 +38,9 @@ public class ProductService : IProductService
         return product;
     }
 
-    public async Task<IEnumerable<ProductDto>> GetAllProductsAsync()
+    public async Task<IEnumerable<Product>?> GetAllProductsAsync()
     {
-        var products = await _productRepository.GetAllAsync();
-
-        return products.Select(p => new ProductDto
-        {
-            Id = p.Id,
-            Name = p.Name,
-            Price = p.Price,
-            Quantity = p.Quantity,
-            Description = p.Description,
-            ImageUrl = p.ImageUrl,
-            Slug = p.Slug,
-            Sales = p.Sales,
-        });
+        return await _productRepository.GetAllAsync();
     }
 
     public async Task<IPagedList<Product>?> GetProductListByCategoryIdAsync(int categoryId, int page = 0, int pageSize = int.MaxValue)

@@ -1,6 +1,7 @@
 using SupplementsShop.Application.DTOs;
 using SupplementsShop.Domain.Entities;
 using SupplementsShop.Domain.Interfaces;
+using SupplementsShop.Domain.Models;
 
 namespace SupplementsShop.Application.Services;
 
@@ -15,67 +16,28 @@ public class OrderService : IOrderService
         _orderItemRepository = orderItemRepository;
     }
 
-    public async Task<int?> CreateOrderAsync(OrderDto orderDto, CartDto cart)
+    public async Task<int> CreateOrderAsync(Order order, IList<OrderItem> orderItems)
     {
-        var orderNumber = await _orderRepository.GetNextOrderNumberAsync();
-        orderDto.OrderDate = DateTime.UtcNow;
-        var order = new Order(
-            orderNumber,
-            orderDto.FirstName,
-            orderDto.LastName,
-            orderDto.OrderDate,
-            orderDto.Email,
-            orderDto.PhoneNumber,
-            orderDto.StreetAddress1,
-            orderDto.StreetAddress2,
-            orderDto.City,
-            orderDto.StateOrRegion,
-            orderDto.PostalCode,
-            orderDto.Country,
-            orderDto.UserId);
+        var orderNumber = _orderRepository.GetNextOrderNumberAsync();
+        order.SetOrderNumber(orderNumber);
+        order.SetOrderDate(DateTime.Now);
         
         await _orderRepository.AddAsync(order);
 
-        await AddOrderItemsToOrderAsync(order, cart);
+        await AddOrderItemsToOrderAsync(order, orderItems);
 
         return order.OrderNumber;
     }
 
-    private async Task AddOrderItemsToOrderAsync(Order order, CartDto cart)
+    private async Task AddOrderItemsToOrderAsync(Order order, IList<OrderItem> orderItems)
     {
-        var cartItems = cart.Items.ToList();
-        var orderItems = cartItems.Select(i => new OrderItem
-            (
-                i.Name, 
-                i.Price, 
-                i.Quantity, 
-                i.ImageUrl, 
-                i.Id, 
-                order.Id
-            )).ToList();
-
         order.AddItems(orderItems);
         await _orderRepository.UpdateAsync(order);
     }
 
-    public async Task<OrderDto> GetOrderByIdAsync(int orderId)
+    public async Task<Order?> GetOrderByIdAsync(int orderId)
     {
         var order = await _orderRepository.GetByIdAsync(orderId);
-        return new OrderDto
-        {
-            Id = order.Id,
-            OrderNumber = order.OrderNumber,
-            FirstName = order.FirstName,
-            LastName = order.LastName,
-            OrderDate = order.OrderDate,
-            Email = order.Email,
-            PhoneNumber = order.PhoneNumber,
-            StreetAddress1 = order.StreetAddress1,
-            StreetAddress2 = order.StreetAddress2,
-            City = order.City,
-            StateOrRegion = order.StateOrRegion,
-            PostalCode = order.PostalCode,
-            Country = order.Country
-        };
+        return order;
     }
 }

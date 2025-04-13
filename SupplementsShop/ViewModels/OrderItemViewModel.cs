@@ -1,6 +1,6 @@
-namespace SupplementsShop.Application.DTOs;
+namespace SupplementsShop.ViewModels;
 
-public class OrderItemDto
+public class OrderItemViewModel
 {
     public int Id { get; set; }
     public string Name { get; set; }

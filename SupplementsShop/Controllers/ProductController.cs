@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using SupplementsShop.Application.DTOs;
 using SupplementsShop.Application.Services;
 using SupplementsShop.Factories;
 using SupplementsShop.ViewModels;
@@ -23,37 +22,37 @@ public class ProductController : Controller
     public async Task<IActionResult> Details(string slug)
     {
         var product = await _productService.GetProductBySlugAsync(slug);
-        var productDto = _productModelFactory.PrepareProductDto(product);
-        return View(productDto);
+        var productModel = _productModelFactory.PrepareProductViewModel(product);
+        return View(productModel);
     }
 
     public async Task<IActionResult> Search(string searchString)
     {
         if (string.IsNullOrEmpty(searchString))
         {
-            return View(new List<ProductDto>());
+            return View(new List<ProductViewModel>());
         }
         
-        return View(new List<ProductDto>());
+        return View(new List<ProductViewModel>());
     }
 
     [Authorize(Roles="Admin")]
     public async Task<IActionResult> Edit(int id)
     {
         var product = await _productService.GetProductByIdAsync(id);
-        var productEditViewModel = _productModelFactory.PrepareProductEditViewModel(product);
-        return View(productEditViewModel);
+        var productEditModel = _productModelFactory.PrepareProductEditViewModel(product);
+        return View(productEditModel);
     }
 
     
     [HttpPost]
-    public async Task<IActionResult> Edit(ProductEditViewModel productViewModel)
+    public async Task<IActionResult> Edit(ProductEditViewModel productEditModel)
     {
         if (!ModelState.IsValid)
-            return View(productViewModel);
+            return View(productEditModel);
         
-        productViewModel.ImageUrl = await _imageService.SaveImageAsync(productViewModel.ImageFile, productViewModel.ImageUrl);
-        var product = await _productModelFactory.PrepareProductFromProductEditViewModelAsync(productViewModel);
+        productEditModel.ImageUrl = await _imageService.SaveImageAsync(productEditModel.ImageFile, productEditModel.ImageUrl);
+        var product = await _productModelFactory.PrepareProductFromProductEditViewModelAsync(productEditModel);
         await _productService.UpdateProduct(product);
         
         var updatedProduct = await _productService.GetProductByIdAsync(product.Id);

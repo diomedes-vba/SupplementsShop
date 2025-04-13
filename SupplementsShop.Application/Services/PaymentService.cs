@@ -8,8 +8,8 @@ public class PaymentService : IPaymentService
     {
         await Task.Delay(1000);
         
-        // For demo purposes, we'll assume payment is always successful.
-        // In a real scenario, call your payment gateway API here.
+        // For demo purposes, every payment is successful
+        // Payment API call here
         return new PaymentResult { Success = true };
     }
 }

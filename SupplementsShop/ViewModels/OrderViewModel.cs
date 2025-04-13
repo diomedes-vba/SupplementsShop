@@ -1,8 +1,8 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace SupplementsShop.Application.DTOs;
+namespace SupplementsShop.ViewModels;
 
-public class OrderDto
+public class OrderViewModel
 {
     public int Id { get; set; }
     public int? OrderNumber { get; set; }
@@ -28,7 +28,7 @@ public class OrderDto
     [Required]
     public string Country { get; set; }
     
-    public List<OrderItemDto> OrderItems { get; set; } = new List<OrderItemDto>();
+    public IList<OrderItemViewModel> OrderItems { get; set; } = new List<OrderItemViewModel>();
     public string UserId { get; set; }
     
     public bool IsPaid { get; set; }

@@ -14,22 +14,22 @@ public class ProductModelFactory : IProductModelFactory
         _productService = productService;
     }
 
-    public Product PrepareProductFromProductDto(ProductDto productDto)
+    public Product PrepareProductFromProductViewModel(ProductViewModel productModel)
     {
         return new Product(
-            id: productDto.Id, 
-            name: productDto.Name, 
-            price: productDto.Price,
-            description: productDto.Description,
-            quantity: productDto.Quantity,
-            companyId: productDto.CompanyId,
-            slug: productDto.Slug,
-            imageUrl: productDto.ImageUrl);
+            id: productModel.Id, 
+            name: productModel.Name, 
+            price: productModel.Price,
+            description: productModel.Description,
+            quantity: productModel.Quantity,
+            companyId: productModel.CompanyId,
+            slug: productModel.Slug,
+            imageUrl: productModel.ImageUrl);
     }
 
-    public ProductDto PrepareProductDto(Product? p)
+    public ProductViewModel PrepareProductViewModel(Product? p)
     {
-        return new ProductDto
+        return new ProductViewModel
         {
             Id = p.Id,
             Name = p.Name,
@@ -42,9 +42,9 @@ public class ProductModelFactory : IProductModelFactory
         };
     }
 
-    public IList<ProductDto>? PrepareProductDtos(IList<Product>? products)
+    public IList<ProductViewModel>? PrepareProductViewModels(IList<Product>? products)
     {
-        return products?.Select(PrepareProductDto).ToList();
+        return products?.Select(PrepareProductViewModel).ToList();
     }
 
     public ProductEditViewModel PrepareProductEditViewModel(Product? product)

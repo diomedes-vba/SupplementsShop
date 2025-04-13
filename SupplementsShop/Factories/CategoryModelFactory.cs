@@ -17,9 +17,9 @@ public class CategoryModelFactory : ICategoryModelFactory
         _productModelFactory = productModelFactory;
     }
 
-    public CategoryDto PrepareCategoryDto(Category category)
+    public CategoryViewModel PrepareCategoryViewModel(Category category)
     {
-        return new CategoryDto
+        return new CategoryViewModel
         {
             Id = category.Id,
             Description = category.Description,
@@ -28,9 +28,9 @@ public class CategoryModelFactory : ICategoryModelFactory
         };
     }
 
-    public IList<CategoryDto>? PrepareCategoryDtos(IList<Category>? categories)
+    public IList<CategoryViewModel>? PrepareCategoryViewModels(IList<Category>? categories)
     {
-        return categories?.Select(PrepareCategoryDto).ToList();
+        return categories?.Select(PrepareCategoryViewModel).ToList();
     }
 
     public CategoryProductsListModel PrepareCategoryProductsListModel(Category category,
@@ -41,8 +41,8 @@ public class CategoryModelFactory : ICategoryModelFactory
             CategoryId = category.Id,
             CategoryName = category.Name,
             CategorySlug = category.Slug,
-            ChildCategories = PrepareCategoryDtos(category.ChildCategories),
-            Products = _productModelFactory.PrepareProductDtos(productsPagedList),
+            ChildCategories = PrepareCategoryViewModels(category.ChildCategories),
+            Products = _productModelFactory.PrepareProductViewModels(productsPagedList),
             CurrentPage = productsPagedList.PageIndex,
             TotalPages = productsPagedList.TotalPages,
             TotalProducts = productsPagedList.TotalCount,

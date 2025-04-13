@@ -7,8 +7,8 @@ namespace SupplementsShop.Factories;
 
 public interface ICategoryModelFactory
 {
-    public CategoryDto PrepareCategoryDto(Category category);
-    public IList<CategoryDto>? PrepareCategoryDtos(IList<Category> categories);
+    public CategoryViewModel PrepareCategoryViewModel(Category category);
+    public IList<CategoryViewModel>? PrepareCategoryViewModels(IList<Category> categories);
 
     public CategoryProductsListModel PrepareCategoryProductsListModel(Category category,
         IPagedList<Product> productsPagedList);

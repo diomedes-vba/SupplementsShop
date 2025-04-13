@@ -15,16 +15,38 @@
   <component name="ChangeListManager">
     <list default="true" id="e801cba4-2b43-4561-8b53-8a1dd002b93c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SupplementsShop/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SupplementsShop/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop.Application/DependencyInjection.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Application/DependencyInjection.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop.Application/Services/IImageService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Application/Services/IImageService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop.Application/Services/ImageService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Application/Services/ImageService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop.Application/SupplementsShop.Application.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Application/SupplementsShop.Application.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop.Domain/Interfaces/IProductRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Domain/Interfaces/IProductRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop.Infrastructure/Persistence/CachedProductRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Infrastructure/Persistence/CachedProductRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop.Infrastructure/Persistence/ProductRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Infrastructure/Persistence/ProductRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Application/DTOs/CategoryDto.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Application/DTOs/CompanyDto.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Application/DTOs/ProductDto.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Application/Services/CartService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Application/Services/CartService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Application/Services/CategoryService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Application/Services/CategoryService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Application/Services/ICartService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Application/Services/ICartService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Application/Services/ICategoryService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Application/Services/ICategoryService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Application/Services/IOrderService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Application/Services/IOrderService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Application/Services/IProductService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Application/Services/IProductService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Application/Services/OrderService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Application/Services/OrderService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Application/Services/PaymentService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Application/Services/PaymentService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Application/Services/ProductService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Application/Services/ProductService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Domain/Entities/Order.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Domain/Entities/Order.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Domain/Entities/OrderItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Domain/Entities/OrderItem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Domain/Interfaces/IOrderRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Domain/Interfaces/IOrderRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Infrastructure/Persistence/OrderRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Infrastructure/Persistence/OrderRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Controllers/CartController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Controllers/CartController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SupplementsShop/Controllers/ProductController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Controllers/ProductController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop/Views/Product/Edit.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Views/Product/Edit.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Factories/CategoryModelFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Factories/CategoryModelFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Factories/ICategoryModelFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Factories/ICategoryModelFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Factories/IProductModelFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Factories/IProductModelFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Factories/ProductModelFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Factories/ProductModelFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/ViewComponents/CartViewComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/ViewComponents/CartViewComponent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/ViewModels/CategoryProductsListModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/ViewModels/CategoryProductsListModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/ViewModels/CheckoutViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/ViewModels/CheckoutViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/ViewModels/PaymentViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/ViewModels/PaymentViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Views/Cart/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Views/Cart/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Views/Category/Products.cshtml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Views/Company/Details.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Views/Company/Details.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Views/Product/Details.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Views/Product/Details.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Views/Product/Search.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Views/Product/Search.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Views/Shared/Components/Cart/Default.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop/Views/Shared/Components/Cart/Default.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,21 +98,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Launch Settings Profile.SupplementsShop: http.executor": "Debug",
-    ".NET Launch Settings Profile.SupplementsShop: https.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.SupplementsShop: http.executor&quot;: &quot;Debug&quot;,
+    &quot;.NET Launch Settings Profile.SupplementsShop: https.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.SupplementsShop: https">
     <configuration name="SupplementsShop.Application" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -303,7 +325,12 @@
       <workItem from="1744112311948" duration="21951000" />
       <workItem from="1744211730887" duration="8636000" />
       <workItem from="1744283081747" duration="2206000" />
-      <workItem from="1744286702734" duration="3552000" />
+      <workItem from="1744286702734" duration="7395000" />
+      <workItem from="1744306902721" duration="17000" />
+      <workItem from="1744307927535" duration="114000" />
+      <workItem from="1744366007476" duration="6000" />
+      <workItem from="1744464128552" duration="7849000" />
+      <workItem from="1744538965099" duration="20121000" />
     </task>
     <servers />
   </component>

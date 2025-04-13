@@ -30,33 +30,15 @@ public class CartService : ICartService
     
     private ISession Session => _httpContextAccessor.HttpContext.Session;
 
-    private Cart GetCartFromSession()
-    {
-        var cart = Session.GetObject<Cart>(CartSessionKey) ?? new Cart();
-        return cart;
-    }
-
     private void SaveCartToSession(Cart cart)
     {
         Session.SetObject(CartSessionKey, cart);
     }
 
-    public CartDto GetCart()
+    public Cart GetCart()
     {
-        var cart = GetCartFromSession();
-
-        return new CartDto
-        {
-            Items = cart.Items.Select(item => new CartItemDto
-            {
-                Id = item.Id,
-                Name = item.Name,
-                Price = item.Price,
-                ImageUrl = item.ImageUrl,
-                Quantity = item.Quantity
-            }).ToList(),
-            TotalPrice = cart.TotalPrice
-        };
+        var cart = Session.GetObject<Cart>(CartSessionKey) ?? new Cart();
+        return cart;
     }
 
     public async Task<bool> AddToCartAsync(int productId, int quantity, string? userId)
@@ -100,7 +82,7 @@ public class CartService : ICartService
 
     private void AddToSessionCart(CartItem cartItem)
     {
-        var cart = GetCartFromSession();
+        var cart = GetCart();
         cart.AddItem(cartItem);
         SaveCartToSession(cart);
     }
@@ -110,7 +92,7 @@ public class CartService : ICartService
         var product = await _productRepository.GetByIdAsync(productId);
         if (product == null) return false;
         
-        var cart = GetCartFromSession();
+        var cart = GetCart();
         cart.UpdateItemQuantity(productId, quantity);
         SaveCartToSession(cart);
 
@@ -129,19 +111,19 @@ public class CartService : ICartService
 
     public decimal GetCartTotalPrice()
     {
-        var cart = GetCartFromSession();
+        var cart = GetCart();
         return cart.TotalPrice;
     }
 
     public decimal GetCartItemTotalPrice(int productId)
     {
-        var cart = GetCartFromSession();
+        var cart = GetCart();
         return cart.Items.FirstOrDefault(item => item.Id == productId)?.TotalPrice ?? 0;
     }
 
     public async Task RemoveFromCart(int productId, string? userId)
     {
-        var cart = GetCartFromSession();
+        var cart = GetCart();
         cart.RemoveItem(productId);
         SaveCartToSession(cart);
 
@@ -157,7 +139,7 @@ public class CartService : ICartService
 
     public void ClearCartSession()
     {
-        var cart = GetCartFromSession();
+        var cart = GetCart();
         cart.Clear();
         SaveCartToSession(cart);
     }
@@ -169,7 +151,7 @@ public class CartService : ICartService
 
     public int GetCartCount()
     {
-        var cart = GetCartFromSession();
+        var cart = GetCart();
         return cart.Items.Count;
     }
 
@@ -180,7 +162,7 @@ public class CartService : ICartService
 
         if (Session.GetString("CartMerged") != "true")
         {
-            var cartItemsSessionPreMerge = GetCartFromSession().Items;
+            var cartItemsSessionPreMerge = GetCart().Items;
         
             var cartItemsFromContext = await _cartItemRepository.GetCartItemListAsync(userId);
             var cartItemsToSession = CartItemsFromContextToSession(cartItemsFromContext);

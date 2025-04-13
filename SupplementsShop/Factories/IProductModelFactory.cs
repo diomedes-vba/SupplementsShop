@@ -6,9 +6,9 @@ namespace SupplementsShop.Factories;
 
 public interface IProductModelFactory
 {
-    public Product PrepareProductFromProductDto(ProductDto productDto);
-    public ProductDto PrepareProductDto(Product? product);
-    public IList<ProductDto>? PrepareProductDtos(IList<Product>? products);
+    public Product PrepareProductFromProductViewModel(ProductViewModel productModel);
+    public ProductViewModel PrepareProductViewModel(Product? product);
+    public IList<ProductViewModel>? PrepareProductViewModels(IList<Product>? products);
     public ProductEditViewModel? PrepareProductEditViewModel(Product product);
     public Task<Product> PrepareProductFromProductEditViewModelAsync(ProductEditViewModel productEditViewModel);
 }
