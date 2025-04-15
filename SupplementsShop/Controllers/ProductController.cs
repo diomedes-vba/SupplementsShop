@@ -18,7 +18,6 @@ public class ProductController : Controller
         _imageService = imageService;
     }
 
-    // GET
     public async Task<IActionResult> Details(string slug)
     {
         var product = await _productService.GetProductBySlugAsync(slug);

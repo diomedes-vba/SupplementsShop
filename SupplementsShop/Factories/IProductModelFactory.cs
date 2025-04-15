@@ -6,7 +6,6 @@ namespace SupplementsShop.Factories;
 
 public interface IProductModelFactory
 {
-    public Product PrepareProductFromProductViewModel(ProductViewModel productModel);
     public ProductViewModel PrepareProductViewModel(Product? product);
     public IList<ProductViewModel>? PrepareProductViewModels(IList<Product>? products);
     public ProductEditViewModel? PrepareProductEditViewModel(Product product);

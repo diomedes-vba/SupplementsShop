@@ -4,8 +4,8 @@ public class Product
 {
     public int Id { get; private set; }
     public string Name { get; private set; }
+    public string ProductNumber { get; private set; }
     public decimal Price { get; private set; }
-    public int Quantity { get; private set; }
     public string Description { get; private set; }
     public string Slug { get; private set; }
     public int Sales { get; private set; }
@@ -16,18 +16,16 @@ public class Product
     public Company Company { get; private set; }
     public List<CategoryProduct> CategoryProducts { get; private set; } = new List<CategoryProduct>();
     
-    public bool IsAvailable => Quantity > 0;
-    
     // Constructor for EF
     private Product() {}
     
     // Constructor with parameters
-    public Product(int id, string name, decimal price, int quantity, string description, int companyId, string slug, string imageUrl)
+    public Product(int id, string name, string productNumber, decimal price, string description, int companyId, string slug, string imageUrl)
     {
         Id = id;
         Name = name;
+        ProductNumber = productNumber;
         Price = price;
-        Quantity = quantity;
         Description = description;
         CompanyId = companyId;
         Slug = slug;
@@ -35,19 +33,6 @@ public class Product
         CompanyId = companyId;
     }
     
-    // Business logic: Minus quantity when sold
-    public void Sell(int amount)
-    {
-        Quantity -= amount;
-        Sales += amount;
-    }
-
-    // Business logic: Adding quantity when restock
-    public void Restock(int amount)
-    {
-        Quantity += amount;
-    }
-
     public void UpdateSlug(string slug)
     {
         Slug = slug;

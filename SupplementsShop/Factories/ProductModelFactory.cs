@@ -13,20 +13,6 @@ public class ProductModelFactory : IProductModelFactory
     {
         _productService = productService;
     }
-
-    public Product PrepareProductFromProductViewModel(ProductViewModel productModel)
-    {
-        return new Product(
-            id: productModel.Id, 
-            name: productModel.Name, 
-            price: productModel.Price,
-            description: productModel.Description,
-            quantity: productModel.Quantity,
-            companyId: productModel.CompanyId,
-            slug: productModel.Slug,
-            imageUrl: productModel.ImageUrl);
-    }
-
     public ProductViewModel PrepareProductViewModel(Product? p)
     {
         return new ProductViewModel
@@ -64,9 +50,9 @@ public class ProductModelFactory : IProductModelFactory
         return new Product(
             id: productEditViewModel.Id, 
             name: productEditViewModel.Name, 
+            productNumber: oldProduct.ProductNumber,
             price: oldProduct.Price,
             description: productEditViewModel.Description,
-            quantity: oldProduct.Quantity,
             companyId: oldProduct.CompanyId,
             slug: oldProduct.Slug,
             imageUrl: productEditViewModel.ImageUrl);
