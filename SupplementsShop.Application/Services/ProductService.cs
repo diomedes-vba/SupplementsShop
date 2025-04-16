@@ -7,10 +7,12 @@ namespace SupplementsShop.Application.Services;
 public class ProductService : IProductService
 {
     private readonly IProductRepository _productRepository;
+    private readonly IInventoryApiClient _inventoryApiClient;
 
-    public ProductService(IProductRepository productRepository)
+    public ProductService(IProductRepository productRepository, IInventoryApiClient inventoryApiClient)
     {
         _productRepository = productRepository;
+        _inventoryApiClient = inventoryApiClient;
     }
 
     public async Task UpdateProduct(Product product)
@@ -52,5 +54,11 @@ public class ProductService : IProductService
     private string GenerateSlugFromName(string name)
     {
         return name.ToLower().Replace(", ", "-").Replace(" ", "-").Replace(",", "-");
+    }
+
+    public async Task<int> GetProductQuantityAsync(string productNumber)
+    {
+        var inventoryItem = await _inventoryApiClient.GetInventoryItemAsync(productNumber);
+        return inventoryItem.Quantity;
     }
 }

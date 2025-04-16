@@ -10,4 +10,5 @@ public class ProductViewModel
     public string Slug { get; set; }
     public int Sales { get; set; }
     public int CompanyId { get; set; }
+    public int Quantity { get; set; }
 }

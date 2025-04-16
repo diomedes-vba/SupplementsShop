@@ -58,6 +58,7 @@ public class CartService : ICartService
             Price = product.Price,
             ImageUrl = product.ImageUrl,
             Quantity = quantity,
+            ProductNumber = product.ProductNumber
         });
         return true;
     }
@@ -189,7 +190,8 @@ public class CartService : ICartService
             Name = ci.Product.Name,
             Price = ci.Product.Price,
             Quantity = ci.Quantity,
-            ImageUrl = ci.Product.ImageUrl
+            ImageUrl = ci.Product.ImageUrl,
+            ProductNumber = ci.Product.ProductNumber
         }).ToList();
         
         return cartItems;

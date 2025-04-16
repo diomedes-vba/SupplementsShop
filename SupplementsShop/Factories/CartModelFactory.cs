@@ -27,7 +27,8 @@ public class CartModelFactory : ICartModelFactory
             Name = cartItem.Name,
             Price = cartItem.Price,
             Quantity = cartItem.Quantity,
-            ImageUrl = cartItem.ImageUrl
+            ImageUrl = cartItem.ImageUrl,
+            ProductNumber = cartItem.ProductNumber
         };
     }
 }

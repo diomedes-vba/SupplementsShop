@@ -84,7 +84,8 @@ public class OrderModelFactory : IOrderModelFactory
             price: ci.Price,
             quantity: ci.Quantity,
             imageUrl: ci.ImageUrl,
-            productId: ci.Id))
+            productId: ci.Id,
+            productNumber: ci.ProductNumber))
             .ToList();
     }
 }

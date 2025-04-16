@@ -13,7 +13,7 @@ public class ProductModelFactory : IProductModelFactory
     {
         _productService = productService;
     }
-    public ProductViewModel PrepareProductViewModel(Product? p)
+    public ProductViewModel PrepareProductViewModel(Product? p, int quantity = 0)
     {
         return new ProductViewModel
         {
@@ -24,7 +24,8 @@ public class ProductModelFactory : IProductModelFactory
             Slug = p.Slug,
             Description = p.Description,
             Sales = p.Sales,
-            CompanyId = p.CompanyId
+            CompanyId = p.CompanyId,
+            Quantity = quantity
         };
     }
 

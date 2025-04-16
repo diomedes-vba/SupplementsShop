@@ -11,18 +11,20 @@ public class OrderItem
     public decimal TotalPrice => Price * Quantity;
     
     public int ProductId { get; private set; }
+    public string ProductNumber { get; private set; }
     public int OrderId { get; private set; }
     public Order Order { get; private set; }
     
     public OrderItem() {}
 
-    public OrderItem(string name, decimal price, int quantity, string imageUrl, int productId)
+    public OrderItem(string name, decimal price, int quantity, string imageUrl, int productId, string productNumber)
     {
         Name = name;
         Price = price;
         Quantity = quantity;
         ImageUrl = imageUrl;
         ProductId = productId;
+        ProductNumber = productNumber;
     }
 
     public void SetOrder(int orderId)

@@ -36,6 +36,8 @@ builder.Services.AddHttpClient<IInventoryApiClient, InventoryApiClient>(client =
 
 builder.Services.AddScoped<ICategoryModelFactory, CategoryModelFactory>();
 builder.Services.AddScoped<IProductModelFactory, ProductModelFactory>();
+builder.Services.AddScoped<ICartModelFactory, CartModelFactory>();
+builder.Services.AddScoped<IOrderModelFactory, OrderModelFactory>();
 
 builder.Services.AddSession();
 builder.Services.AddHttpContextAccessor();

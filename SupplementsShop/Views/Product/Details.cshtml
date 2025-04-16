@@ -27,6 +27,10 @@
                     </div>
                 </div>
             </form>
+            @if (Model.Quantity < 10)
+            {
+                <p>There are only @Model.Quantity items left!</p>
+            }
             @if (User.IsInRole("Admin"))
             {
                 <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>

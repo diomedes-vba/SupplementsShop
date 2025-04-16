@@ -21,7 +21,11 @@ public class ProductController : Controller
     public async Task<IActionResult> Details(string slug)
     {
         var product = await _productService.GetProductBySlugAsync(slug);
-        var productModel = _productModelFactory.PrepareProductViewModel(product);
+        if (product == null)
+            return NotFound();
+        
+        var quantity = await _productService.GetProductQuantityAsync(product.ProductNumber);
+        var productModel = _productModelFactory.PrepareProductViewModel(product, quantity);
         return View(productModel);
     }
 
