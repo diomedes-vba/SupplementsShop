@@ -24,6 +24,16 @@ builder.Services.AddApplicationServices();
 var webRootPath = builder.Environment.WebRootPath;
 builder.Services.AddScoped<IImageService>(_ => new ImageService(webRootPath));
 
+builder.Services.AddHttpClient<IAuthService, AuthService>(client =>
+{
+    client.BaseAddress = new Uri("https://localhost:5001/");
+});
+
+builder.Services.AddHttpClient<IInventoryApiClient, InventoryApiClient>(client =>
+{
+    client.BaseAddress = new Uri("https://localhost:5001/");
+});
+
 builder.Services.AddScoped<ICategoryModelFactory, CategoryModelFactory>();
 builder.Services.AddScoped<IProductModelFactory, ProductModelFactory>();
 
