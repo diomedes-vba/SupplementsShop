@@ -6,6 +6,6 @@ namespace SupplementsShop.Application.Services;
 
 public interface IOrderService
 {
-    Task<int> CreateOrderAsync(Order order, IList<OrderItem> orderItems);
+    Task<int?> CreateOrderAsync(Order order, IList<OrderItem> orderItems);
     Task<Order?> GetOrderByIdAsync(int orderId);
 }

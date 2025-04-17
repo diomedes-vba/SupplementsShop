@@ -61,4 +61,12 @@ public class ProductService : IProductService
         var inventoryItem = await _inventoryApiClient.GetInventoryItemAsync(productNumber);
         return inventoryItem.Quantity;
     }
+
+    public async Task<Dictionary<string,int>> GetProductQuantityAsync(string[] productNumbers)
+    {
+        var items = await _inventoryApiClient.GetBatchInventoryItemsAsync(productNumbers);
+        
+        var lookup = items.ToDictionary(i => i.ProductNumber, i => i.Quantity);
+        return lookup;
+    }
 }

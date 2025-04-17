@@ -1,3 +1,4 @@
+using SupplementsShop.Application.Services;
 using SupplementsShop.Domain.Models;
 using SupplementsShop.ViewModels;
 
@@ -14,7 +15,7 @@ public class CartModelFactory : ICartModelFactory
         };
     }
 
-    private IList<CartItemViewModel>? PrepareCartItems(IList<CartItem>? cartItems)
+    private  IList<CartItemViewModel>? PrepareCartItems(IList<CartItem>? cartItems)
     {
         return cartItems?.Select(PrepareCartItemViewModel).ToList();
     }

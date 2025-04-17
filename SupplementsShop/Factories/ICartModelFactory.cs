@@ -5,5 +5,5 @@ namespace SupplementsShop.Factories;
 
 public interface ICartModelFactory
 {
-    CartViewModel? PrepareCartViewModel(Cart? cart);
+     CartViewModel? PrepareCartViewModel(Cart? cart);
 }

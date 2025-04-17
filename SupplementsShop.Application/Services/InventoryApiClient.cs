@@ -34,6 +34,20 @@ public class InventoryApiClient : IInventoryApiClient
         var jsonResult = await response.Content.ReadAsStringAsync();
         return JsonConvert.DeserializeObject<InventoryItemDto>(jsonResult);
     }
+    
+    public async Task<IEnumerable<InventoryItemDto>> GetBatchInventoryItemsAsync(string[] productNumbers)
+    {
+        await EnsureTokenAsync();
+        
+        var payload = JsonConvert.SerializeObject(productNumbers);
+        var content = new StringContent(payload, Encoding.UTF8, "application/json");
+        var response = await _httpClient.PostAsync($"/api/inventory/batch", content);
+        
+        response.EnsureSuccessStatusCode();
+        
+        var json = await response.Content.ReadAsStringAsync();
+        return JsonConvert.DeserializeObject<IEnumerable<InventoryItemDto>>(json);
+    }
 
     public async Task UpdateInventoryItemAsync(InventoryItemDto inventoryItem)
     {

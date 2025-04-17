@@ -131,6 +131,9 @@ public class CartController : Controller
         var orderItems = _orderModelFactory.PrepareOrderItemsFromCart(cart.Items);
         
         var orderNumber = await _orderService.CreateOrderAsync(order, orderItems);
+
+        if (orderNumber == null)
+            return RedirectToAction("OrderFailed");
         
         return RedirectToAction("Payment", new { orderNumber, order.UserId });
     }
@@ -178,5 +181,10 @@ public class CartController : Controller
     public IActionResult ThanksForOrder(int orderNumber)
     {
         return View(orderNumber);
+    }
+
+    public IActionResult OrderFailed()
+    {
+        return View();
     }
 }
