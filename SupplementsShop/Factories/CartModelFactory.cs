@@ -1,6 +1,6 @@
+using SupplementsShop.ViewModels;
 using SupplementsShop.Application.Services;
 using SupplementsShop.Domain.Models;
-using SupplementsShop.ViewModels;
 
 namespace SupplementsShop.Factories;
 

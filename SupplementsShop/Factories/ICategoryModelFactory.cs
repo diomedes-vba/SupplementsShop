@@ -1,7 +1,7 @@
+using SupplementsShop.ViewModels;
 using SupplementsShop.Application.DTOs;
 using SupplementsShop.Domain.Entities;
 using SupplementsShop.Domain.Interfaces;
-using SupplementsShop.ViewModels;
 
 namespace SupplementsShop.Factories;
 

@@ -2,9 +2,9 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
+using SupplementsShop.ViewModels;
 using SupplementsShop.Application.Services;
 using SupplementsShop.Domain.Entities;
-using SupplementsShop.ViewModels;
 
 namespace SupplementsShop.Controllers;
 

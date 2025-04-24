@@ -1,5 +1,5 @@
-using SupplementsShop.Domain.Models;
 using SupplementsShop.ViewModels;
+using SupplementsShop.Domain.Models;
 
 namespace SupplementsShop.Factories;
 

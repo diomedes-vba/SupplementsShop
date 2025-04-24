@@ -2,11 +2,11 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SupplementsShop.Application.DTOs;
 using SupplementsShop.Application.Services;
-using SupplementsShop.ViewModels;
 using Hangfire;
 using Microsoft.AspNetCore.Identity;
-using SupplementsShop.Domain.Entities;
 using SupplementsShop.Factories;
+using SupplementsShop.ViewModels;
+using SupplementsShop.Domain.Entities;
 
 namespace SupplementsShop.Controllers;
 

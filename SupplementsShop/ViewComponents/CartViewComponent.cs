@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
+using SupplementsShop.Factories;
 using SupplementsShop.Application.Services;
 using SupplementsShop.Application.DTOs;
-using SupplementsShop.Factories;
 
 namespace SupplementsShop.ViewComponents;
 
