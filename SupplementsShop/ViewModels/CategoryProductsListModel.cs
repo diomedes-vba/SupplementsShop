@@ -8,7 +8,7 @@ public class CategoryProductsListModel
     public string CategoryName { get; set; }
     public string CategorySlug { get; set; }
     public IList<CategoryViewModel>? ChildCategories { get; set; }
-    public IList<ProductViewModel>? Products { get; set; }
+    public IList<ProductCategoryViewModel>? Products { get; set; }
     public int CurrentPage { get; set; }
     public int TotalPages { get; set; }
     public int TotalProducts { get; set; }

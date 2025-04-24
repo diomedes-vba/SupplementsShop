@@ -25,7 +25,7 @@ public class ProductController : Controller
             return NotFound();
         
         var quantity = await _productService.GetProductQuantityAsync(product.ProductNumber);
-        var productModel = _productModelFactory.PrepareProductViewModel(product, quantity);
+        var productModel = _productModelFactory.PrepareProductDetailsViewModel(product, quantity);
         return View(productModel);
     }
 
@@ -33,10 +33,10 @@ public class ProductController : Controller
     {
         if (string.IsNullOrEmpty(searchString))
         {
-            return View(new List<ProductViewModel>());
+            return View(new List<ProductDetailsViewModel>());
         }
         
-        return View(new List<ProductViewModel>());
+        return View(new List<ProductDetailsViewModel>());
     }
 
     [Authorize(Roles="Admin")]

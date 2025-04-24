@@ -56,17 +56,31 @@ public class ProductService : IProductService
         return name.ToLower().Replace(", ", "-").Replace(" ", "-").Replace(",", "-");
     }
 
-    public async Task<int> GetProductQuantityAsync(string productNumber)
+    public async Task<int?> GetProductQuantityAsync(string productNumber)
     {
-        var inventoryItem = await _inventoryApiClient.GetInventoryItemAsync(productNumber);
-        return inventoryItem.Quantity;
+        try
+        {
+            var inventoryItem = await _inventoryApiClient.GetInventoryItemAsync(productNumber);
+            return inventoryItem.Quantity;
+        }
+        catch (Exception e)
+        {
+            return null;
+        }
     }
 
-    public async Task<Dictionary<string,int>> GetProductQuantityAsync(string[] productNumbers)
+    public async Task<Dictionary<string,int>?> GetProductQuantityDictAsync(string[] productNumbers)
     {
-        var items = await _inventoryApiClient.GetBatchInventoryItemsAsync(productNumbers);
+        try
+        {
+            var items = await _inventoryApiClient.GetBatchInventoryItemsAsync(productNumbers);
         
-        var lookup = items.ToDictionary(i => i.ProductNumber, i => i.Quantity);
-        return lookup;
+            var lookup = items.ToDictionary(i => i.ProductNumber, i => i.Quantity);
+            return lookup;
+        }
+        catch (Exception e)
+        {
+            return null;
+        }
     }
 }

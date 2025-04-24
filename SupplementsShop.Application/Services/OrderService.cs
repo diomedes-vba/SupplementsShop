@@ -1,3 +1,4 @@
+using Microsoft.IdentityModel.Tokens;
 using SupplementsShop.Application.DTOs;
 using SupplementsShop.Domain.Entities;
 using SupplementsShop.Domain.Interfaces;
@@ -24,15 +25,20 @@ public class OrderService : IOrderService
     public async Task<int?> CreateOrderAsync(Order order, IList<OrderItem> orderItems)
     {
         var productNumbers = orderItems.Select(oi => oi.ProductNumber).ToArray();
-        var productQuantities = await _productService.GetProductQuantityAsync(productNumbers);
 
-        foreach (var orderItem in orderItems)
+        var productQuantities = await _productService.GetProductQuantityDictAsync(productNumbers);
+
+        if (!productQuantities.IsNullOrEmpty())
         {
-            if (orderItem.Quantity > productQuantities[orderItem.ProductNumber])
-                return null;
+            foreach (var orderItem in orderItems)
+            {
+                if (orderItem.Quantity > productQuantities[orderItem.ProductNumber])
+                    return null;
+            }
+            
+            foreach (var item in orderItems)
+                await UpdateInventoryAsync(item);
         }
-        
-        orderItems.Select(UpdateInventoryAsync);
         
         var orderNumber = _orderRepository.GetNextOrderNumberAsync();
         order.SetOrderNumber(orderNumber);

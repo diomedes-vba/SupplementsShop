@@ -7,5 +7,5 @@ public class CategoryViewModel
     public string? Description { get; set; }
     public string Slug { get; set; }
     
-    public List<ProductViewModel> Products { get; set; } = new List<ProductViewModel>();
+    public List<ProductDetailsViewModel> Products { get; set; } = new List<ProductDetailsViewModel>();
 }

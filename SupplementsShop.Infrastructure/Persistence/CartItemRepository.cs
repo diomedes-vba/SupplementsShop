@@ -56,7 +56,7 @@ public class CartItemRepository : ICartItemRepository
     public async Task IncreaseQuantityAsync(int? cartItemId, int quantity)
     {
         var cartItem = await _context.CartItems.FirstOrDefaultAsync(ci => ci.Id == cartItemId);
-        cartItem.Quantity += quantity;
+        cartItem.IncreaseCartItemQuantity(quantity);
         await _context.SaveChangesAsync();
     }
 

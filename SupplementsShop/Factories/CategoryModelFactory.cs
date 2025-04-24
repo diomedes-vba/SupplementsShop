@@ -42,7 +42,7 @@ public class CategoryModelFactory : ICategoryModelFactory
             CategoryName = category.Name,
             CategorySlug = category.Slug,
             ChildCategories = PrepareCategoryViewModels(category.ChildCategories),
-            Products = _productModelFactory.PrepareProductViewModels(productsPagedList),
+            Products = _productModelFactory.PrepareProductCategoryViewModels(productsPagedList),
             CurrentPage = productsPagedList.PageIndex,
             TotalPages = productsPagedList.TotalPages,
             TotalProducts = productsPagedList.TotalCount,

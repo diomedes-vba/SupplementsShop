@@ -11,6 +11,6 @@ public interface IProductService
     Task<Product?> GetProductByIdAsync(int productId);
     Task<IEnumerable<Product>?> GetAllProductsAsync();
     Task<IPagedList<Product>?> GetProductListByCategoryIdAsync(int categoryId, int page = 0, int pageSize = int.MaxValue);
-    Task<int> GetProductQuantityAsync(string productNumber);
-    Task<Dictionary<string, int>> GetProductQuantityAsync(string[] productNumbers);
+    Task<int?> GetProductQuantityAsync(string productNumber);
+    Task<Dictionary<string, int>?> GetProductQuantityDictAsync(string[] productNumbers);
 }

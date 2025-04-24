@@ -40,13 +40,13 @@ document.addEventListener("DOMContentLoaded", () => {
             .catch(error => console.error("Error: ", error));
     }
     
-    document.querySelectorAll(".add-to-cart-btn").forEach(btn => {
-        btn.addEventListener("click", function (event) {
+    document.body.addEventListener("click", function (event) {
+        if (event.target && event.target.classList.contains("add-to-cart-btn")) {  
             event.preventDefault();
-            let productId = parseInt(this.getAttribute("data-product-id"));
+            let productId = parseInt(event.target.getAttribute("data-product-id"));
             addToCart(productId);
-        });
-    })
+        }
+    });
     
     document.querySelectorAll(".add-to-cart-form").forEach(form => {
         form.addEventListener("submit", function (event) {

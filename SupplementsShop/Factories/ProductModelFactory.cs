@@ -13,9 +13,9 @@ public class ProductModelFactory : IProductModelFactory
     {
         _productService = productService;
     }
-    public ProductViewModel PrepareProductViewModel(Product? p, int quantity = 0)
+    public ProductDetailsViewModel PrepareProductDetailsViewModel(Product? p, int? quantity = null)
     {
-        return new ProductViewModel
+        return new ProductDetailsViewModel
         {
             Id = p.Id,
             Name = p.Name,
@@ -29,9 +29,21 @@ public class ProductModelFactory : IProductModelFactory
         };
     }
 
-    public IList<ProductViewModel>? PrepareProductViewModels(IList<Product>? products)
+    public ProductCategoryViewModel PrepareProductCategoryViewModel(Product? p)
     {
-        return products?.Select(PrepareProductViewModel).ToList();
+        return new ProductCategoryViewModel
+        {
+            Id = p.Id,
+            Name = p.Name,
+            Price = p.Price,
+            ImageUrl = p.ImageUrl,
+            Slug = p.Slug
+        };
+    }
+    
+    public IList<ProductCategoryViewModel>? PrepareProductCategoryViewModels(IList<Product>? products)
+    {
+        return products?.Select(PrepareProductCategoryViewModel).ToList();
     }
 
     public ProductEditViewModel PrepareProductEditViewModel(Product? product)

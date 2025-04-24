@@ -69,11 +69,11 @@ public class CartService : ICartService
         if (cartItemId == null)
         {
             await _cartItemRepository.AddToCartAsync(new CartItemContext
-            {
-                ProductId = productId,
-                Quantity = quantity,
-                UserId = userId
-            });
+            (
+                productId: productId,
+                quantity: quantity,
+                userId : userId
+            ));
         }
         else
         {
@@ -102,7 +102,7 @@ public class CartService : ICartService
             var cartItem = await _cartItemRepository.GetCartItemAsync(userId, productId);
             if (cartItem != null)
             {
-                cartItem.Quantity = quantity;
+                cartItem.UpdateCartItemQuantity(quantity);
                 await _cartItemRepository.UpdateCartItemAsync(cartItem);
             }
         }
