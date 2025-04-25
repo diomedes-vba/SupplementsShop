@@ -8,7 +8,7 @@ public interface ICartItemRepository
     Task RemoveFromCartAsync(CartItemContext cartItem);
     Task UpdateCartItemAsync(CartItemContext cartItem);
     Task<CartItemContext?> GetCartItemAsync(string? userId, int productId);
-    Task<List<CartItemContext>> GetCartItemListAsync(string? userId);
+    Task<List<CartItemContext>> GetCartItemListForUserAsync(string? userId);
     Task<int?> GetCartItemIdAsync(int productId, string userId);
     Task IncreaseQuantityAsync(int? cartItemId, int quantity);
     Task ClearUserItemsAsync(string? userId);

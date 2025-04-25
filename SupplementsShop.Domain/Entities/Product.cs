@@ -20,9 +20,8 @@ public class Product
     private Product() {}
     
     // Constructor with parameters
-    public Product(int id, string name, string productNumber, decimal price, string description, int companyId, string slug, string imageUrl)
+    public Product(string name, string productNumber, decimal price, string description, int companyId, string slug, string imageUrl)
     {
-        Id = id;
         Name = name;
         ProductNumber = productNumber;
         Price = price;
@@ -30,7 +29,6 @@ public class Product
         CompanyId = companyId;
         Slug = slug;
         ImageUrl = imageUrl;
-        CompanyId = companyId;
     }
     
     public void UpdateSlug(string slug)

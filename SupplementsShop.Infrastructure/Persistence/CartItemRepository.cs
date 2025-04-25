@@ -37,7 +37,7 @@ public class CartItemRepository : ICartItemRepository
         return cartItem;
     }
     
-    public async Task<List<CartItemContext>> GetCartItemListAsync(string? userId)
+    public async Task<List<CartItemContext>> GetCartItemListForUserAsync(string? userId)
     {
         var cartItems = await _context.CartItems
             .Where(ci => ci.UserId == userId)

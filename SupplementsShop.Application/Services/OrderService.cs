@@ -40,7 +40,7 @@ public class OrderService : IOrderService
                 await UpdateInventoryAsync(item);
         }
         
-        var orderNumber = _orderRepository.GetNextOrderNumberAsync();
+        var orderNumber = _orderRepository.GetNextOrderNumber();
         order.SetOrderNumber(orderNumber);
         order.SetOrderDate(DateTime.Now);
         

@@ -165,7 +165,7 @@ public class CartService : ICartService
         {
             var cartItemsSessionPreMerge = GetCart().Items;
         
-            var cartItemsFromContext = await _cartItemRepository.GetCartItemListAsync(userId);
+            var cartItemsFromContext = await _cartItemRepository.GetCartItemListForUserAsync(userId);
             var cartItemsToSession = CartItemsFromContextToSession(cartItemsFromContext);
 
             foreach (var cartItem in cartItemsToSession)

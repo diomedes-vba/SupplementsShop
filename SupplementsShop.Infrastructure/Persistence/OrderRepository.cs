@@ -40,9 +40,13 @@ public class OrderRepository : IOrderRepository
         }
     }
 
-    public int GetNextOrderNumberAsync()
+    public int GetNextOrderNumber()
     {
-        int? lastOrderNumber = _context.Orders.Max(o => o.OrderNumber);
-        return lastOrderNumber + 1 ?? 1000;
+        var lastOrderNumber = _context.Orders
+            .Select(o => o.OrderNumber)
+            .DefaultIfEmpty(999)
+            .Max();
+        
+        return lastOrderNumber + 1;
     }
 }
