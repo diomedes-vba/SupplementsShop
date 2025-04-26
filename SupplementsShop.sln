@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupplementsShop", "SupplementsShop\SupplementsShop.csproj", "{A5934D67-97DB-49FF-B2DF-D107A4B08C74}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupplementsShop.Web", "SupplementsShop.Web\SupplementsShop.Web.csproj", "{A5934D67-97DB-49FF-B2DF-D107A4B08C74}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupplementsShop.Domain", "SupplementsShop.Domain\SupplementsShop.Domain.csproj", "{D69DF327-7CD1-4FF0-AF66-04600F819AAE}"
 EndProject

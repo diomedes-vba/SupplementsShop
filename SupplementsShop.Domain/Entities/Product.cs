@@ -35,5 +35,11 @@ public class Product
     {
         Slug = slug;
     }
-    
+
+    public void EditNameDescriptionImage(string name, string description, string imageUrl)
+    {
+        Name = name;
+        Description = description;
+        ImageUrl = imageUrl;
+    }
 }

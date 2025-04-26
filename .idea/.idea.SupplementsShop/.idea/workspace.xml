@@ -15,16 +15,115 @@
   <component name="ChangeListManager">
     <list default="true" id="e801cba4-2b43-4561-8b53-8a1dd002b93c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SupplementsShop/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SupplementsShop/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop.Application/Services/CartService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Application/Services/CartService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop.Application/Services/OrderService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Application/Services/OrderService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SupplementsShop.Domain/Entities/Product.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Domain/Entities/Product.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop.Domain/Interfaces/ICartItemRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Domain/Interfaces/ICartItemRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop.Domain/Interfaces/IOrderRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Domain/Interfaces/IOrderRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop.Infrastructure/Persistence/CartItemRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Infrastructure/Persistence/CartItemRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop.Infrastructure/Persistence/OrderRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Infrastructure/Persistence/OrderRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.sln.DotSettings.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/SupplementsShop.Infrastructure.Tests/SupplementsShop.Infrastructure.Tests.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/SupplementsShop.Infrastructure.Tests/SupplementsShop.Infrastructure.Tests.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Tests/SupplementsShop.Infrastructure.Tests/UnitTest1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/SupplementsShop.Infrastructure.Tests/OrderRepositoryTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.sln" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Controllers/AccountController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/Controllers/AccountController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Controllers/CartController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/Controllers/CartController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Controllers/CategoryController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/Controllers/CategoryController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Controllers/CompanyController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/Controllers/CompanyController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/Controllers/HomeController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Controllers/ProductController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/Controllers/ProductController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Factories/CartModelFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/Factories/CartModelFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Factories/CategoryModelFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/Factories/CategoryModelFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Factories/ICartModelFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/Factories/ICartModelFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Factories/ICategoryModelFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/Factories/ICategoryModelFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Factories/IOrderModelFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/Factories/IOrderModelFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Factories/IProductModelFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/Factories/IProductModelFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Factories/OrderModelFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/Factories/OrderModelFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Factories/ProductModelFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/Factories/ProductModelFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/Properties/launchSettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/SupplementsShop.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/SupplementsShop.Web.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/ViewComponents/CartViewComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/ViewComponents/CartViewComponent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/ViewModels/CartItemViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/ViewModels/CartItemViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/ViewModels/CartViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/ViewModels/CartViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/ViewModels/CategoryProductsListModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/ViewModels/CategoryProductsListModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/ViewModels/CategoryViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/ViewModels/CategoryViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/ViewModels/CheckoutViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/ViewModels/CheckoutViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/ViewModels/LoginViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/ViewModels/LoginViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/ViewModels/OrderItemViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/ViewModels/OrderItemViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/ViewModels/OrderViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/ViewModels/OrderViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/ViewModels/PaymentViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/ViewModels/PaymentViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/ViewModels/ProductCategoryViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/ViewModels/ProductCategoryViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/ViewModels/ProductDetailsViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/ViewModels/ProductDetailsViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/ViewModels/ProductEditViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/ViewModels/ProductEditViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/ViewModels/RegisterViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/ViewModels/RegisterViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/ViewTagHelpers/MyDisabledButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/ViewTagHelpers/MyDisabledButton.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Views/Account/ConfirmEmail.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/Views/Account/ConfirmEmail.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Views/Account/Login.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/Views/Account/Login.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Views/Account/Register.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/Views/Account/Register.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Views/Account/ThankYou.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/Views/Account/ThankYou.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Views/Cart/Checkout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/Views/Cart/Checkout.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Views/Cart/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/Views/Cart/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Views/Cart/OrderFailed.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/Views/Cart/OrderFailed.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Views/Cart/Payment.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/Views/Cart/Payment.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Views/Cart/ThanksForOrder.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/Views/Cart/ThanksForOrder.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Views/Category/CategoryPage.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/Views/Category/CategoryPage.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Views/Company/Details.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/Views/Company/Details.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/Views/Home/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Views/Product/Details.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/Views/Product/Details.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Views/Product/Edit.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/Views/Product/Edit.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Views/Product/Search.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/Views/Product/Search.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Views/Shared/Components/Cart/Default.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/Views/Shared/Components/Cart/Default.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/Views/Shared/_Layout.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Views/Shared/_ProductList.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/Views/Shared/_ProductList.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Views/_ViewImports.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/Views/_ViewImports.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/Views/_ViewStart.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/Views/_ViewStart.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/appsettings.Development.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/custom-css/custom-styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/custom-css/custom-styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/images/now-foods.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/images/now-foods.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/images/products/0heFGRev_400x400.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/images/products/0heFGRev_400x400.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/images/products/cock.png" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/images/products/cock.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/images/products/garfield2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/images/products/garfield2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/images/search.svg" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/images/search.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/images/trolley.png" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/images/trolley.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/js/cart.js" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/js/cart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/js/category.js" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/js/category.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/js/productEdit.js" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/js/productEdit.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/lib/bootstrap/css/bootstrap-grid.css" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/lib/bootstrap/css/bootstrap-grid.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/lib/bootstrap/css/bootstrap-grid.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/lib/bootstrap/css/bootstrap-grid.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/lib/bootstrap/css/bootstrap-grid.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/lib/bootstrap/css/bootstrap-grid.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/lib/bootstrap/css/bootstrap-grid.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/lib/bootstrap/css/bootstrap-grid.min.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/lib/bootstrap/css/bootstrap-grid.rtl.css" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/lib/bootstrap/css/bootstrap-grid.rtl.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/lib/bootstrap/css/bootstrap-grid.rtl.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/lib/bootstrap/css/bootstrap-grid.rtl.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/lib/bootstrap/css/bootstrap-grid.rtl.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/lib/bootstrap/css/bootstrap-grid.rtl.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/lib/bootstrap/css/bootstrap-grid.rtl.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/lib/bootstrap/css/bootstrap-grid.rtl.min.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/lib/bootstrap/css/bootstrap-reboot.css" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/lib/bootstrap/css/bootstrap-reboot.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/lib/bootstrap/css/bootstrap-reboot.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/lib/bootstrap/css/bootstrap-reboot.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/lib/bootstrap/css/bootstrap-reboot.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/lib/bootstrap/css/bootstrap-reboot.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/lib/bootstrap/css/bootstrap-reboot.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/lib/bootstrap/css/bootstrap-reboot.min.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/lib/bootstrap/css/bootstrap-reboot.rtl.css" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/lib/bootstrap/css/bootstrap-reboot.rtl.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/lib/bootstrap/css/bootstrap-reboot.rtl.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/lib/bootstrap/css/bootstrap-reboot.rtl.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/lib/bootstrap/css/bootstrap-reboot.rtl.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/lib/bootstrap/css/bootstrap-reboot.rtl.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/lib/bootstrap/css/bootstrap-reboot.rtl.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/lib/bootstrap/css/bootstrap-reboot.rtl.min.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/lib/bootstrap/css/bootstrap-utilities.css" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/lib/bootstrap/css/bootstrap-utilities.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/lib/bootstrap/css/bootstrap-utilities.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/lib/bootstrap/css/bootstrap-utilities.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/lib/bootstrap/css/bootstrap-utilities.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/lib/bootstrap/css/bootstrap-utilities.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/lib/bootstrap/css/bootstrap-utilities.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/lib/bootstrap/css/bootstrap-utilities.min.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/lib/bootstrap/css/bootstrap-utilities.rtl.css" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/lib/bootstrap/css/bootstrap-utilities.rtl.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/lib/bootstrap/css/bootstrap-utilities.rtl.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/lib/bootstrap/css/bootstrap-utilities.rtl.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/lib/bootstrap/css/bootstrap-utilities.rtl.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/lib/bootstrap/css/bootstrap-utilities.rtl.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/lib/bootstrap/css/bootstrap-utilities.rtl.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/lib/bootstrap/css/bootstrap-utilities.rtl.min.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/lib/bootstrap/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/lib/bootstrap/css/bootstrap.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/lib/bootstrap/css/bootstrap.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/lib/bootstrap/css/bootstrap.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/lib/bootstrap/css/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/lib/bootstrap/css/bootstrap.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/lib/bootstrap/css/bootstrap.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/lib/bootstrap/css/bootstrap.min.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/lib/bootstrap/css/bootstrap.rtl.css" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/lib/bootstrap/css/bootstrap.rtl.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/lib/bootstrap/css/bootstrap.rtl.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/lib/bootstrap/css/bootstrap.rtl.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/lib/bootstrap/css/bootstrap.rtl.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/lib/bootstrap/css/bootstrap.rtl.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/lib/bootstrap/css/bootstrap.rtl.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/lib/bootstrap/css/bootstrap.rtl.min.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/lib/bootstrap/js/bootstrap.bundle.js" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/lib/bootstrap/js/bootstrap.bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/lib/bootstrap/js/bootstrap.bundle.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/lib/bootstrap/js/bootstrap.bundle.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/lib/bootstrap/js/bootstrap.bundle.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/lib/bootstrap/js/bootstrap.bundle.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/lib/bootstrap/js/bootstrap.bundle.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/lib/bootstrap/js/bootstrap.bundle.min.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/lib/bootstrap/js/bootstrap.esm.js" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/lib/bootstrap/js/bootstrap.esm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/lib/bootstrap/js/bootstrap.esm.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/lib/bootstrap/js/bootstrap.esm.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/lib/bootstrap/js/bootstrap.esm.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/lib/bootstrap/js/bootstrap.esm.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/lib/bootstrap/js/bootstrap.esm.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/lib/bootstrap/js/bootstrap.esm.min.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/lib/bootstrap/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/lib/bootstrap/js/bootstrap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/lib/bootstrap/js/bootstrap.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/lib/bootstrap/js/bootstrap.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/lib/bootstrap/js/bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/lib/bootstrap/js/bootstrap.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop/wwwroot/lib/bootstrap/js/bootstrap.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/lib/bootstrap/js/bootstrap.min.js.map" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +218,7 @@
       </method>
     </configuration>
     <configuration name="SupplementsShop: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
-      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/SupplementsShop/SupplementsShop.csproj" />
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/SupplementsShop.Web/SupplementsShop.Web.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net8.0" />
       <option name="LAUNCH_PROFILE_NAME" value="IIS Express" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
@@ -134,7 +233,7 @@
       </method>
     </configuration>
     <configuration name="SupplementsShop: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
-      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/SupplementsShop/SupplementsShop.csproj" />
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/SupplementsShop.Web/SupplementsShop.Web.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net8.0" />
       <option name="LAUNCH_PROFILE_NAME" value="http" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
@@ -149,7 +248,7 @@
       </method>
     </configuration>
     <configuration name="SupplementsShop: https" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
-      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/SupplementsShop/SupplementsShop.csproj" />
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/SupplementsShop.Web/SupplementsShop.Web.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net8.0" />
       <option name="LAUNCH_PROFILE_NAME" value="https" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
@@ -325,7 +424,8 @@
       <workItem from="1745247457176" duration="7283000" />
       <workItem from="1745323834265" duration="3683000" />
       <workItem from="1745500935425" duration="17080000" />
-      <workItem from="1745576804437" duration="10943000" />
+      <workItem from="1745576804437" duration="11021000" />
+      <workItem from="1745669296852" duration="15772000" />
     </task>
     <servers />
   </component>
