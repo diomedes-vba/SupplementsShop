@@ -51,10 +51,10 @@ graph LR;
 * Admin portal for product management and image upload.
 
 ## Running the project (Docker Compose)
-*git clone https://github.com/diomedes-vba/SupplementsShop.git
-*cd SupplementsShop
+bash<br>git clone https://github.com/diomedes-vba/SupplementsShop.git
+<br>cd SupplementsShop<br>
 
-*docker-compose up --build -d
+<br>docker-compose up --build -d
 
 ## Tests & CI
 dotnet test
