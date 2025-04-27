@@ -1,21 +1,31 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace SupplementsShop.Domain.Entities;
 
 public class Order
 {
     public int Id { get; private set; }
     public int OrderNumber { get; private set; }
+    [Required]
     public string FirstName { get; private set; }
+    [Required]
     public string LastName { get; private set; }
     public DateTime OrderDate { get; private set; }
+    [Required]
     public string Email { get; private set; }
+    [Required]
     public string PhoneNumber { get; private set; }
     
     // Address info
+    [Required]
     public string StreetAddress1 { get; private set; }
     public string? StreetAddress2 { get; private set; }
+    [Required]
     public string City { get; private set; }
     public string? StateOrRegion { get; private set; }
+    [Required]
     public string PostalCode { get; private set; }
+    [Required]
     public string Country { get; private set; }
 
     public IList<OrderItem> Items { get; private set; }
