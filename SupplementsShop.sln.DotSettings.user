@@ -7,6 +7,11 @@
   &lt;Assembly Path="C:\Users\Vladyslav\RiderProjects\SupplementsShop\SupplementsShop.Domain\bin\Debug\net8.0\SupplementsShop.Domain.dll" /&gt;&#xD;
 &lt;/AssemblyExplorer&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=bec457f4_002Db0b3_002D4b1d_002D9bfe_002D5281af624d2c/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from &amp;lt;SupplementsShop.Infrastructure.Tests&amp;gt;" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;Project Location="C:\Users\Vladyslav\RiderProjects\SupplementsShop\Tests\SupplementsShop.Infrastructure.Tests" Presentation="&amp;lt;SupplementsShop.Infrastructure.Tests&amp;gt;" /&gt;&#xD;
+  &lt;Or&gt;&#xD;
+    &lt;Project Location="C:\Users\Vladyslav\RiderProjects\SupplementsShop\Tests\SupplementsShop.Infrastructure.Tests" Presentation="&amp;lt;SupplementsShop.Infrastructure.Tests&amp;gt;" /&gt;&#xD;
+    &lt;TestAncestor&gt;&#xD;
+      &lt;TestId&gt;xUnit::7380CE90-ABFF-4ABA-9F22-29DF9697595E::net8.0::SupplementsShop.Web.Tests.UnitTest1&lt;/TestId&gt;&#xD;
+    &lt;/TestAncestor&gt;&#xD;
+  &lt;/Or&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	</wpf:ResourceDictionary>

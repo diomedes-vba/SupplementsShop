@@ -42,11 +42,11 @@ public class OrderRepository : IOrderRepository
 
     public int GetNextOrderNumber()
     {
-        var lastOrderNumber = _context.Orders
-            .Select(o => o.OrderNumber)
-            .DefaultIfEmpty(999)
-            .Max();
-        
-        return lastOrderNumber + 1;
+        if (_context.Orders.Any())
+        {
+            return _context.Orders.Max(o => o.OrderNumber) + 1;
+        }
+
+        return 1000;
     }
 }
