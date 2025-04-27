@@ -36,11 +36,11 @@ The project was built as a hands-on sandbox to practice clean ASP.NET Core patte
 4 layers: Domain, Infrastructure, Application and Web.
 ```mermaid
 graph LR;
-    UI[Web (MVC Views)] --> App[Application Layer]
+    UI["Web (MVC Views)"] --> App["Application Layer"]
     App --> Domain
-    App --> Infra[Infrastructure]
+    App --> Infra["Infrastructure"]
     Infra --> DB[(SQL Server)]
-    App --> InventoryAPI[/Inventory REST API/]
+    App --> InventoryAPI["Inventory REST API"]
 ```
 
 ## Features
@@ -51,10 +51,10 @@ graph LR;
 * Admin portal for product management and image upload.
 
 ## Running the project (Docker Compose)
-git clone https://github.com/diomedes-vba/SupplementsShop.git
-cd SupplementsShop
+*git clone https://github.com/diomedes-vba/SupplementsShop.git
+*cd SupplementsShop
 
-docker compose up --build
+*docker-compose up --build -d
 
 ## Tests & CI
 dotnet test
