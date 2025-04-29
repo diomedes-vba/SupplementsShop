@@ -10,4 +10,5 @@ public interface ICategoryRepository
     Task AddAsync(Category category);
     Task UpdateAsync(Category category);
     Task DeleteAsync(int id);
+    int GetProductCountForCategory(int categoryId);
 }

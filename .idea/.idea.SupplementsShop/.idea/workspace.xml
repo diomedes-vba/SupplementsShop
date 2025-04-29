@@ -15,7 +15,23 @@
   <component name="ChangeListManager">
     <list default="true" id="e801cba4-2b43-4561-8b53-8a1dd002b93c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SupplementsShop/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SupplementsShop/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Application/Services/CategoryService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Application/Services/CategoryService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Application/Services/ICategoryService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Application/Services/ICategoryService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Domain/Interfaces/ICategoryRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Domain/Interfaces/ICategoryRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Infrastructure/Persistence/CategoryRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Infrastructure/Persistence/CategoryRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Web/Controllers/HomeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/Controllers/HomeController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Web/Factories/CategoryModelFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/Factories/CategoryModelFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Web/Factories/ICategoryModelFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/Factories/ICategoryModelFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Web/Factories/IProductModelFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/Factories/IProductModelFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Web/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Web/Views/Category/CategoryPage.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/Views/Category/CategoryPage.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Web/Views/Home/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/Views/Home/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Web/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/Views/Shared/_Layout.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Web/Views/Shared/_ProductList.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/Views/Shared/_ProductList.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/images/products/0heFGRev_400x400.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/images/products/cock.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/images/products/garfield2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/js/category.js" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/wwwroot/js/category.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,8 +44,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -326,7 +342,9 @@
       <workItem from="1745769853496" duration="7925000" />
       <workItem from="1745778595816" duration="3323000" />
       <workItem from="1745836029345" duration="694000" />
-      <workItem from="1745869173460" duration="586000" />
+      <workItem from="1745869173460" duration="2268000" />
+      <workItem from="1745940617951" duration="8139000" />
+      <workItem from="1745958718773" duration="4759000" />
     </task>
     <servers />
   </component>

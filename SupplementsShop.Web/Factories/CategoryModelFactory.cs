@@ -11,7 +11,8 @@ public class CategoryModelFactory : ICategoryModelFactory
     private readonly ICategoryService _categoryService;
     private readonly IProductModelFactory _productModelFactory;
 
-    public CategoryModelFactory(ICategoryService categoryService, IProductModelFactory productModelFactory)
+    public CategoryModelFactory(ICategoryService categoryService, IProductModelFactory productModelFactory, 
+        IProductService productService)
     {
         _categoryService = categoryService;
         _productModelFactory = productModelFactory;
@@ -48,5 +49,21 @@ public class CategoryModelFactory : ICategoryModelFactory
             TotalProducts = productsPagedList.TotalCount,
             PageSize = productsPagedList.PageSize
         };
+    }
+
+    public HomeCategoryViewModel PrepareHomeCategoryViewModel(Category category)
+    {
+        return new HomeCategoryViewModel
+        {
+            Id = category.Id,
+            Name = category.Name,
+            Slug = category.Slug,
+            ProductCount = _categoryService.GetProductCountForCategory(category.Id)
+        };
+    }
+
+    public IList<HomeCategoryViewModel>? PrepareHomeCategoryViewModels(IList<Category>? categories)
+    {
+        return categories?.Select(PrepareHomeCategoryViewModel).ToList();
     }
 }

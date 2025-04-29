@@ -25,8 +25,13 @@ public class CategoryService : ICategoryService
         return category;
     }
     
-    public async Task<IEnumerable<Category>> GetAllCategoriesAsync()
+    public async Task<IList<Category>> GetAllCategoriesAsync()
     {
         return await _categoryRepository.GetAllAsync();
+    }
+
+    public int GetProductCountForCategory(int categoryId)
+    {
+        return _categoryRepository.GetProductCountForCategory(categoryId);
     }
 }

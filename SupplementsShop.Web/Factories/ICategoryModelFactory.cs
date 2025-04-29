@@ -6,9 +6,14 @@ namespace SupplementsShop.Web.Factories;
 
 public interface ICategoryModelFactory
 {
-    public CategoryViewModel PrepareCategoryViewModel(Category category);
-    public IList<CategoryViewModel>? PrepareCategoryViewModels(IList<Category> categories);
+    CategoryViewModel PrepareCategoryViewModel(Category category);
+    
+    IList<CategoryViewModel>? PrepareCategoryViewModels(IList<Category> categories);
 
-    public CategoryProductsListModel PrepareCategoryProductsListModel(Category category,
+    CategoryProductsListModel PrepareCategoryProductsListModel(Category category,
         IPagedList<Product> productsPagedList);
+
+    HomeCategoryViewModel PrepareHomeCategoryViewModel(Category category);
+
+    IList<HomeCategoryViewModel>? PrepareHomeCategoryViewModels(IList<Category>? categories);
 }

@@ -50,4 +50,10 @@ public class CategoryRepository : ICategoryRepository
             await _context.SaveChangesAsync();
         }
     }
+
+    public int GetProductCountForCategory(int categoryId)
+    {
+        var productCount = _context.CategoryProducts.Count(cp => cp.CategoryId == categoryId);
+        return productCount;
+    }
 }

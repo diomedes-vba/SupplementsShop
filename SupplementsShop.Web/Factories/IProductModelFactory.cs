@@ -6,9 +6,9 @@ namespace SupplementsShop.Web.Factories;
 
 public interface IProductModelFactory
 {
-    public ProductDetailsViewModel PrepareProductDetailsViewModel(Product? product, int? quantity = null);
-    public ProductCategoryViewModel PrepareProductCategoryViewModel(Product? product);
-    public IList<ProductCategoryViewModel>? PrepareProductCategoryViewModels(IList<Product>? products);
-    public ProductEditViewModel? PrepareProductEditViewModel(Product product);
-    public Task<Product> PrepareProductFromProductEditViewModelAsync(ProductEditViewModel productEditViewModel);
+    ProductDetailsViewModel PrepareProductDetailsViewModel(Product? product, int? quantity = null);
+    ProductCategoryViewModel PrepareProductCategoryViewModel(Product? product);
+    IList<ProductCategoryViewModel>? PrepareProductCategoryViewModels(IList<Product>? products);
+    ProductEditViewModel? PrepareProductEditViewModel(Product product);
+    Task<Product> PrepareProductFromProductEditViewModelAsync(ProductEditViewModel productEditViewModel);
 }

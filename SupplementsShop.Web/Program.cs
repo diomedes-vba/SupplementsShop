@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using SupplementsShop.Infrastructure;
 using SupplementsShop.Application;
 using SupplementsShop.Application.Services;
+using SupplementsShop.Infrastructure.Data;
 using SupplementsShop.Web.Factories;
 using SupplementsShop.Infrastructure.Identity;
 using SupplementsShop.Infrastructure.Persistence;
@@ -56,7 +57,7 @@ app.UseAuthorization();
 using (var scope = app.Services.CreateScope())
 {
     var ctx = scope.ServiceProvider.GetRequiredService<SupplementsShopContext>();
-    ctx.Database.Migrate();
+    await DbInitializer.InitializeAsync(ctx);
 }
 
 using (var scope = app.Services.CreateScope())
