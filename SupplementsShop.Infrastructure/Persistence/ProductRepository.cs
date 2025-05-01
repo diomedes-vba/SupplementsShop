@@ -73,4 +73,19 @@ public class ProductRepository : IProductRepository
         
         return categoryIds;
     }
+
+    public async Task<IPagedList<Product>?> SearchAsync(string searchTerm, int page, int pageSize)
+    {
+        IQueryable<Product> productsQuery = _context.Products;
+
+        if (!string.IsNullOrWhiteSpace(searchTerm))
+        {
+            productsQuery = productsQuery
+                .Where(p => EF.Functions.Like(p.Name, $"%{searchTerm}%"));
+        }
+
+        var products = await productsQuery.OrderBy(p => p.Name).ToPagedListAsync(page, pageSize);
+
+        return products;
+    }
 }

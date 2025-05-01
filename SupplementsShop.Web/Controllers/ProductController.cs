@@ -29,14 +29,28 @@ public class ProductController : Controller
         return View(productModel);
     }
 
+    [Route("product/search")]
     public async Task<IActionResult> Search(string searchString)
     {
         if (string.IsNullOrEmpty(searchString))
         {
-            return View(new List<ProductDetailsViewModel>());
+            return View(new SearchProductsViewModel {SearchTerm = string.Empty});
         }
+
+        var productsList = await _productService.SearchProductsByStringAsync(searchString, 0, 1);
+        var searchProductsModel = _productModelFactory.PrepareSearchProductsViewModel(searchString, productsList);
         
-        return View(new List<ProductDetailsViewModel>());
+        return View(searchProductsModel);
+    }
+
+    [Route("Product/GetNewSearchPage")]
+    [HttpGet]
+    public async Task<IActionResult> GetNewSearchPage(string searchString, int pageIndex, int pageSize)
+    {
+        var productsList = await _productService.SearchProductsByStringAsync(searchString, pageIndex, pageSize);
+        var newSearchProductsModel = _productModelFactory.PrepareSearchProductsViewModel(searchString, productsList);
+
+        return PartialView("_SearchProductsList", newSearchProductsModel);
     }
 
     [Authorize(Roles="Admin")]

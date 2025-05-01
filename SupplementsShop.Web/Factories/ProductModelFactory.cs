@@ -2,6 +2,7 @@ using SupplementsShop.Web.ViewModels;
 using SupplementsShop.Application.DTOs;
 using SupplementsShop.Application.Services;
 using SupplementsShop.Domain.Entities;
+using SupplementsShop.Domain.Interfaces;
 
 namespace SupplementsShop.Web.Factories;
 
@@ -64,5 +65,18 @@ public class ProductModelFactory : IProductModelFactory
             productEditViewModel.Description, productEditViewModel.ImageUrl);
         
         return oldProduct;
+    }
+
+    public SearchProductsViewModel PrepareSearchProductsViewModel(string searchString, IPagedList<Product>? products)
+    {
+        return new SearchProductsViewModel
+        {
+            SearchTerm = searchString,
+            Products = PrepareProductCategoryViewModels(products),
+            CurrentPage = products.PageIndex,
+            PageSize = products.PageSize,
+            TotalPages = products.TotalPages,
+            TotalProducts = products.TotalCount
+        };
     }
 }

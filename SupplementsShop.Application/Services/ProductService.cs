@@ -83,4 +83,11 @@ public class ProductService : IProductService
             return null;
         }
     }
+
+    public async Task<IPagedList<Product>?> SearchProductsByStringAsync(string searchTerm, int page = 0,
+        int pageSize = int.MaxValue)
+    {
+        var productList = await _productRepository.SearchAsync(searchTerm, page, pageSize);
+        return productList;
+    }
 }

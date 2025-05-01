@@ -1,6 +1,6 @@
 using SupplementsShop.Web.ViewModels;
-using SupplementsShop.Application.DTOs;
 using SupplementsShop.Domain.Entities;
+using SupplementsShop.Domain.Interfaces;
 
 namespace SupplementsShop.Web.Factories;
 
@@ -11,4 +11,5 @@ public interface IProductModelFactory
     IList<ProductCategoryViewModel>? PrepareProductCategoryViewModels(IList<Product>? products);
     ProductEditViewModel? PrepareProductEditViewModel(Product product);
     Task<Product> PrepareProductFromProductEditViewModelAsync(ProductEditViewModel productEditViewModel);
+    SearchProductsViewModel PrepareSearchProductsViewModel(string searchString, IPagedList<Product>? product);
 }

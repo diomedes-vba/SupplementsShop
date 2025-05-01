@@ -12,4 +12,5 @@ public interface IProductRepository
     Task UpdateAsync(Product product);
     Task DeleteAsync(int id);
     Task<IList<int>> GetCategoryIdsForProductAsync(int productId);
+    Task<IPagedList<Product>?> SearchAsync(string searchTerm, int page, int pageSize);
 }

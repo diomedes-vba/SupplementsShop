@@ -15,9 +15,16 @@
   <component name="ChangeListManager">
     <list default="true" id="e801cba4-2b43-4561-8b53-8a1dd002b93c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SupplementsShop/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SupplementsShop/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop.Infrastructure/Data/DbInitializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Infrastructure/Data/DbInitializer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop.Web/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SupplementsShop.Web/Views/Cart/Payment.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/Views/Cart/Payment.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Application/Services/IProductService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Application/Services/IProductService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Application/Services/ProductService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Application/Services/ProductService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Domain/Interfaces/IProductRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Domain/Interfaces/IProductRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Infrastructure/Persistence/CachedProductRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Infrastructure/Persistence/CachedProductRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Infrastructure/Persistence/ProductRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Infrastructure/Persistence/ProductRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Web/Controllers/ProductController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/Controllers/ProductController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Web/Factories/IProductModelFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/Factories/IProductModelFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Web/Factories/ProductModelFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/Factories/ProductModelFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Web/Views/Product/Search.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/Views/Product/Search.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SupplementsShop.Web/Views/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/SupplementsShop.Web/Views/Shared/_Layout.cshtml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -331,7 +338,7 @@
       <workItem from="1745869173460" duration="2268000" />
       <workItem from="1745940617951" duration="8139000" />
       <workItem from="1745958718773" duration="6703000" />
-      <workItem from="1746115813586" duration="3036000" />
+      <workItem from="1746115813586" duration="10441000" />
     </task>
     <servers />
   </component>

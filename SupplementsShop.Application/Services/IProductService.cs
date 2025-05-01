@@ -13,4 +13,5 @@ public interface IProductService
     Task<IPagedList<Product>?> GetProductListByCategoryIdAsync(int categoryId, int page = 0, int pageSize = int.MaxValue);
     Task<int?> GetProductQuantityAsync(string productNumber);
     Task<Dictionary<string, int>?> GetProductQuantityDictAsync(string[] productNumbers);
+    Task<IPagedList<Product>?> SearchProductsByStringAsync(string searchTerm, int page = 0, int pageSize = int.MaxValue);
 }

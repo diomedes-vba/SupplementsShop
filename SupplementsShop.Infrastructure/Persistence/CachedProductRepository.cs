@@ -9,6 +9,7 @@ public class CachedProductRepository : IProductRepository
     private readonly IProductRepository _innerRepository;
     private readonly IMemoryCache _cache;
     private static readonly Dictionary<int, int> CategoryCacheVersions = new();
+    private static readonly Dictionary<string, int> SearchCacheVersions = new();
 
     public CachedProductRepository(IProductRepository productRepository, IMemoryCache cache)
     {
@@ -36,6 +37,29 @@ public class CachedProductRepository : IProductRepository
         else
         {
             CategoryCacheVersions[categoryId] = 1;
+        }
+    }
+    
+    private int GetSearchVersion(string searchTerm)
+    {
+        if (!SearchCacheVersions.TryGetValue(searchTerm, out var version))
+        {
+            version = 1;
+            SearchCacheVersions[searchTerm] = version;
+        }
+
+        return version;
+    }
+
+    private void IncrementSearchVersion(string searchTerm)
+    {
+        if (SearchCacheVersions.ContainsKey(searchTerm))
+        {
+            SearchCacheVersions[searchTerm]++;
+        }
+        else
+        {
+            SearchCacheVersions[searchTerm] = 1;
         }
     }
 
@@ -132,5 +156,21 @@ public class CachedProductRepository : IProductRepository
     public async Task<IList<int>> GetCategoryIdsForProductAsync(int productId)
     {
         return await _innerRepository.GetCategoryIdsForProductAsync(productId);
+    }
+
+    public async Task<IPagedList<Product>?> SearchAsync(string searchTerm, int page, int pageSize = int.MaxValue)
+    {
+        var version = GetSearchVersion(searchTerm);
+        var cacheKey = $"SearchProducts_{searchTerm}_{version}_{page}_{pageSize}";
+        if (!_cache.TryGetValue(cacheKey, out IPagedList<Product>? pagedProducts))
+        {
+            pagedProducts = await _innerRepository.SearchAsync(searchTerm, page, pageSize);
+            if (pagedProducts != null)
+            {
+                _cache.Set(cacheKey, pagedProducts, new MemoryCacheEntryOptions()
+                    .SetSlidingExpiration(TimeSpan.FromMinutes(10)));
+            }
+        }
+        return pagedProducts;
     }
 }
