@@ -56,8 +56,8 @@ app.UseAuthorization();
 
 using (var scope = app.Services.CreateScope())
 {
-    var ctx = scope.ServiceProvider.GetRequiredService<SupplementsShopContext>();
-    await DbInitializer.InitializeAsync(ctx);
+    var serviceProvider = scope.ServiceProvider;
+    await DbInitializer.InitializeAsync(serviceProvider);
 }
 
 using (var scope = app.Services.CreateScope())

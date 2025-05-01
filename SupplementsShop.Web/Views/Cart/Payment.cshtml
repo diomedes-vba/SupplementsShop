@@ -60,14 +60,4 @@
     </form>
 </div>
 
-@section Scripts {
-    <script src="~/lib/jquery/jquery.min.js"></script>
-    <script src="~/lib/inputmask/dist/jquery.inputmask.min.js"></script>
-    <script>
-        $(document).ready(function (){
-            $("[name='CardNumber']").inputmask("9999 9999 9999 9999", { placeholder: " " });
-            $("[name='ExpirationDate']").inputmask("99/99", { placeholder: "MM/YY" });
-            $("[name='CVV']").inputmask("999", { placeholder: "" });
-        });
-    </script>
-}
+<script src="~/js/cartPayment.js?v=3"></script>

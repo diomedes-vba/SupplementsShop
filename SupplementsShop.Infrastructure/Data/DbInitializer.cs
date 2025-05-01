@@ -1,4 +1,6 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using SupplementsShop.Domain.Entities;
 using SupplementsShop.Infrastructure.Persistence;
 
@@ -6,8 +8,9 @@ namespace SupplementsShop.Infrastructure.Data;
 
 public static class DbInitializer
 {
-    public static async Task InitializeAsync(SupplementsShopContext context)
+    public static async Task InitializeAsync(IServiceProvider serviceProvider)
     {
+        var context = serviceProvider.GetRequiredService<SupplementsShopContext>();
         await context.Database.MigrateAsync();
 
         if (!await context.Categories.AnyAsync())
@@ -141,6 +144,17 @@ public static class DbInitializer
             
             context.CategoryProducts.AddRange(categoryProductSamples);
             await context.SaveChangesAsync();
+        }
+
+        if (!await context.Users.AnyAsync())
+        {
+            var userManager = serviceProvider.GetRequiredService<UserManager<User>>();
+            
+            var userUser = new User { UserName = "123@gmail.com", Email = "123@gmail.com" };
+            var userAdmin = new User { UserName = "admin@gmail.com", Email = "admin@gmail.com" };
+            
+            await userManager.CreateAsync(userUser, "Suppl2000!");
+            await userManager.CreateAsync(userAdmin, "Admin2000!");
         }
     }
 }
