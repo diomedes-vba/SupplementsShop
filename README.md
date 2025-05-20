@@ -43,6 +43,10 @@ graph LR;
     App --> InventoryAPI["Inventory REST API"]
 ```
 
+## Use-case Diagram
+
+## Sequence Diagram
+
 ## Features
 * Role-based authentication (User / Admin) with Identity.
 * Hybrid Cart – session storage for guests, DB persistence for users; auto-merge on sign-in.
