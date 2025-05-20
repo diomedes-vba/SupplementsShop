@@ -44,8 +44,10 @@ graph LR;
 ```
 
 ## Use-case Diagram
+![Use case diagram](https://github.com/user-attachments/assets/83f38057-4c1c-49fd-bc4a-102ba8e0befd)
 
 ## Sequence Diagram
+![Sequence diagram](https://github.com/user-attachments/assets/620047f4-f5d1-4d41-9672-bb5e2924d73c)
 
 ## Features
 * Role-based authentication (User / Admin) with Identity.
